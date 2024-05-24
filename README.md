@@ -54,8 +54,7 @@ MAIN FUNCTIONS:
 7. AutoBalancer(3Args)
 
    
-
- 1. TrainPLAN(TrainInputs, TrainLabels, ClassCount, Layers,
+1.) TrainPLAN(TrainInputs, TrainLabels, ClassCount, Layers,
 Neurons, ThresholdSigns, ThresholdValues, Normalizations,
 Activations)
 
