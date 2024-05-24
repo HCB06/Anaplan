@@ -96,7 +96,7 @@ The outputs of this function are, in order: a list of trained weight matrices,
 a list of class equivalents of training predictions, and a training accuracy
 rate.
 
-2. TestPLAN(TestInputs, TestLabels, Layers, ThresholdSigns,
+2.) TestPLAN(TestInputs, TestLabels, Layers, ThresholdSigns,
 ThresholdValues, Normalizations, Activations,W)
 
 This function calculates the test accuracy of the model using the inputs and
@@ -108,7 +108,7 @@ the same as Function 1)
 The outputs of this function are, in order: a list of class equivalents of test
 predictions, and a test accuracy rate.
 
-3. SavePLAN(ModelName, ModelTyepe, ClassCount,
+3.) SavePLAN(ModelName, ModelTyepe, ClassCount,
 ThresholdSigns, ThresholdValues, Normalizations,
 Activations,TestAcc,LogType,WeightsType,WeightsFormat,Save
 Path,W)
@@ -138,7 +138,7 @@ above.)
 This function returns messages such as 'saved' or 'could not be saved' as
 output.
 
-4. LoadPLAN(ModelName, LoadPath,LogType)
+4.) LoadPLAN(ModelName, LoadPath,LogType)
 
 This function retrieves everything about the model into the Python
 environment from the saved log file and the model name.
@@ -150,7 +150,7 @@ This function returns the following outputs in order: W, Layers,
 ThresholdSigns, ThresholdValues, Normalizations, Activations, and the
 data frame of the loaded model as the final output."
 
-5. PredictFromDiscPLAN(Input, ModelName, ModelPath,
+5.) PredictFromDiscPLAN(Input, ModelName, ModelPath,
 LogType)
 
 This function loads the model directly from its saved location, predicts a
@@ -167,7 +167,7 @@ and are defined as described and listed above.)
 This function returns the last output layer of the model as the output of the
 given input.
 
-6. PredictFromRamPLAN(Input, Layers, ThresholdSigns,
+6.) PredictFromRamPLAN(Input, Layers, ThresholdSigns,
 ThresholdValues, Normalizations, Activations,W)
 
 This function predicts and returns the output for a requested input using a
@@ -180,7 +180,7 @@ described and listed above.)
 This function returns the last output layer of the model as the output of the
 given input.
 
-7 .AutoBalancer(TrainInputs, TrainLabels, ClassCount)
+7.) AutoBalancer(TrainInputs, TrainLabels, ClassCount)
 
 This function aims to balance all training data according to class
 distribution before training the model. All data is reduced to the number of
