@@ -7,10 +7,10 @@ for ex.:
 
 acc = plan.GetAcc()
 
-TrainAcc = TrainPLAN(.......)[acc]
+TrainAcc = plan.TrainPLAN(.......)[acc]
 
 
-TestAcc = TestPLAN(.......)[acc]
+TestAcc = plan.TestPLAN(.......)[acc]
 
 same for GetPreds() and GetWeights.
 
