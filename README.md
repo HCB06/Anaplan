@@ -5,18 +5,25 @@ GetWieghts(), GetPreds(), GetAcc() and GetDf() funcs added.
 
 for ex.:
 
-acc = plan.GetAcc()
+Train = plan.TrainPLAN(.......)
 
-TrainAcc = plan.TrainPLAN(.......)[acc]
+W = Train[plan.GetWeights()]
 
 
-TestAcc = plan.TestPLAN(.......)[acc]
 
-same for GetPreds() and GetWeights.
+Test = plan.TestPLAN(.......)
 
-df = plan.GetDf()
+TestPreds = Test[plan.GetPreds()]
 
-df = plan.LoadPLAN(.......)[df]
+TestAcc = Test[plan.GetAcc()]
+
+
+
+
+LoadedModel = plan.LoadPLAN(.......)
+
+df = LoadedModel[plan.GetDf()]
+
 
 --- UPDATE 1.2.6 FEATURES ---
 
