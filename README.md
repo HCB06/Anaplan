@@ -1,4 +1,22 @@
 # PyerualJetwork 
+--- UPDATE 1.2.6 FEATURES ---
+
+GetWieghts(), GetPreds(), GetAcc() and GetDf() funcs added.
+
+for ex.:
+
+acc = plan.GetAcc()
+
+TrainAcc = TrainPLAN(.......)[acc]
+TestAcc = TestPLAN(.......)[acc]
+
+same for GetPreds() and GetWeights.
+
+df = plan.GetDf()
+
+df = plan.LoadPLAN(.......)[df]
+
+--- UPDATE 1.2.6 FEATURES ---
 
 Pyerual Jetwork is a machine learning library written in Python for
 professionals, incorporating advanced, unique, new, and modern
