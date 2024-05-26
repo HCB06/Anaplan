@@ -8,6 +8,8 @@ for ex.:
 acc = plan.GetAcc()
 
 TrainAcc = TrainPLAN(.......)[acc]
+
+
 TestAcc = TestPLAN(.......)[acc]
 
 same for GetPreds() and GetWeights.
