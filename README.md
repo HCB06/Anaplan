@@ -1,5 +1,7 @@
 # PyerualJetwork 
 
+https://libraries.io/pypi/pyerualjetwork
+
 --- UPDATE 1.2.8 FEATURES ---
 
 'ThresholdSigns' changed to 'MembranThresholds' and 'ThresholdValues' changed to 'MembranPotentials'.
