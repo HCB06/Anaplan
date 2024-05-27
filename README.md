@@ -1,4 +1,12 @@
 # PyerualJetwork 
+
+--- UPDATE 1.2.8 FEATURES ---
+
+'ThresholdSigns' changed to 'MembranThresholds' and 'ThresholdValues' changed to 'MembranPotentials'.
+
+--- UPDATE 1.2.8 FEATURES ---
+
+
 --- UPDATE 1.2.6 FEATURES ---
 
 GetWieghts(), GetPreds(), GetAcc() and GetDf() funcs added.
