@@ -2,7 +2,7 @@
 
 https://libraries.io/pypi/pyerualjetwork
 
-      install_requires=[
+      requires=[
           'numpy',
           'scipy',
             'time',
