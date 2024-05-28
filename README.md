@@ -3,11 +3,11 @@
 https://libraries.io/pypi/pyerualjetwork
 
 
---- UPDATE 1.2.9 FEATURES ---
+--- UPDATE 1.3.0 FEATURES ---
 
 New Visualize parameter added ('y' or 'n') for TrainPLAN and TestPLAN funcs.
 
---- UPDATE 1.2.9 FEATURES ---
+--- UPDATE 1.3.0 FEATURES ---
 
 
 
