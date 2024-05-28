@@ -120,8 +120,8 @@ thresholding metric. ‘==’ , ’!=’, ‘<’, ‘>’ ,‘none’ (gradient
 descent and epoch approach are not available in PLAN
 models. Therefore, instead of epoch, error function and
 optimization metrics, it is one of the new metrics specific
-to PLAN I STRONGLY SUGGEST '<' FOR FEX LAYER AND '==' FOR CAT LAYER. It specifies the sign of the threshold to be used
-in the layers sequentially in a list.)(Hyperparameter)
+to PLAN. Threshold to be used
+in the layers sequentially in a list.) I STRONGLY SUGGEST '<' FOR FEX LAYER AND '==' FOR CAT LAYER. It specifies the sign of the (Hyperparameter)
 g. ThresholdValues: A numerically ordered list of values
 that will be placed next to the threshold sign. I STRONGLY SUGGEST AROUND '0.01' FOR FEX LAYER AND '0' FOR CAT LAYER.
 (Hyperparameter)
