@@ -2,6 +2,19 @@
 
 https://libraries.io/pypi/pyerualjetwork
 
+
+--- UPDATE 1.2.9 FEATURES ---
+
+New Visualize parameter added ('y' or 'n') for TrainPLAN and TestPLAN funcs.
+
+--- UPDATE 1.2.9 FEATURES ---
+
+
+
+##############################
+
+
+
 --- UPDATE 1.2.8 FEATURES ---
 
 'ThresholdSigns' changed to 'MembranThresholds' and 'ThresholdValues' changed to 'MembranPotentials'.
