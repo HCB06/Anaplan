@@ -111,7 +111,7 @@ b. TrainLabels: One-hot encoded list of educational labels.
 c. ClassCount: Total class count.
 d. Layers: A list consisting of layer types 'fex' (Feature
 Extraction Layer) or 'cat' (Catalyser Layer) also
-represents the number of layers in the model.
+represents the number of layers in the model. I STRONGLY SUGGEST FIRST LAYER SHOULD BE 'FEX' AND LAST LAYER(S) SHOULD BE 'CAT'
 e. Neurons: A numerical list indicating the number of
 neurons in each layer (starting with the first layer at the
 beginning and ending with the last layer at the end).
@@ -120,10 +120,10 @@ thresholding metric. ‘==’ , ’!=’, ‘<’, ‘>’ ,‘none’ (gradient
 descent and epoch approach are not available in PLAN
 models. Therefore, instead of epoch, error function and
 optimization metrics, it is one of the new metrics specific
-to PLAN. It specifies the sign of the threshold to be used
+to PLAN I STRONGLY SUGGEST '<' FOR FEX LAYER AND '==' FOR CAT LAYER. It specifies the sign of the threshold to be used
 in the layers sequentially in a list.)(Hyperparameter)
 g. ThresholdValues: A numerically ordered list of values
-that will be placed next to the threshold sign.
+that will be placed next to the threshold sign. I STRONGLY SUGGEST AROUND '0.01' FOR FEX LAYER AND '0' FOR CAT LAYER.
 (Hyperparameter)
 h. Normalizations: A sequentially ordered list containing
 'y' or 'n' values indicating whether data normalization
