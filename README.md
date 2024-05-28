@@ -2,6 +2,18 @@
 
 https://libraries.io/pypi/pyerualjetwork
 
+      install_requires=[
+          'numpy',
+          'scipy',
+            'time',
+            'math',
+            'colorama',
+            'typing'
+            ],
+      
+       extras_require={
+          'visualization': ['matplotlib','seaborn']
+          
 
 --- UPDATE 1.3.0 FEATURES ---
 
