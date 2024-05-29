@@ -15,7 +15,7 @@ https://libraries.io/pypi/pyerualjetwork
           'visualization': ['matplotlib','seaborn']
           
 
---- UPDATE 1.3.3 FEATURES ---
+--- UPDATE 1.3.4 FEATURES ---
 
 'SyntheticAugmentation' function added for unbalanced datasets. Changed variable names to snake_case (Function names are still PascalCase).
 
