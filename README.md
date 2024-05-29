@@ -19,8 +19,6 @@ https://libraries.io/pypi/pyerualjetwork
 
 'SyntheticAugmentation' function added for unbalanced datasets. Changed variable names to snake_case (Function names are still PascalCase).
 
---- UPDATE 1.3.3 FEATURES ---
-
 
 
 ##############################
@@ -30,9 +28,6 @@ https://libraries.io/pypi/pyerualjetwork
 
 New Visualize parameter added ('y' or 'n') for TrainPLAN and TestPLAN funcs.
 
---- UPDATE 1.3.0 FEATURES ---
-
-
 
 ##############################
 
@@ -41,9 +36,6 @@ New Visualize parameter added ('y' or 'n') for TrainPLAN and TestPLAN funcs.
 --- UPDATE 1.2.8 FEATURES ---
 
 'ThresholdSigns' changed to 'MembranThresholds' and 'ThresholdValues' changed to 'MembranPotentials'.
-
---- UPDATE 1.2.8 FEATURES ---
-
 
 
 ##############################
@@ -74,9 +66,6 @@ TestAcc = Test[plan.GetAcc()]
 LoadedModel = plan.LoadPLAN(.......)
 
 df = LoadedModel[plan.GetDf()]
-
-
---- UPDATE 1.2.6 FEATURES ---
 
 ##############################
 
