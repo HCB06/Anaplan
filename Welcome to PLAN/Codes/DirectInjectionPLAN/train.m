@@ -98,10 +98,6 @@ inputLayer = normalization(inputLayer); % inputs in range 0 - 1
 %% FEATURE EXTRACTION LAYER %%
   
   weights1(class,:) = inputLayer;
-
-  end
-
-  
   fexLayer = (weights1 * inputLayer);
 
 
