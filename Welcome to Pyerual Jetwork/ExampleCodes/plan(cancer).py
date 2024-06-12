@@ -5,7 +5,7 @@ Created on Wed Jun 12 05:16:59 2024
 @author: hasan
 """
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.preprocessing import OneHotEncoder
 from sklearn.datasets import load_breast_cancer
 import plan_di as pdi
 import numpy as np
@@ -19,10 +19,7 @@ y = data.target
 
 x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.4, random_state=42)
 
-scaler = StandardScaler()
-x_train = scaler.fit_transform(x_train)
-x_test = scaler.transform(x_test)
-
+x_train, x_test = pdi.standard_scaler(x_train, x_test)
 
 encoder = OneHotEncoder()
 y_train = encoder.fit_transform(y_train.reshape(-1, 1)).toarray()
