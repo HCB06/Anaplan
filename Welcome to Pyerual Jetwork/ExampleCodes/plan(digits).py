@@ -5,7 +5,7 @@ import numpy as np
 from sklearn.metrics import f1_score, confusion_matrix
 import seaborn as sns
 import matplotlib.pyplot as plt
-import plan as p
+import plan_di as pdi
 import time
 from colorama import Fore
 
@@ -21,19 +21,18 @@ y_onehot = encoder.fit_transform(y.reshape(-1, 1))
 x_train, x_test, y_train, y_test = train_test_split(x, y_onehot, test_size=0.4, random_state=42)
 
 
-activation_potential = 0.5
 class_count = 10
 visualize = 'n'
 
-x_train, y_train = p.auto_balancer(x_train, y_train, class_count)
-x_test, y_test = p.auto_balancer(x_test, y_test, class_count)
+x_train, y_train = pdi.auto_balancer(x_train, y_train, class_count)
+x_test, y_test = pdi.auto_balancer(x_test, y_test, class_count)
 
-train_model = p.fit(x_train, y_train, activation_potential)
-W = train_model[p.get_weights()]
+train_model = pdi.fit(x_train, y_train)
+W = train_model[pdi.get_weights()]
 
-test_model = p.evaluate(x_test, y_test, activation_potential, visualize, W)
-test_preds = test_model[p.get_preds()]
-test_acc = test_model[p.get_acc()]
+test_model = pdi.evaluate(x_test, y_test, visualize, W)
+test_preds = test_model[pdi.get_preds()]
+test_acc = test_model[pdi.get_acc()]
 
 model_name = 'digits'
 model_type = 'PLAN'
@@ -41,10 +40,10 @@ weights_type = 'txt'
 weights_format = 'd'
 model_path = 'PlanModels/'
 
-p.save_model(model_name, model_type, class_count, activation_potential, test_acc, weights_type, weights_format, model_path, W)
+pdi.save_model(model_name, model_type, class_count, test_acc, weights_type, weights_format, model_path, W)
 
 for i in range(len(x_test)):
-    Predict = p.predict_model_ram(x_test[i], activation_potential, W)
+    Predict = pdi.predict_model_ram(x_test[i], W)
     image = np.reshape(x_test[i], (8, 8))
     plt.imshow(image)
     plt.title(np.argmax(Predict))
