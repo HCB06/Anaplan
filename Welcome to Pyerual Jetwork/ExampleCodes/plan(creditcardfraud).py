@@ -1,7 +1,7 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder
-import plan
+import plan_bi as pbi
 import numpy as np
 from sklearn.metrics import f1_score, confusion_matrix
 from colorama import Fore
@@ -31,16 +31,16 @@ x_test = x_test.tolist()
 activation_potential = 0
 class_count = 2
 
-x_train, y_train = plan.synthetic_augmentation(x_train, y_train, class_count)
-x_test, y_test = plan.synthetic_augmentation(x_test, y_test, class_count)
+x_train, y_train = pbi.synthetic_augmentation(x_train, y_train, class_count)
+x_test, y_test = pbi.synthetic_augmentation(x_test, y_test, class_count)
 
-train_model = plan.fit(x_train, y_train, activation_potential)
+train_model = pbi.fit(x_train, y_train, activation_potential)
 
 W = train_model[plan.get_weights()]
 
 visualize = 'n'
 
-test_model = plan.evaluate(x_test, y_test, activation_potential, visualize, W)
+test_model = pbi.evaluate(x_test, y_test, activation_potential, visualize, W)
 
 test_preds = test_model[plan.get_preds()]
 test_acc = test_model[plan.get_acc()]
@@ -51,7 +51,7 @@ weights_type = 'txt'
 weights_format = 'd'
 model_path = 'PlanModels/'
 
-plan.save_model(model_name, model_type, class_count, activation_potential, test_acc, weights_type, weights_format, model_path, W)
+pbi.save_model(model_name, model_type, class_count, activation_potential, test_acc, weights_type, weights_format, model_path, W)
 
 
 y_test = np.argmax(y_test, axis=1)
@@ -59,7 +59,7 @@ y_test = np.argmax(y_test, axis=1)
 """
 
 for i in range(len(x_test)):
-    Predict = plan.predict_model_ssd(x_test[i], model_name, model_path)
+    Predict = pbi.predict_model_ssd(x_test[i], model_name, model_path)
     time.sleep(0.6)
     if np.argmax(Predict) == y_test[i]:
         print(Fore.GREEN + 'Predicted Output(index):', np.argmax(Predict), 'Real Output(index):', y_test[i])
