@@ -1,4 +1,4 @@
-function improved_test (activationPotential)
+function improved_test ()
 
 
 disp('customize testing');
@@ -31,7 +31,7 @@ hold on
 
 inputLayer = normalization(input_layer); % inputs in range 0 - 1	
 
-output_layer = pred(inputLayer, activationPotential, weights1, weights2);
+output_layer = pred(inputLayer, weights1, weights2);
 
 
 
