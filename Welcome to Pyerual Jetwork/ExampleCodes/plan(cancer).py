@@ -1,7 +1,13 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Jun 12 05:16:59 2024
+
+@author: hasan
+"""
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.datasets import load_breast_cancer
-import plan as p
+import plan_di as pdi
 import numpy as np
 from sklearn.metrics import f1_score
 import time
@@ -26,24 +32,23 @@ y_test = encoder.transform(y_test.reshape(-1, 1)).toarray()
 x_train = x_train.tolist()
 x_test = x_test.tolist()
 
-activation_potential = 0.1
 visualize = 'n'
 
-train_model = p.fit(x_train, y_train, activation_potential)
-W = train_model[p.get_weights()]
+train_model = pdi.fit(x_train, y_train)
+W = train_model[pdi.get_weights()]
 
 
-test_model = p.evaluate(x_test, y_test, activation_potential, visualize, W)
-test_preds = test_model[p.get_preds()]
+test_model = pdi.evaluate(x_test, y_test, visualize, W)
+test_preds = test_model[pdi.get_preds()]
 
 
 for i in range(len(x_test)):
-    Predict = p.predict_model_ram(x_test[i], activation_potential, W)
+    Predict = pdi.predict_model_ram(x_test[i], W)
     time.sleep(0.6)
-    if np.argmax(Predict) == y_test[i]:
-        print(Fore.GREEN + 'Predicted Output(index):', np.argmax(Predict), 'Real Output(index):', y_test[i])
+    if np.argmax(Predict) == np.argmax(y_test[i]):
+        print(Fore.GREEN + 'Predicted Output(index):', np.argmax(Predict), 'Real Output(index):', np.argmax(y_test[i]))
     else:
-        print(Fore.RED + 'Predicted Output(index):', np.argmax(Predict), 'Real Output(index):', y_test[i])
+        print(Fore.RED + 'Predicted Output(index):', np.argmax(Predict), 'Real Output(index):', np.argmax(y_test[i]))
     
 
 
