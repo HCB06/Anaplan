@@ -174,7 +174,7 @@ def weight_identification(
         x_train_size (int): Size of the input data.
 
     Returns:
-        list([numpy_arrays],[...]): Weight matices of the model. .
+        list([numpy_arrays],[...]): pretrained weight matices of the model. .
     """
 
     
@@ -188,12 +188,12 @@ def weight_identification(
     return W
 
 def synaptic_pruning(
-    w,            # list[list[num]]: Weight matrix of the neural network.
-    cs,           # list[list[num]]: Synaptic connections between neurons.
+    w,            # num: Weight matrix of the neural network.
+    cs,           # int: cs = cut_start, Synaptic connections between neurons.
     key,          # int: key for identifying synaptic connections.
     Class,        # int: Class label for the current training instance.
     class_count, # int: Total number of classes in the dataset.
-    piece, # ???
+    piece, #  int: Which set of neurons will information be transferred to?
     is_training # int: 1 or 0
     
 ) -> str:
@@ -201,11 +201,13 @@ def synaptic_pruning(
     Performs synaptic pruning in a neural network model.
 
     Args:
-        w (list[list[num]]): Weight matrix of the neural network.
-        cs (list[list[num]]): Synaptic connections between neurons.
+        w (list[num]): Weight matrix of the neural network.
+        cs (list[num]): Synaptic connections between neurons.
         key (str): key for identifying synaptic row or col connections.
         Class (int): Class label for the current training instance.
         class_count (int): Total number of classes in the dataset.
+        piece (int): Which set of neurons will information be transferred to?
+        is_training (int): 1 or 0
 
     Returns:
         numpy array: Weight matrix.
@@ -218,7 +220,7 @@ def synaptic_pruning(
         
      
                
-        ce = cs / Class
+        ce = cs / Class # ce(cut_end) = cs(cut_start) / current_class
         
         if is_training == 1:
         
@@ -238,7 +240,6 @@ def synaptic_pruning(
 
     else:
         
-        if Class == 1:
             if key == 'row':
     
                 w[cs:,:] = 0
@@ -250,33 +251,19 @@ def synaptic_pruning(
             else:
                 print(Fore.RED + "ERROR103: synaptic_pruning func's key parameter must be 'row' or 'col' from: synaptic_pruning" + infoPruning)
                 return 'e'
-        else:
-            if key == 'row':
-    
-                w[cs:,:] = 0
-    
-                ce = int(round(w.shape[0] - cs / class_count))
-                w[ce-1::-1,:] = 0
-    
-            elif key == 'col':
-    
-                w[:,cs] = 0
-    
-            else:
-                print(Fore.RED + "ERROR103: synaptic_pruning func's key parameter must be 'row' or 'col' from: synaptic_pruning" + infoPruning + Style.RESET_ALL)
-                return 'e'
+        
     return w
 
 def synaptic_dividing(
     class_count,    # int: Total number of classes in the dataset.
-    W              # list[list[num]]: Weight matrix of the neural network.
+    W              # list[num]: Weight matrix of the neural network.
 ) -> str:
     """
     Divides the synaptic weights of a neural network model based on class count.
 
     Args:
         class_count (int): Total number of classes in the dataset.
-        W (list[list[num]]): Weight matrix of the neural network.
+        W (list[num]): Weight matrix of the neural network.
 
     Returns:
         list: a 3D list holds informations of divided net.
@@ -284,9 +271,7 @@ def synaptic_dividing(
 
     
     Piece = [1] * len(W)
-    #print('Piece:' + Piece)
-    #input()
-    # Boş bir üç boyutlu liste oluşturma
+    
     Divides = [[[0] for _ in range(len(W))] for _ in range(class_count)]
     
     
@@ -296,15 +281,11 @@ def synaptic_dividing(
             Piece[i] = int(math.floor(W[i].shape[0] / class_count))
 
     cs = 0 
-    # j = Classes, i = Weights, [0] = CutStart.
 
     for i in range(len(W)):
         for j in range(class_count):
             cs = cs + Piece[i]
             Divides[j][i][0] = cs
-        #pruning_param[i] = cs
-            #print('Divides: ' + j + i + ' = ' + Divides[j][i][0])
-            #input()
             
         j = 0
         cs = 0
@@ -314,18 +295,18 @@ def synaptic_dividing(
 
 def fex(
     Input,               # list[num]: Input data.
-    w,                   # list[list[num]]: Weight matrix of the neural network.,
-    Class,               # Which class is, if training. num
+    w,                   # num: Weight matrix of the neural network.,
+    Class,               # int: Which class is, if training. 
     is_training # num: 1 or 0
 ) -> tuple:
     """
     Applies feature extraction process to the input data using synaptic pruning.
 
     Args:
-        Input (list[num]): Input data.
-        w (list[list[num]]): Weight matrix of the neural network.
-        ACTIVATION_threshold (str): Sign for threshold comparison ('<', '>', '==', '!=').
-        activation_potential (num): Threshold value for comparison.
+        Input (num): Input data.
+        w (num): Weight matrix of the neural network.
+        Class (int): Which class is, if training.
+        is_training (int): Flag indicating if the function is called during training (1 for training, 0 otherwise).
 
     Returns:
         tuple: A tuple (vector) containing the neural layer result and the updated weight matrix.
@@ -341,29 +322,28 @@ def fex(
 
 def cat(
     Input,               # list[num]: Input data.
-    w,                   # list[list[num]]: Weight matrix of the neural network.
-    isTrain,
-    piece              # int: Flag indicating if the function is called during training (1 for training, 0 otherwise).
+    w,                   # list[num]: Weight matrix of the neural network.
+    is_training, # int: Flag indicating if the function is called during training (1 for training, 0 otherwise).
+    piece              # int Which set of neurons will information be transferred to?
 ) -> tuple:
     """
     Applies categorization process to the input data using synaptic pruning if specified.
 
     Args:
         Input (list[num]): Input data.
-        w (list[list[num]]): Weight matrix of the neural network.
-        ACTIVATION_threshold (str): Sign for threshold comparison ('<', '>', '==', '!=').
-        activation_potential (num): Threshold value for comparison.
-        isTrain (int): Flag indicating if the function is called during training (1 for training, 0 otherwise).
-
+        w (num): Weight matrix of the neural network.
+        is_training (int): Flag indicating if the function is called during training (1 for training, 0 otherwise).
+        piece (int): Which set of neurons will information be transferred to?
+) -> tuple:
     Returns:
         tuple: A tuple containing the neural layer (vector) result and the possibly updated weight matrix.
     """
    
     PruneIndex = np.where(Input == 0)
     
-    if isTrain == 1:
+    if is_training == 1:
      
-        w = synaptic_pruning(w, PruneIndex, 'col', 0, 0, piece, isTrain)
+        w = synaptic_pruning(w, PruneIndex, 'col', 0, 0, piece, is_training)
      
     
     neural_layer = np.dot(w, Input)
@@ -445,20 +425,20 @@ def Relu(
 
 
 def evaluate(
-    x_test,         # list[list[num]]: Test input data.
+    x_test,         # list[num]: Test input data.
     y_test,         # list[num]: Test labels.
     visualize,         # visualize Testing procces or not visualize ('y' or 'n')
-    W                  # list[list[num]]: Weight matrix of the neural network.
+    W                  # list[num]: Weight matrix of the neural network.
 ) -> tuple:
   infoTestModel =  """
     Tests the neural network model with the given test data.
 
     Args:
-        x_test (list[list[num]]): Test input data.
+        x_test (list[num]): Test input data.
         y_test (list[num]): Test labels.
         activation_potential (float): Input activation potential 
         visualize (str): Visualize test progress ? ('y' or 'n')
-        W (list[list[num]]): Weight matrix of the neural network.
+        W (list[num]): Weight matrix of the neural network.
 
     Returns:
         tuple: A tuple containing the predicted labels and the accuracy of the model.
@@ -734,10 +714,9 @@ def load_model(model_name,
    Arguments:
    model_name (str): Name of the model.
    model_path (str): Path where the model is saved.
-   log_type (str): Type of log to load (options: 'csv', 'txt', 'hdf5').
 
    Returns:
-   lists: W(list[num]), activation_potential, df (DataFrame of the model)
+   lists: W(list[num]), activation_potential, DataFrame of the model
     """
    pass
 
