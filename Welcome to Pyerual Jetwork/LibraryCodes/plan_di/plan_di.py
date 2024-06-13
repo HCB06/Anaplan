@@ -266,7 +266,7 @@ def synaptic_dividing(
         W (list[num]): Weight matrix of the neural network.
 
     Returns:
-        list: a 3D list holds informations of divided net.
+        list: a 3D list holds informations of divided net and list of neuron groups separated by classes.
     """
 
     
@@ -438,7 +438,7 @@ def evaluate(
         y_test (list[num]): Test labels.
         activation_potential (float): Input activation potential 
         visualize (str): Visualize test progress ? ('y' or 'n')
-        W (list[num]): Weight matrix of the neural network.
+        W (list[num]): Weight matrix list of the neural network.
 
     Returns:
         tuple: A tuple containing the predicted labels and the accuracy of the model.
@@ -448,8 +448,7 @@ def evaluate(
 
 
   try:
-    Wc = [0] * len(W)
-    true = 0
+    Wc = [0] * len(W) # Wc = Weight copy
     TestPredictions = [None] * len(y_test)
     for i, w in enumerate(W):
         Wc[i] = np.copy(w)
