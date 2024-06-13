@@ -297,7 +297,7 @@ def fex(
     Input,               # list[num]: Input data.
     w,                   # num: Weight matrix of the neural network.,
     Class,               # int: Which class is, if training. 
-    is_training # num: 1 or 0
+    is_training # int: 1 or 0
 ) -> tuple:
     """
     Applies feature extraction process to the input data using synaptic pruning.
@@ -352,16 +352,16 @@ def cat(
 
 
 def normalization(
-    Input  # list[num]: Input data to be normalized.
+    Input  # num: Input data to be normalized.
 ):
     """
     Normalizes the input data using maximum absolute scaling.
 
     Args:
-        Input (list[num]): Input data to be normalized.
+        Input (num): Input data to be normalized.
 
     Returns:
-        list[num]: Scaled input data after normalization.
+        (num) Scaled input data after normalization.
     """
 
    
@@ -375,47 +375,47 @@ def normalization(
 
 
 def Softmax(
-    x  # list[num]: Input data to be transformed using softmax function.
+    x  # num: Input data to be transformed using softmax function.
 ):
     """
     Applies the softmax function to the input data.
 
     Args:
-        x (list[num]): Input data to be transformed using softmax function.
+        (num): Input data to be transformed using softmax function.
 
     Returns:
-        list[num]: Transformed data after applying softmax function.
+       (num): Transformed data after applying softmax function.
     """
     
     return softmax(x)
 
 
 def Sigmoid(
-    x  # list[num]: Input data to be transformed using sigmoid function.
+    x  # num: Input data to be transformed using sigmoid function.
 ):
     """
     Applies the sigmoid function to the input data.
 
     Args:
-        x (list[num]): Input data to be transformed using sigmoid function.
+        (num): Input data to be transformed using sigmoid function.
 
     Returns:
-        list[num]: Transformed data after applying sigmoid function.
+        (num): Transformed data after applying sigmoid function.
     """
     return expit(x)
 
 
 def Relu(
-    x  # list[num]: Input data to be transformed using ReLU function.
+    x  # num: Input data to be transformed using ReLU function.
 ):
     """
     Applies the Rectified Linear Unit (ReLU) function to the input data.
 
     Args:
-        x (list[num]): Input data to be transformed using ReLU function.
+        (num): Input data to be transformed using ReLU function.
 
     Returns:
-        list[num]: Transformed data after applying ReLU function.
+        (num): Transformed data after applying ReLU function.
     """
 
     
@@ -427,8 +427,8 @@ def Relu(
 def evaluate(
     x_test,         # list[num]: Test input data.
     y_test,         # list[num]: Test labels.
-    visualize,         # visualize Testing procces or not visualize ('y' or 'n')
-    W                  # list[num]: Weight matrix of the neural network.
+    visualize,         # str: visualize Testing procces or not visualize ('y' or 'n')
+    W                  # list[num]: Weight matrix list of the neural network.
 ) -> tuple:
   infoTestModel =  """
     Tests the neural network model with the given test data.
