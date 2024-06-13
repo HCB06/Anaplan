@@ -449,6 +449,7 @@ def evaluate(
 
   try:
     Wc = [0] * len(W) # Wc = weight copy
+    true = 0
     TestPredictions = [None] * len(y_test)
     for i, w in enumerate(W):
         Wc[i] = np.copy(w)
