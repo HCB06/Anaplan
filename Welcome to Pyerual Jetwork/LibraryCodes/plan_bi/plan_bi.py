@@ -255,7 +255,7 @@ def synaptic_pruning(
 
 def synaptic_dividing(
     class_count,    # int: Total number of classes in the dataset.
-    W              # list[num]: Weight matrix of the neural network.
+    W              # list[num]: Weight matrix list of the neural network.
 ) -> str:
     """
     Divides the synaptic weights of a neural network model based on class count.
@@ -427,7 +427,7 @@ def evaluate(
     x_test,         # list[num]: Test input data.
     y_test,         # list[num]: Test labels.
     activation_potential,    # float: Threshold value for comparison.
-    visualize,         # visualize Testing procces or not visualize ('y' or 'n')
+    visualize,         # str: visualize Testing procces or not visualize ('y' or 'n')
     W                  # list[num]: Weight matrix of the neural network.
 ) -> tuple:
   infoTestModel =  """
@@ -438,7 +438,7 @@ def evaluate(
         y_test (list[num]): Test labels.
         activation_potential (float): Input activation potential 
         visualize (str): Visualize test progress ? ('y' or 'n')
-        W (list[num]): Weight matrix of the neural network.
+        W (list[num]): Weight matrix list of the neural network.
 
     Returns:
         tuple: A tuple containing the predicted labels and the accuracy of the model.
@@ -448,8 +448,7 @@ def evaluate(
 
 
   try:
-    Wc = [0] * len(W)
-    true = 0
+    Wc = [0] * len(W) # Wc = weight copy
     TestPredictions = [None] * len(y_test)
     for i, w in enumerate(W):
         Wc[i] = np.copy(w)
@@ -575,7 +574,7 @@ def save_model(model_name,
     weights_type (str): Type of weights to save (options: 'txt', 'npy', 'mat').
     WeightFormat (str): Format of the weights (options: 'd', 'f', 'raw').
     model_path (str): Path where the model will be saved. For example: C:/Users/beydili/Desktop/denemePLAN/
-    W: Weights of the model.
+    W: Weights list of the model.
     
     Returns:
     str: Message indicating if the model was saved successfully or encountered an error.
