@@ -340,7 +340,7 @@ def cat(
    
     PruneIndex = np.where(Input == 0)
     
-    if isTrain == 1:
+    if is_training == 1:
      
         w = synaptic_pruning(w, PruneIndex, 'col', 0, 0, piece, is_training)
      
