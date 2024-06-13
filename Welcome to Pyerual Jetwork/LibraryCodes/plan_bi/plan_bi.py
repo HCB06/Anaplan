@@ -333,7 +333,7 @@ def cat(
         w (list[num]): Weight matrix of the neural network.
         activation_potential (float): Threshold value for comparison.
         is_training (int): Flag indicating if the function is called during training (1 for training, 0 otherwise).
-
+        piece (int): Which set of neurons will information be transferred to?
     Returns:
         tuple: A tuple containing the neural layer (vector) result and the possibly updated weight matrix.
     """
