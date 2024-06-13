@@ -449,6 +449,7 @@ def evaluate(
 
   try:
     Wc = [0] * len(W) # Wc = Weight copy
+    true = 0
     TestPredictions = [None] * len(y_test)
     for i, w in enumerate(W):
         Wc[i] = np.copy(w)
@@ -544,7 +545,7 @@ def evaluate(
     
   except:
         
-        print(Fore.RED + "ERROR: Testing model parameters like 'activation_potential' must be same as trained model. Check parameters. Are you sure weights are loaded ? from: evaluate" + infoTestModel + Style.RESET_ALL)
+        print(Fore.RED + "ERROR: Are you sure weights are loaded ? from: evaluate" + infoTestModel + Style.RESET_ALL)
         return 'e'
    
 
