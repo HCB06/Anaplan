@@ -2,6 +2,11 @@
 
 https://libraries.io/pypi/pyerualjetwork
 
+      pip install pyerualjetwork
+      
+      import plan_di or import plan_bi
+      (di = direct_injection, bi = binary injection)
+      
       requires=[
           'numpy',
           'scipy',
