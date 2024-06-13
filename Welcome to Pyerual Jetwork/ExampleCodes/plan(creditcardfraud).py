@@ -36,14 +36,14 @@ x_test, y_test = pbi.synthetic_augmentation(x_test, y_test, class_count)
 
 train_model = pbi.fit(x_train, y_train, activation_potential)
 
-W = train_model[plan.get_weights()]
+W = train_model[pbi.get_weights()]
 
 visualize = 'n'
 
 test_model = pbi.evaluate(x_test, y_test, activation_potential, visualize, W)
 
-test_preds = test_model[plan.get_preds()]
-test_acc = test_model[plan.get_acc()]
+test_preds = test_model[pbi.get_preds()]
+test_acc = test_model[pbi.get_acc()]
 
 model_name = 'creditcard_fraud'
 model_type = 'PLAN'
