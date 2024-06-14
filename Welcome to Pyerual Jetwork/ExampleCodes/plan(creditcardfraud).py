@@ -34,9 +34,7 @@ class_count = 2
 x_train, y_train = pbi.synthetic_augmentation(x_train, y_train, class_count)
 x_test, y_test = pbi.synthetic_augmentation(x_test, y_test, class_count)
 
-train_model = pbi.fit(x_train, y_train, activation_potential)
-
-W = train_model[pbi.get_weights()]
+W = pbi.fit(x_train, y_train, activation_potential)
 
 visualize = 'n'
 
