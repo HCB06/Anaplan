@@ -30,8 +30,7 @@ visualize = 'n'
 #x_train, y_train = pdi.synthetic_augmentation(x_train, y_train, class_count)
 #x_test, y_test = pdi.synthetic_augmentation(x_test, y_test, class_count)
 
-train_model = pdi.fit(x_train, y_train)
-W = train_model[pdi.get_weights()]
+W = pdi.fit(x_train, y_train)
 
 test_model = pdi.evaluate(x_test, y_test, visualize, W)
 test_preds = test_model[pdi.get_preds()]
