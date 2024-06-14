@@ -93,6 +93,18 @@ if class == 1
 									
 end
 
+%{
+or you can do this: (its more simple)
+
+weights1 = zeros(9,784); % Matrix formed by zeros
+weights2 = zeros(9,9); % Matrix formed by zeros
+
+weights1(class,:) = 1;
+weights2(class,:) = 1;
+ 
+
+%}
+
 inputLayer = normalization(inputLayer); % inputs in range 0 - 1
 
 %% FEATURE EXTRACTION LAYER %%
