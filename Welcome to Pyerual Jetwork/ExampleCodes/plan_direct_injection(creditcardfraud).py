@@ -28,7 +28,6 @@ x_test = x_test.tolist()
 
 x_train, x_test = pdi.standard_scaler(x_train, x_test)
 
-activation_potential = 0
 class_count = 2
 
 x_train, y_train = pdi.auto_balancer(x_train, y_train, class_count)
