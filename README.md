@@ -21,7 +21,7 @@ https://libraries.io/pypi/pyerualjetwork
           
 ##############################
 
-2.0.8 New features: BINARY INJECTION (OLD) MODULE, NOW ADDED NEW DIRECT FEATURE INJECTION MODULE. AND 'standard_scaler' func. Important Note: If there are any data smaller than 0 among the input data of the entry model, "import plan_bi"; otherwise, "import plan_di". 
+2.0.8 New features: BINARY INJECTION (OLD) MODULE, NOW ADDED NEW DIRECT FEATURE INJECTION MODULE. AND 'standard_scaler' func. "import plan_bi" or "import plan_di". 
 
 PYERUAL JETWORK 2.0 USER MANUAL
 
