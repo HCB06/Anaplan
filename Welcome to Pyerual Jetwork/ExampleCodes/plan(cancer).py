@@ -31,9 +31,7 @@ x_test = x_test.tolist()
 
 visualize = 'n'
 
-train_model = pdi.fit(x_train, y_train)
-W = train_model[pdi.get_weights()]
-
+W = pdi.fit(x_train, y_train)
 
 test_model = pdi.evaluate(x_test, y_test, visualize, W)
 test_preds = test_model[pdi.get_preds()]
