@@ -1144,7 +1144,7 @@ def split(X, y, test_size, random_state):
     Returns:
         tuple: x_train, x_test, y_train, y_test as ordered training and testing data subsets.
     """
-    # Size of the dataset
+   
     num_samples = X.shape[0]
 
     if isinstance(test_size, float):
@@ -1275,7 +1275,7 @@ def roc_curve(y_true, y_score):
         tn = np.sum((y_true_sorted == 0) & (y_pred_binary == 0))
         fp = np.sum((y_true_sorted == 0) & (y_pred_binary == 1))
 
-        # Check for division by zero
+        
         if (tp + fn) == 0:
             tpr_value = 0.0
         else:
@@ -1313,7 +1313,7 @@ def confusion_matrix(y_true, y_pred, class_count=None):
         true_label = y_true[i]
         pred_label = y_pred[i]
         
-        # Ensure that true_label and pred_label are within the correct range
+        
         if 0 <= true_label < class_count and 0 <= pred_label < class_count:
             confusion[true_label, pred_label] += 1
         else:
