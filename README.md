@@ -8,6 +8,7 @@ https://libraries.io/pypi/pyerualjetwork
       (di = direct_injection, bi = binary injection)
       
       requires=[
+          'pandas',
           'numpy',
           'scipy',
             'time',
