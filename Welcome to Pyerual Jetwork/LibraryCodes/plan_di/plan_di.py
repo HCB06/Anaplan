@@ -1249,7 +1249,7 @@ def roc_curve(y_true, y_score):
         tn = np.sum((y_true_sorted == 0) & (y_pred_binary == 0))
         fp = np.sum((y_true_sorted == 0) & (y_pred_binary == 1))
 
-        # Check for division by zero
+        
         if (tp + fn) == 0:
             tpr_value = 0.0
         else:
@@ -1320,15 +1320,15 @@ def plot_evaluate(y_test, y_preds, acc_list):
     axs[1, 0].set_title('Receiver Operating Characteristic (ROC) Curve')
     axs[1, 0].legend(loc="lower right")
     
-    # Precision, Recall, F1 Score ve Accuracy bar grafiği
+    # Precision, Recall, F1 Score, Accuracy
     metric = ['Precision', 'Recall', 'F1 Score', 'Accuracy']
     values = [precision, recall, f1, acc]
     colors = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728']
     
-    # Bar grafiği oluşturma
+    #
     bars = axs[0, 1].bar(metric, values, color=colors)
     
-    # Bar grafiği üzerine değer ekleme
+    
     for bar, value in zip(bars, values):
         axs[0, 1].text(bar.get_x() + bar.get_width() / 2, bar.get_height() - 0.05, f'{value:.2f}', 
                        ha='center', va='bottom', fontsize=12, color='white', weight='bold')
@@ -1343,16 +1343,16 @@ def plot_evaluate(y_test, y_preds, acc_list):
     plt.plot(acc_list, marker='o', linestyle='-',
              color='r', label='Accuracy')
     
-    # Sabit yüksek değer için yatay çizgi
+    
     plt.axhline(y=1, color='g', linestyle='--', label='Maximum Accuracy')
     
-    # Eksen ve başlık ayarları
+    
     plt.xlabel('Samples')
     plt.ylabel('Accuracy')
     plt.title('Accuracy History')
     plt.legend()
     
-    # Subplot düzenleme
+    
     plt.tight_layout()
     plt.show()
 
