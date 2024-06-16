@@ -1145,13 +1145,14 @@ def split(X, y, test_size, random_state):
     return x_train, x_test, y_train, y_test
 
 
-def metrics(y_ts, test_preds):
+def metrics(y_ts, test_preds, average='weighted'):
     """
     Calculates precision, recall and F1 score for a classification task.
-
+    
     Args:
-        y_test (list or numpy.ndarray): True labels.
+        y_ts (list or numpy.ndarray): True labels.
         test_preds (list or numpy.ndarray): Predicted labels.
+        average (str): Type of averaging ('micro', 'macro', 'weighted').
 
     Returns:
         tuple: Precision, recall, F1 score.
@@ -1192,17 +1193,29 @@ def metrics(y_ts, test_preds):
     for c in classes:
         precision[c] = tp[c] / (tp[c] + fp[c]) if (tp[c] + fp[c]) > 0 else 0
         recall[c] = tp[c] / (tp[c] + fn[c]) if (tp[c] + fn[c]) > 0 else 0
-        f1[c] = 2 * (precision[c] * recall[c]) / (precision[c] +
-                                                  recall[c]) if (precision[c] + recall[c]) > 0 else 0
+        f1[c] = 2 * (precision[c] * recall[c]) / (precision[c] + recall[c]) if (precision[c] + recall[c]) > 0 else 0
 
-    micro_precision = np.sum(list(tp.values())) / (np.sum(list(tp.values())) + np.sum(
-        list(fp.values()))) if (np.sum(list(tp.values())) + np.sum(list(fp.values()))) > 0 else 0
-    micro_recall = np.sum(list(tp.values())) / (np.sum(list(tp.values())) + np.sum(list(
-        fn.values()))) if (np.sum(list(tp.values())) + np.sum(list(fn.values()))) > 0 else 0
-    micro_f1 = 2 * (micro_precision * micro_recall) / (micro_precision +
-                                                       micro_recall) if (micro_precision + micro_recall) > 0 else 0
+    if average == 'micro':
+        precision_val = np.sum(list(tp.values())) / (np.sum(list(tp.values())) + np.sum(list(fp.values()))) if (np.sum(list(tp.values())) + np.sum(list(fp.values()))) > 0 else 0
+        recall_val = np.sum(list(tp.values())) / (np.sum(list(tp.values())) + np.sum(list(fn.values()))) if (np.sum(list(tp.values())) + np.sum(list(fn.values()))) > 0 else 0
+        f1_val = 2 * (precision_val * recall_val) / (precision_val + recall_val) if (precision_val + recall_val) > 0 else 0
 
-    return micro_precision, micro_recall, micro_f1
+    elif average == 'macro':
+        precision_val = np.mean(list(precision.values()))
+        recall_val = np.mean(list(recall.values()))
+        f1_val = np.mean(list(f1.values()))
+
+    elif average == 'weighted':
+        weights = np.array([np.sum(y_test_d == c) for c in classes])
+        weights = weights / np.sum(weights)
+        precision_val = np.sum([weights[i] * precision[classes[i]] for i in range(len(classes))])
+        recall_val = np.sum([weights[i] * recall[classes[i]] for i in range(len(classes))])
+        f1_val = np.sum([weights[i] * f1[classes[i]] for i in range(len(classes))])
+
+    else:
+        raise ValueError("Invalid value for 'average'. Choose from 'micro', 'macro', 'weighted'.")
+
+    return precision_val, recall_val, f1_val
 
 
 def decode_one_hot(encoded_data):
@@ -1223,47 +1236,67 @@ def decode_one_hot(encoded_data):
 
 def roc_curve(y_true, y_score):
     """
-    Computes ROC curve.
+    Compute Receiver Operating Characteristic (ROC) curve.
 
-    Args:
-        y_true (numpy.ndarray): True class labels (binary: 0 or 1).
-        y_score (numpy.ndarray): Predicted probabilities for positive class.
+    Parameters:
+    y_true : array, shape = [n_samples]
+        True binary labels in range {0, 1} or {-1, 1}.
+    y_score : array, shape = [n_samples]
+        Target scores, can either be probability estimates of the positive class,
+        confidence values, or non-thresholded measure of decisions (as returned
+        by decision_function on some classifiers).
 
     Returns:
-        tuple: FPR (False Positive Rate), TPR (True Positive Rate), thresholds.
+    fpr : array, shape = [n]
+        Increasing false positive rates such that element i is the false positive rate
+        of predictions with score >= thresholds[i].
+    tpr : array, shape = [n]
+        Increasing true positive rates such that element i is the true positive rate
+        of predictions with score >= thresholds[i].
+    thresholds : array, shape = [n]
+        Decreasing thresholds on the decision function used to compute fpr and tpr.
     """
+    
+    y_true = np.asarray(y_true)
+    y_score = np.asarray(y_score)
 
-    idx = np.argsort(y_score)[::-1]
-    y_score_sorted = y_score[idx]
-    y_true_sorted = y_true[idx]
+    if len(np.unique(y_true)) != 2:
+        raise ValueError("Only binary classification is supported.")
 
-    tpr = []
+    
+    desc_score_indices = np.argsort(y_score, kind="mergesort")[::-1]
+    y_score = y_score[desc_score_indices]
+    y_true = y_true[desc_score_indices]
+
+
     fpr = []
-    thresholds = np.linspace(0, 1, 100)
+    tpr = []
+    thresholds = []
+    n_pos = np.sum(y_true)
+    n_neg = len(y_true) - n_pos
 
-    for threshold in thresholds:
-        y_pred_binary = np.where(y_score_sorted >= threshold, 1, 0)
+    tp = 0
+    fp = 0
+    prev_score = None
 
-        tp = np.sum((y_true_sorted == 1) & (y_pred_binary == 1))
-        fn = np.sum((y_true_sorted == 1) & (y_pred_binary == 0))
-        tn = np.sum((y_true_sorted == 0) & (y_pred_binary == 0))
-        fp = np.sum((y_true_sorted == 0) & (y_pred_binary == 1))
+    
+    for i, score in enumerate(y_score):
+        if score != prev_score:
+            fpr.append(fp / n_neg)
+            tpr.append(tp / n_pos)
+            thresholds.append(score)
+            prev_score = score
 
-        
-        if (tp + fn) == 0:
-            tpr_value = 0.0
+        if y_true[i] == 1:
+            tp += 1
         else:
-            tpr_value = tp / (tp + fn)
+            fp += 1
 
-        if (fp + tn) == 0:
-            fpr_value = 0.0
-        else:
-            fpr_value = fp / (fp + tn)
+    fpr.append(fp / n_neg)
+    tpr.append(tp / n_pos)
+    thresholds.append(score)
 
-        tpr.append(tpr_value)
-        fpr.append(fpr_value)
-
-    return fpr, tpr, thresholds
+    return np.array(fpr), np.array(tpr), np.array(thresholds)
 
 
 def confusion_matrix(y_true, y_pred, class_count):
@@ -1295,9 +1328,10 @@ def plot_evaluate(y_test, y_preds, acc_list):
 
     y_true = np.array(y_true)
     y_preds = np.array(y_preds)
-    fpr, tpr, thresholds = roc_curve(y_true, y_preds)
-    precision, recall, f1 = metrics(y_test, y_preds)
     Class = np.unique(decode_one_hot(y_test))
+
+    precision, recall, f1 = metrics(y_test, y_preds)
+    
     
     # Confusion matrix
     cm = confusion_matrix(y_true, y_preds, len(Class))
@@ -1310,15 +1344,66 @@ def plot_evaluate(y_test, y_preds, acc_list):
     axs[0, 0].set_xlabel("Predicted Class")
     axs[0, 0].set_ylabel("Actual Class")
     
-    # ROC Curve
-    axs[1, 0].plot(fpr, tpr, color='darkorange', lw=2, label='ROC curve')
-    axs[1, 0].plot([0, 1], [0, 1], color='navy', lw=2, linestyle='--')
-    axs[1, 0].set_xlim([0.0, 1.0])
-    axs[1, 0].set_ylim([0.0, 1.05])
-    axs[1, 0].set_xlabel('False Positive Rate')
-    axs[1, 0].set_ylabel('True Positive Rate')
-    axs[1, 0].set_title('Receiver Operating Characteristic (ROC) Curve')
-    axs[1, 0].legend(loc="lower right")
+    if len(Class) == 2:
+        fpr, tpr, thresholds = roc_curve(y_true, y_preds)
+        # ROC Curve
+        roc_auc = np.trapz(tpr, fpr)
+        axs[1, 0].plot(fpr, tpr, color='darkorange', lw=2, label=f'ROC curve (area = {roc_auc:.2f})')
+        axs[1, 0].plot([0, 1], [0, 1], color='navy', lw=2, linestyle='--')
+        axs[1, 0].set_xlim([0.0, 1.0])
+        axs[1, 0].set_ylim([0.0, 1.05])
+        axs[1, 0].set_xlabel('False Positive Rate')
+        axs[1, 0].set_ylabel('True Positive Rate')
+        axs[1, 0].set_title('Receiver Operating Characteristic (ROC) Curve')
+        axs[1, 0].legend(loc="lower right")
+        axs[1, 0].legend(loc="lower right")
+    else:
+
+        for i in range(len(Class)):
+            
+            y_true_copy = np.copy(y_true)
+            y_preds_copy = np.copy(y_preds)
+        
+            y_true_copy[y_true_copy == i] = 0
+            y_true_copy[y_true_copy != 0] = 1
+            
+            y_preds_copy[y_preds_copy == i] = 0
+            y_preds_copy[y_preds_copy != 0] = 1
+            
+
+            fpr, tpr, thresholds = roc_curve(y_true_copy, y_preds_copy)
+            
+            roc_auc = np.trapz(tpr, fpr)
+            axs[1, 0].plot(fpr, tpr, color='darkorange', lw=2, label=f'ROC curve (area = {roc_auc:.2f})')
+            axs[1, 0].plot([0, 1], [0, 1], color='navy', lw=2, linestyle='--')
+            axs[1, 0].set_xlim([0.0, 1.0])
+            axs[1, 0].set_ylim([0.0, 1.05])
+            axs[1, 0].set_xlabel('False Positive Rate')
+            axs[1, 0].set_ylabel('True Positive Rate')
+            axs[1, 0].set_title('Receiver Operating Characteristic (ROC) Curve')
+            axs[1, 0].legend(loc="lower right")
+            axs[1, 0].legend(loc="lower right")
+        
+        
+        """
+            accuracy_per_class = []
+        
+            for cls in Class:
+                correct = np.sum((y_true == cls) & (y_preds == cls))
+                total = np.sum(y_true == cls)
+                accuracy_cls = correct / total if total > 0 else 0.0
+                accuracy_per_class.append(accuracy_cls)
+        
+            axs[2, 0].bar(Class, accuracy_per_class, color='b', alpha=0.7)
+            axs[2, 0].set_xlabel('Class')
+            axs[2, 0].set_ylabel('Accuracy')
+            axs[2, 0].set_title('Class-wise Accuracy')
+            axs[2, 0].set_xticks(Class)
+            axs[2, 0].grid(True)
+"""
+
+
+
     
     # Precision, Recall, F1 Score, Accuracy
     metric = ['Precision', 'Recall', 'F1 Score', 'Accuracy']
@@ -1336,7 +1421,7 @@ def plot_evaluate(y_test, y_preds, acc_list):
     axs[0, 1].set_ylim(0, 1)  # Y eksenini 0 ile 1 arasında sınırla
     axs[0, 1].set_xlabel('Metrics')
     axs[0, 1].set_ylabel('Score')
-    axs[0, 1].set_title('Precision, Recall, F1 Score, and Accuracy')
+    axs[0, 1].set_title('Precision, Recall, F1 Score, and Accuracy (Wighted)')
     axs[0, 1].grid(True, axis='y', linestyle='--', alpha=0.7)
     
                # Accuracy
