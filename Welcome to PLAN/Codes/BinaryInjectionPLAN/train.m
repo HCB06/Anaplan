@@ -84,19 +84,7 @@ inputLayer = normalization(inputLayer); % inputs in range 0 - 1
 
 %% FEATURE EXTRACTION LAYER %%
   inputConnections = find(inputLayer < activationPotential);
-   weights1(:,inputConnections(:)) = 0;
-  fexLayer = (weights1 * inputLayer);
-
-
-
-fexLayer = normalization(fexLayer); % fex neurons in range 0 - 1
-  
-%% CATALYST LAYER %%
-
-  catLayer = (weights2 * fexLayer);
-  
-catLayer
-
+  weights1(:,inputConnections(:)) = 0;
 
 if class ~= 1
 	
