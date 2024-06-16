@@ -20,76 +20,51 @@ inputLayer = img(:);
 inputLayer = single(inputLayer);
 
 weights1 = ones(9,784); % Matrix formed by ones
-weights2 = ones(9,9); % Matrix formed by ones
+weights2 = eye(9); % Diagonal matrix
 
 
 if class == 1 
 
 	weights1(2:9,:) = 0; % All except the first neuron are zero (synaptic pruning) 
 
-	weights2(2:9,:) = 0; % All except the first neuron are zero (synaptic pruning) 
-
 	elseif class == 2 
 
 		weights1(1,:) = 0;
 		weights1(3:9,:) = 0;
-		 
-		weights2(1,:) = 0;
-		weights2(3:9,:) = 0;
 
 		elseif class == 3
 
 			weights1(1:2,:) = 0;
 			weights1(4:9,:) = 0;
 
-			weights2(1:2,:) = 0;
-			weights2(4:9,:) = 0;
-
 			elseif class == 4
 
 				weights1(1:3,:) = 0;
 				weights1(5:9,:) = 0;
 				 
-				weights2(1:3,:) = 0;
-				weights2(5:9,:) = 0;
-
 				elseif class == 5 
 
 					weights1(1:4,:) = 0;
 					weights1(6:9,:) = 0;
-
-					weights2(1:4,:) = 0;
-					weights2(6:9,:) = 0;
-
+     
 					elseif class == 6 
 
 						weights1(1:5,:) = 0;
 						weights1(7:9,:) = 0;
-						 
-						weights2(1:5,:) = 0;
-						weights2(7:9,:) = 0;
 
 						elseif class == 7
 
 							weights1(1:6,:) = 0;
 							weights1(8:9,:) = 0;
 
-							weights2(1:6,:) = 0;
-							weights2(8:9,:) = 0;
-
 							elseif class == 8 
 
 								weights1(1:7,:) = 0;
 								weights1(9,:) = 0;
 
-								weights2(1:7,:) = 0;
-								weights2(9,:) = 0;
-
 								elseif class == 9 
 
 									weights1(1:8,:) = 0;
-
-									weights2(1:8,:) = 0;
 									
 end
 
@@ -97,30 +72,16 @@ end
 or you can do this (its more simple):
 
 weights1 = zeros(9,784); % Matrix formed by zeros
-weights2 = zeros(9,9); % Matrix formed by zeros
+weights2 = eye(9); % Matrix formed by zeros
 
 weights1(class,:) = 1;
-weights2(class,:) = 1;
  
 
 %}
 
-inputLayer = normalization(inputLayer); % inputs in range 0 - 1
-
 %% FEATURE EXTRACTION LAYER %%
   
   weights1(class,:) = inputLayer;
-  fexLayer = (weights1 * inputLayer);
-
-
-fexLayer = normalization(fexLayer); % fex neurons in range 0 - 1
-  
-%% CATALYST LAYER %%
-  fexConnections = find(fexLayer == 0);
-   weights2(:,fexConnections(:)) = 0;
-  catLayer = (weights2 * fexLayer);
-  
-catLayer
 
 
 if class ~= 1
@@ -136,7 +97,6 @@ if class ~= 1
 		
 		
 		weights1 += newWeights1;
-		weights2 += newWeights2;
 		
 end
 
