@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: pyerualjetwork
+Version: 2.2.2
+Summary:  8 new functions: multiple_evaluate , encode_one_hot, split, metrics, decode_one_hot, roc_curve, confusion_matrix, plot_evaluate And Code improvements (Documentation in desc. Examples in GİTHUB: https://github.com/HCB06/PyerualJetwork)
+Author: Hasan Can Beydili
+Author-email: tchasancan@gmail.com
+Keywords: model evaluation,classifcation,pruning learning artficial neural networks
