@@ -27,8 +27,8 @@ weights2 = eye(9); % Diagonal matrix
 inputLayer = normalization(inputLayer); % inputs in range 0 - 1
 
 %% FEATURE EXTRACTION LAYER %%
- inputLayer(inputLayer < activation_potential) = 0
- inputLayer(inputLayer > activation_potential) = 1
+ inputLayer(inputLayer < activationPotential) = 0;
+ inputLayer(inputLayer > activationPotential) = 1;
  weights1(class,:) = inputLayer;
 
 
