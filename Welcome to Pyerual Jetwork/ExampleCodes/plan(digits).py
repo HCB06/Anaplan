@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Jun 18 23:37:21 2024
-
-@author: hasan
-"""
-
 import time
 from colorama import Fore
 import plan_di as pdi
@@ -39,8 +32,8 @@ test_acc = test_model[pdi.get_acc()]
 model_name = 'digits'
 model_type = 'PLAN'
 weights_type = 'txt'
-weights_format = 'f'
-model_path = 'PlanModels/'
+weights_format = 'd'
+model_path = 'PlanModels'
 
 pdi.save_model(model_name, model_type, class_count, test_acc, weights_type, weights_format, model_path, scaler_params, W)
 
