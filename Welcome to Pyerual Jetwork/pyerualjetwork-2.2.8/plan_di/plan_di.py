@@ -20,8 +20,7 @@ import seaborn as sns
 
 def fit(
     x_train: List[Union[int, float]],
-    # At least two.. and one hot encoded
-    y_train: List[Union[int, float, str]],
+    y_train: List[Union[int], # At least two.. and one hot encoded
 ) -> str:
 
     infoPLAN = """
