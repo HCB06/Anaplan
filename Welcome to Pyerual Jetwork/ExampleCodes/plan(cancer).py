@@ -23,7 +23,7 @@ class_count = 2
 x_test, y_test = pdi.auto_balancer(x_test, y_test)
 
 W = pdi.fit(x_train, y_train)
-W = pdi.weight_post_process(W, class_count)
+W = pdi.weight_normalization(W, class_count)
 test_model = pdi.evaluate(x_test, y_test, show_metrics, W)
 test_preds = test_model[pdi.get_preds()]
 test_acc = test_model[pdi.get_acc()]
@@ -31,7 +31,7 @@ test_acc = test_model[pdi.get_acc()]
 model_name = 'breast_cancer'
 model_type = 'PLAN'
 weights_type = 'txt'
-weights_format = 'raw'
+weights_format = 'f'
 model_path = 'PlanModels/'
 class_count = 2
 
