@@ -26,6 +26,7 @@ scaler_params, x_train, x_test = pdi.standard_scaler(x_train, x_test)
 y_train, y_test = pdi.encode_one_hot(y_train, y_test)
 
 show_metrics = True
+class_count = 3
 
 x_test, y_test = pdi.auto_balancer(x_test, y_test)
 
@@ -38,7 +39,7 @@ test_acc = test_model[pdi.get_acc()]
 model_name = 'wine'
 model_type = 'PLAN'
 weights_type = 'txt'
-weights_format = 'f'
+weights_format = 'd'
 model_path = 'PlanModels/'
 class_count = 3
 
