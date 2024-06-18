@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Jun 18 23:37:21 2024
+
+@author: hasan
+"""
+
 import time
 from colorama import Fore
 import plan_di as pdi
@@ -10,16 +17,17 @@ y = data.target
 
 x_train, x_test, y_train, y_test = pdi.split(X, y, 0.4, 42)
 
+
 x_train = x_train.tolist()
 x_test = x_test.tolist()
 
-scaler = False
 
 y_train, y_test = pdi.encode_one_hot(y_train, y_test)
 
 show_metrics = True
+scaler_params = None
+class_count = 10
 
-x_train, y_train = pdi.auto_balancer(x_train, y_train)
 x_test, y_test = pdi.auto_balancer(x_test, y_test)
 
 W = pdi.fit(x_train, y_train)
@@ -31,11 +39,10 @@ test_acc = test_model[pdi.get_acc()]
 model_name = 'digits'
 model_type = 'PLAN'
 weights_type = 'txt'
-weights_format = 'd'
+weights_format = 'f'
 model_path = 'PlanModels/'
-class_count = 10
 
-pdi.save_model(model_name, model_type, class_count, test_acc, weights_type, weights_format, model_path, scaler, W)
+pdi.save_model(model_name, model_type, class_count, test_acc, weights_type, weights_format, model_path, scaler_params, W)
 
 precisison, recall, f1 = pdi.metrics(y_test, test_preds)
 print('Precision: ', precisison, '\n', 'Recall: ', recall, '\n', 'F1: ', f1)
