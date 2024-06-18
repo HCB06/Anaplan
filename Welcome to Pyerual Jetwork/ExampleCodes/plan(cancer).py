@@ -19,11 +19,11 @@ scaler_params, x_train, x_test = pdi.standard_scaler(x_train, x_test)
 y_train, y_test = pdi.encode_one_hot(y_train, y_test)
 
 show_metrics = True
-
+class_count = 2
 x_test, y_test = pdi.auto_balancer(x_test, y_test)
 
 W = pdi.fit(x_train, y_train)
-
+W = pdi.weight_post_process(W, class_count)
 test_model = pdi.evaluate(x_test, y_test, show_metrics, W)
 test_preds = test_model[pdi.get_preds()]
 test_acc = test_model[pdi.get_acc()]
