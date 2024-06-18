@@ -26,7 +26,6 @@ scaler_params, x_train, x_test = pdi.standard_scaler(x_train, x_test)
 y_train, y_test = pdi.encode_one_hot(y_train, y_test)
 
 show_metrics = True
-class_count = 3
 
 x_test, y_test = pdi.auto_balancer(x_test, y_test)
 
