@@ -16,17 +16,17 @@ x_train = x_train.tolist()
 x_test = x_test.tolist()
 
 class_count = 2
+show_metrics = True
+show_training = None
 
-x_train, x_test = pdi.standard_scaler(x_train, x_test)
+scaler_params, x_train, x_test = pdi.standard_scaler(x_train, x_test)
 
 x_train, y_train = pdi.auto_balancer(x_train, y_train)
 x_test, y_test = pdi.synthetic_augmentation(x_test, y_test)
 
 
+W = pdi.fit(x_train, y_train, show_training)
 
-W = pdi.fit(x_train, y_train)
-
-show_metrics = True
 
 test_model = pdi.evaluate(x_test, y_test, show_metrics, W)
 
@@ -37,10 +37,9 @@ model_name = 'creditcard_fraud(di)'
 model_type = 'PLAN'
 weights_type = 'txt'
 weights_format = 'd'
-model_path = 'PlanModels/'
-scaler = True
+model_path = 'PlanModels'
 
-pdi.save_model(model_name, model_type, class_count, test_acc, weights_type, weights_format, model_path, scaler, W)
+pdi.save_model(model_name, model_type, class_count, test_acc, weights_type, weights_format, model_path, scaler_params, W)
 
 
 
@@ -60,4 +59,3 @@ for i in range(len(x_test)):
 precisison, recall, f1 = pdi.metrics(y_test, test_preds)
 
 print('Precision: ', precisison, '\n', 'Recall: ', recall, '\n', 'F1: ', f1)
-
