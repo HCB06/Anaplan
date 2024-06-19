@@ -17,17 +17,17 @@ x_test = x_test.tolist()
 
 activation_potential = 0
 class_count = 2
+show_training = None
+show_metrics = True
 
-x_train, x_test = pbi.standard_scaler(x_train, x_test)
+scaler_params, x_train, x_test = pbi.standard_scaler(x_train, x_test)
 
 x_train, y_train = pbi.auto_balancer(x_train, y_train)
 x_test, y_test = pbi.synthetic_augmentation(x_test, y_test)
 
 
+W = pbi.fit(x_train, y_train, activation_potential, show_training)
 
-W = pbi.fit(x_train, y_train, activation_potential)
-
-show_metrics = True
 
 test_model = pbi.evaluate(x_test, y_test, activation_potential, show_metrics, W)
 
@@ -38,12 +38,9 @@ model_name = 'creditcard_fraud'
 model_type = 'PLAN'
 weights_type = 'txt'
 weights_format = 'd'
-model_path = 'PlanModels/'
-scaler = True
+model_path = 'PlanModels'
 
-pbi.save_model(model_name, model_type, class_count, activation_potential, test_acc, weights_type, weights_format, model_path, scaler, W)
-
-
+pbi.save_model(model_name, model_type, class_count, activation_potential, test_acc, weights_type, weights_format, model_path, scaler_params, W)
 
 
 """
@@ -61,4 +58,3 @@ for i in range(len(x_test)):
 precisison, recall, f1 = pbi.metrics(y_test, test_preds)
 
 print('Precision: ', precisison, '\n', 'Recall: ', recall, '\n', 'F1: ', f1)
-
