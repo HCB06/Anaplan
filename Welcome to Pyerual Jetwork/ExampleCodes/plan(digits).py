@@ -1,16 +1,20 @@
 import time
-from colorama import Fore
+from colorama import Fore, Style
 import plan_di as pdi
 from sklearn.datasets import load_digits
 import numpy as np
+import matplotlib.pyplot as plt
+
+
 
 data = load_digits()
 X = data.data
 y = data.target
 
+    
 x_train, x_test, y_train, y_test = pdi.split(X, y, 0.4, 42)
-
-
+    
+    
 x_train = x_train.tolist()
 x_test = x_test.tolist()
 
@@ -20,10 +24,12 @@ y_train, y_test = pdi.encode_one_hot(y_train, y_test)
 show_metrics = True
 scaler_params = None
 class_count = 10
+show_training = True
 
 x_test, y_test = pdi.auto_balancer(x_test, y_test)
 
-W = pdi.fit(x_train, y_train)
+
+W = pdi.fit(x_train, y_train, show_training)
 
 test_model = pdi.evaluate(x_test, y_test, show_metrics, W)
 test_preds = test_model[pdi.get_preds()]
