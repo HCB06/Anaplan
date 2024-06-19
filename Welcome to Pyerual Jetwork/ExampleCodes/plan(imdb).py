@@ -10,7 +10,7 @@ data = pd.read_csv('IMDB Dataset.csv')
 X = data['review']
 y = data['sentiment']
 
-vectorizer = TfidfVectorizer(max_features=6000)
+vectorizer = TfidfVectorizer(max_features=6084)
 X = vectorizer.fit_transform(X)
 X = X.toarray()
 
@@ -27,10 +27,11 @@ y_train, y_test = pdi.encode_one_hot(y_train, y_test)
 scaler_params, x_train, x_test = pdi.standard_scaler(x_train, x_test)
 
 show_metrices = True
+show_training = 'final' # other values: True or'final'
 
 x_train, y_train = pdi.auto_balancer(x_train, y_train)
 
-W = pdi.fit(x_train, y_train)
+W = pdi.fit(x_train, y_train, show_training)
 
 
 test_model = pdi.evaluate(x_test, y_test, show_metrices, W)
