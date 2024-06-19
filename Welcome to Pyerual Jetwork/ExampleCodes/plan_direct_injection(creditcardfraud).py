@@ -45,6 +45,7 @@ pdi.save_model(model_name, model_type, class_count, test_acc, weights_type, weig
 
 
 """
+scaler_params = None # Because test data is already scaled. The real world input must be scale.
 y_test = np.argmax(y_test, axis=1)
 for i in range(len(x_test)):
     Predict = plan.predict_model_ssd(x_test[i], model_name, model_path)
