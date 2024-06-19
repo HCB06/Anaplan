@@ -17,7 +17,7 @@ x_test = x_test.tolist()
 
 class_count = 2
 show_metrics = True
-show_training = None
+show_training = None # other values: 'final' or True
 
 scaler_params, x_train, x_test = pdi.standard_scaler(x_train, x_test)
 
