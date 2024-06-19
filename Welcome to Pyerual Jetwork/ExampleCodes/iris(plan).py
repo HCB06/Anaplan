@@ -8,7 +8,7 @@ data = load_iris()
 X = data.data
 y = data.target
 
-x_train, x_test, y_train, y_test = pdi.split(X, y, 0.4, 42)
+x_train, x_test, y_train, y_test = pdi.split(X, y, 0.1, 42)
 
 x_train = x_train.tolist()
 x_test = x_test.tolist()
