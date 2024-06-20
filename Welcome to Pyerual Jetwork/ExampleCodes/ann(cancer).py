@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Jun 20 05:43:52 2024
+
+@author: hasan
+"""
+
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 from sklearn.model_selection import train_test_split
@@ -24,21 +31,13 @@ TrainLabels = encoder.fit_transform(y_train.reshape(-1, 1)).toarray()
 TestLabels = encoder.transform(y_test.reshape(-1, 1)).toarray()
 
 model = Sequential([
-    Dense(2, activation='relu', input_shape=(X_train.shape[1],)),
+    Dense(128, activation='relu', input_shape=(X_train.shape[1],)),
+    Dense(64, activation='relu'),
     Dense(2, activation='softmax')
 ])
 
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 
-model.fit(X_train_scaled, TrainLabels, epochs=0, batch_size=32, validation_data=(X_test_scaled, TestLabels))
+model.fit(X_train_scaled, TrainLabels, epochs=30, batch_size=32, validation_data=(X_test_scaled, TestLabels))
 
 test_loss, test_accuracy = model.evaluate(X_test_scaled, TestLabels)
-print('Test Accuracy:', test_accuracy)
-
-for i in range(len(X_test_scaled)):
-    Predict = model.predict(np.array([X_test_scaled[i]]))
-    time.sleep(0.6)
-    if np.argmax(Predict) == np.argmax(TestLabels[i]):
-        print(Fore.GREEN + 'Predicted Output(index):', np.argmax(Predict), 'Real Output(index):', np.argmax(TestLabels[i]))
-    else:
-        print(Fore.RED + 'Predicted Output(index):', np.argmax(Predict), 'Real Output(index):', np.argmax(TestLabels[i]))
