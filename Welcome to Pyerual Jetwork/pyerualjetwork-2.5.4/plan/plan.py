@@ -13,7 +13,6 @@ import numpy as np
 import time
 from colorama import Fore, Style
 from typing import List, Union
-import math
 from scipy.special import expit, softmax
 import matplotlib.pyplot as plt
 import seaborn as sns
