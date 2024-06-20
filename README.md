@@ -10,14 +10,12 @@ https://libraries.io/pypi/pyerualjetwork
           'pandas',
           'numpy',
           'scipy',
-            'time',
-            'math',
-            'colorama',
-            'typing'
-            ],
-      
-       extras_require={
-          'visualization': ['matplotlib','seaborn']
+          'time',
+          'colorama',
+          'typing',
+	      'matplotlib',
+          'seaborn'
+            ]
           
 ##############################
 
