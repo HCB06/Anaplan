@@ -19,8 +19,6 @@ https://libraries.io/pypi/pyerualjetwork
           
 ##############################
 
-2.2.2 New Features: 8 new functions: multiple_evaluate , encode_one_hot, split, metrics, decode_one_hot, roc_curve, confusion_matrix, plot_evaluate And Code improvements
-
 ABOUT PYERUAL JETWORK:
 
 Pyerual Jetwork is a machine learning library written in Python for professionals, incorporating advanced, unique, new, and modern techniques. Its most important component is the PLAN (Pruning Learning Artificial Neural Network).
@@ -36,18 +34,18 @@ The PLAN algorithm will not be explained in this document. This document focuses
 
 The functions of the Pyerual Jetwork modules, uses snake_case written style.
 
-The PLAN module consists of 28 functions. Of these, 22 are main functions (which the user will interact with frequently), and the remaining 6 are auxiliary functions.
+The PLAN module consists of 30 functions. Of these, 24 are main functions (which the user will interact with frequently), and the remaining 6 are auxiliary functions.
 
 
 
 HOW DO I IMPORT IT TO MY PROJECT?
-Anaconda users can access the 'Anaconda Prompt' terminal from the Start menu and add the necessary library modules to the Python module search queue by typing "pip install pyerualjetwork" and pressing enter. If you are not using Anaconda, you can simply open the 'cmd' Windows command terminal from the Start menu and type "pip install pyerualjetwork". After installation, it's important to periodically open the terminal of the environment you are using and stay up to date by using the command "pip install pyerualjetwork --upgrade". As of 06/04/2024, the most current version is "2.0.5". This version is the successor to version "1.0" of the library. Previous versions were for testing purposes. The latest version was “2.2.5” at the time this document was written.
+Anaconda users can access the 'Anaconda Prompt' terminal from the Start menu and add the necessary library modules to the Python module search queue by typing "pip install pyerualjetwork" and pressing enter. If you are not using Anaconda, you can simply open the 'cmd' Windows command terminal from the Start menu and type "pip install pyerualjetwork". After installation, it's important to periodically open the terminal of the environment you are using and stay up to date by using the command "pip install pyerualjetwork --upgrade". As of 06/04/2024, the most current version is "2.0.5". This version is the successor to version "1.0" of the library. Previous versions were for testing purposes. The latest version was “2.5.4” at the time this document was written.
 
-•	After installing the modules using "pip" you can now call the library modules in your project environment. To do this, simply write "import plan_bi" for binary injection or “import plan_di” for direct injection. Now, you can call the necessary functions from the plan module.
+•	After installing the modules using "pip" you can now call the library module in your project environment. To do this, simply write "import plan". Now, you can call the necessary functions from the plan module.
 				
 
 MAIN FUNCTIONS:
-1. fit (2Args - 3Args)
+1. fit (3Args - 4Args)
 2. evaluate (4Args - 5Args)
 3. save_model (9Args - 10Args)
 4. load_model (2Args)
@@ -68,7 +66,9 @@ MAIN FUNCTIONS:
 19. roc_curve (2Args)
 20. confusion_matrix (3Args)
 21. plot_evaluate (2Args)
-22. standard_scaler(2Args)
+22. standard_scaler (2Args)
+23. manuel_balancer (3Args)
+24. weight_normalization (2Args)
 
 -----
 
