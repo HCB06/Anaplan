@@ -5,6 +5,7 @@ https://libraries.io/pypi/pyerualjetwork
       pip install pyerualjetwork
       
       import plan
+      
       requires=[
           'pandas',
           'numpy',
