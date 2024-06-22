@@ -1,4 +1,4 @@
-function validate(activationPotential)
+function validate(activationPotentiation)
 
 class = 1;
 
@@ -33,7 +33,7 @@ hold on
 
 inputLayer = normalization(inputLayer); % inputs in range 0 - 1
 
-output_layer = pred(inputLayer, activationPotential, weights1, weights2);
+output_layer = pred(inputLayer, activationPotentiation, weights1, weights2);
 
 i = 1;
 
@@ -73,7 +73,7 @@ disp(['Wrong predict count: ' num2str(wrong_predict)]);
 key = input('press "y" for test or "n" for re-train.', 's');
     
     if strcmp(key, 'y')
-        improved_test(activationPotential)
+        improved_test(activationPotentiation)
     elseif strcmp(key, 'n')
 		delete_model()
 	end
