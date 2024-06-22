@@ -21,7 +21,7 @@ https://libraries.io/pypi/pyerualjetwork
 
 ABOUT PYERUAL JETWORK:
 
-Pyerual Jetwork is a machine learning library written in Python for professionals, incorporating advanced, unique, new, and modern techniques. Its most important component is the PLAN (Pruning Learning Artificial Neural Network).
+Pyerual Jetwork is a machine learning library written in Python for professionals, incorporating advanced, unique, new, and modern techniques. Its most important component is the PLAN (Potentiation Learning Artificial Neural Network).
 
 Both the PLAN algorithm and the Pyerual Jetwork library were created by Author, and all rights are reserved by Author.
 
@@ -45,7 +45,7 @@ Anaconda users can access the 'Anaconda Prompt' terminal from the Start menu and
 				
 
 MAIN FUNCTIONS:
-1. fit (3Args - 4Args)
+1. fit (3Args - 9Args)
 2. evaluate (4Args - 5Args)
 3. save_model (9Args - 10Args)
 4. load_model (2Args)
