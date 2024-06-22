@@ -14,7 +14,7 @@ y_train, y_test = plan.encode_one_hot(y_train, y_test)
 x_train = x_train.tolist()
 x_test = x_test.tolist()
 
-activation_potential = 0
+activation_potentiation = 0
 class_count = 2
 show_training = None
 show_metrics = True
@@ -25,10 +25,10 @@ x_train, y_train = plan.auto_balancer(x_train, y_train)
 x_test, y_test = plan.synthetic_augmentation(x_test, y_test)
 
 
-W = plan.fit(x_train, y_train, show_training, activation_potential)
+W = plan.fit(x_train, y_train, show_training, activation_potentiation)
 
 
-test_model = plan.evaluate(x_test, y_test, show_metrics, W, activation_potential)
+test_model = plan.evaluate(x_test, y_test, show_metrics, W, activation_potentiation)
 
 test_preds = test_model[plan.get_preds()]
 test_acc = test_model[plan.get_acc()]
@@ -39,7 +39,7 @@ weights_type = 'txt'
 weights_format = 'd'
 model_path = 'PlanModels'
 
-plan.save_model(model_name, model_type, class_count, test_acc, weights_type, weights_format, model_path, scaler_params, W, activation_potential)
+plan.save_model(model_name, model_type, class_count, test_acc, weights_type, weights_format, model_path, scaler_params, W, activation_potentiation)
 
 
 """
