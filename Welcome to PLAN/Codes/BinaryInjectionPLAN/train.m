@@ -2,7 +2,7 @@ function train()
 
 class = 1;
 
-activationPotential = 0.5;
+activationPotentiation = 0.5;
 
 disp('training');
 
@@ -27,8 +27,8 @@ weights2 = eye(9); % Diagonal matrix
 inputLayer = normalization(inputLayer); % inputs in range 0 - 1
 
 %% FEATURE EXTRACTION LAYER %%
- inputLayer(inputLayer < activationPotential) = 0;
- inputLayer(inputLayer > activationPotential) = 1;
+ inputLayer(inputLayer < activationPotentiation) = 0;
+ inputLayer(inputLayer > activationPotentiation) = 1;
  weights1(class,:) = inputLayer;
 
 
@@ -68,4 +68,4 @@ disp('validation starting in 3..');
 
 pause(3)
 
-validate(activationPotential) % with train inputs
+validate(activationPotentiation) % with train inputs
