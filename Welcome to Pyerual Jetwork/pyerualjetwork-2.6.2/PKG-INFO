@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: pyerualjetwork
+Version: 2.6.2
+Summary: New optional parameters added for fit function, x_val, y_val show_count, val_count, val. For more information please read user document
+Author: Hasan Can Beydili
+Author-email: tchasancan@gmail.com
+Keywords: model evaluation,classifcation,pruning learning artficial neural networks
