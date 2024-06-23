@@ -21,8 +21,6 @@ inputLayer = img(:);
 inputLayer = single(inputLayer);
 
 weights1 = ones(9,784); % Matrix formed by ones
-weights2 = eye(9); % Diagonal matrix
-
 
 inputLayer = normalization(inputLayer); % inputs in range 0 - 1
 
@@ -35,13 +33,11 @@ inputLayer = normalization(inputLayer); % inputs in range 0 - 1
 if class ~= 1
 	
 		newWeights1 = weights1;
-		newWeights2 = weights2;
+  
 		
 		fileName1 = sprintf('weights/weights1.mat');
     load(fileName1);
     
-		fileName2 = sprintf('weights/weights2.mat');
-    load(fileName2);
 		
 		
 		weights1 += newWeights1;
@@ -52,8 +48,6 @@ end
 		fileName1 = sprintf('weights/weights1.mat');
 	save(fileName1, 'weights1');
 
-		fileName2 = sprintf('weights/weights2.mat');
-	save(fileName2, 'weights2'); 
 
   
 pause(1); % Wait 1 sec.
