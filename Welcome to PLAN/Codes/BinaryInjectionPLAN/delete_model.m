@@ -12,4 +12,4 @@ function delete_model ()
 	save(fileName1, 'weights1');
 
 
-	disp('Model deleted. starting training..');
+	disp('Model deleted.');
