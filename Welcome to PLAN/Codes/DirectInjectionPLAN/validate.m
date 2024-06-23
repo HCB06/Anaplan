@@ -21,8 +21,6 @@ inputLayer = single(input_layer);
 		fileName1 = sprintf('weights/weights1.mat');
     load(fileName1);
     
-		fileName2 = sprintf('weights/weights2.mat');
-    load(fileName2);
 	
 	
 prediction = 'None';
@@ -33,7 +31,7 @@ hold on
 
 inputLayer = normalization(inputLayer); % inputs in range 0 - 1
 
-output_layer = pred(inputLayer, weights1, weights2);
+output_layer = pred(inputLayer, weights1);
 
 i = 1;
 
