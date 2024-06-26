@@ -14,7 +14,8 @@ https://libraries.io/pypi/pyerualjetwork
           'colorama',
           'typing',
 	      'matplotlib',
-          'seaborn'
+          'seaborn',
+	      'tqdm'
             ]
           
 ##############################
