@@ -24,12 +24,14 @@ y_train, y_test = plan.encode_one_hot(y_train, y_test)
 show_metrics = True
 scaler_params = None
 class_count = 10
-show_training = True
+show_training = None
+show_count = None
+val = True
 
 x_test, y_test = plan.auto_balancer(x_test, y_test)
 
 
-W = plan.fit(x_train, y_train, show_training)
+W = plan.fit(x_train, y_train, show_training, show_count, val)
 
 test_model = plan.evaluate(x_test, y_test, show_metrics, W)
 test_preds = test_model[plan.get_preds()]
