@@ -5,6 +5,8 @@ https://libraries.io/pypi/pyerualjetwork
       pip install pyerualjetwork
       
       import plan
+
+      optimized for Vs Code
       
       requires=[
           'pandas',
