@@ -1,12 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri Jun 21 05:21:35 2024
-
-@author: hasan
-"""
-
-# -*- coding: utf-8 -*-
-"""
 Created on Tue Jun 18 23:32:16 2024
 
 @author: hasan
