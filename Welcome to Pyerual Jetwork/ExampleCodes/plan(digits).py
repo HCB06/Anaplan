@@ -11,6 +11,7 @@ data = load_digits()
 X = data.data
 y = data.target
 
+X = plan.normalization(X)
     
 x_train, x_test, y_train, y_test = plan.split(X, y, 0.4, 42)
     
