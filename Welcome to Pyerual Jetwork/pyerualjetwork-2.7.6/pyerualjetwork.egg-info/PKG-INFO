@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: pyerualjetwork
+Version: 2.7.6
+Summary: Changes in standard_scaler function paramter: x_test default value=None. Now x_test parameter is optional
+Author: Hasan Can Beydili
+Author-email: tchasancan@gmail.com
+Keywords: model evaluation,classifcation,potentiation learning artficial neural networks
