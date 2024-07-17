@@ -1,5 +1,10 @@
 import plan
+import time
+from colorama import Fore
+import numpy as np
 from sklearn.datasets import load_digits
+
+# TRAIN
 
 data = load_digits()
 
@@ -21,6 +26,19 @@ W = plan.fit(x_train, y_train)
 
 W = plan.normalization(W)
 
+# TEST
+
 test_model = plan.evaluate(x_test, y_test, show_metrices=True, W=W)
-test_preds = test_model[get_preds()]
-test_acc = test_model[get_acc()]
+test_preds = test_model[plan.get_preds()]
+test_acc = test_model[plan.get_acc()]
+
+# PREDICT
+
+for i in range(len(x_test)):
+    Predict = plan.predict_model_ram(x_test[i], W)
+
+    time.sleep(0.5)
+    if np.argmax(Predict) == np.argmax(y_test[i]):
+        print(Fore.GREEN + 'Predicted Output(index):', np.argmax(Predict), 'Real Output(index):', np.argmax(y_test[i]))
+    else:
+        print(Fore.RED + 'Predicted Output(index):', np.argmax(Predict), 'Real Output(index):', np.argmax(y_test[i]))
