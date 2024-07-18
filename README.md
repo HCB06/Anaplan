@@ -12,7 +12,6 @@ https://libraries.io/pypi/pyerualjetwork
           'pandas',
           'numpy',
           'scipy',
-          'time',
           'colorama',
           'typing',
 	      'matplotlib',
