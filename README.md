@@ -6,7 +6,7 @@ https://libraries.io/pypi/pyerualjetwork
       
       import plan
 
-      optimized for Vs Code
+      optimized for VS Code
       
       requires=[
           'pandas',
