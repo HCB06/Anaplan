@@ -13,7 +13,6 @@ https://libraries.io/pypi/pyerualjetwork
           'numpy',
           'scipy',
           'colorama',
-          'typing',
 	      'matplotlib',
           'seaborn',
 	      'tqdm'
