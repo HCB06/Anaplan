@@ -15,8 +15,6 @@ x_test, y_test = plan.auto_balancer(x_test, y_test)
 
 W = plan.fit(x_train, y_train)
 
-W = plan.normalization(W)
-
 test_model = plan.evaluate(x_test, y_test, show_metrices=True, W=W)
 
 test_preds = test_model[plan.get_preds()]
