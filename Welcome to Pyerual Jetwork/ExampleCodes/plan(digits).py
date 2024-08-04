@@ -3,6 +3,7 @@ import time
 from colorama import Fore
 import numpy as np
 from sklearn.datasets import load_digits
+from matplotlib import pyplot as plt
 
 # TRAIN
 
@@ -21,14 +22,14 @@ y_train, y_test = plan.encode_one_hot(y_train, y_test)
 
 x_test, y_test = plan.auto_balancer(x_test, y_test)
 
+plan.plot_decision_space(x_train, plan.decode_one_hot(y_train))
+plt.show()
 
 W = plan.fit(x_train, y_train)
 
-W = plan.normalization(W)
-
 # TEST
 
-test_model = plan.evaluate(x_test, y_test, show_metrices=True, W=W)
+test_model = plan.evaluate(x_train, y_train, show_metrices=True, W=W)
 test_preds = test_model[plan.get_preds()]
 test_acc = test_model[plan.get_acc()]
 
