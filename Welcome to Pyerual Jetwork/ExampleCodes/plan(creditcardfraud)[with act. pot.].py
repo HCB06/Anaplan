@@ -1,6 +1,5 @@
 import pandas as pd
 import plan
-import numpy as np
 
 data = pd.read_csv('creditcard.csv')
 
