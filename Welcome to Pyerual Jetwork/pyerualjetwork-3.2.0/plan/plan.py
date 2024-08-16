@@ -43,7 +43,7 @@ def fit(
         y_train (list[num]): List of target labels. (one hot encoded)
         val (None, True or 'final'): validation in training process ? None, True or 'final' Default: None (optional)
         val_count (None, int): After how many examples learned will an accuracy test be performed? Default: 10 (%10) (optional)
-        activation_potentiation (float): Input activation potentiation (for binary injection) (optional) in range: -1, 1
+        activation_potentiation activation_potentiation (list): ac list for deep PLAN. default: [None] ('linear') (optional)
         x_val (list[num]): List of validation data. (optional) Default: %10 of x_train (auto_balanced) it means every %1 of train progress starts validation
         y_val (list[num]): (list[num]): List of target labels. (one hot encoded) (optional) Default: %10 of y_train (auto_balanced) it means every %1 of train progress starts validation
         show_training (bool, str): True, None or'final'
