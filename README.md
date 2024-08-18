@@ -15,7 +15,8 @@ https://libraries.io/pypi/pyerualjetwork
           'colorama',
 	      'matplotlib',
           'seaborn',
-	      'tqdm'
+	      'tqdm',
+          'networkx'
             ]
           
 ##############################
