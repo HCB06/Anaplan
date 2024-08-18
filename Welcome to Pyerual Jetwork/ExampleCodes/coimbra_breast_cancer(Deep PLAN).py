@@ -30,16 +30,15 @@ scaler_params, x_train, x_test = plan.standard_scaler(x_train, x_test)
 activation_potentiation = [None, 'waveakt']
 
 # Modeli eğitme
-W = plan.fit(x_train, y_train, show_training=True, val=True, val_count=5, interval=100, activation_potentiation=activation_potentiation, LTD=0)
+W = plan.fit(x_train, y_train, activation_potentiation=activation_potentiation, LTD=0) # val=True, show_training=True, val_count=(int), interval=(int), x_val=(default: x_train), y_val=(default: y_train)
 
 # Modeli test etme
-test_model = plan.evaluate(x_test, y_test, show_metrices=True, bar_status=False, W=W, activation_potentiation=activation_potentiation)
+test_model = plan.evaluate(x_test, y_test, show_metrices=True,  W=W, activation_potentiation=activation_potentiation)
 print(classification_report(plan.decode_one_hot(y_test), test_model[plan.get_preds()]))
 test_acc = test_model[plan.get_acc()]
 
 plan.save_model(model_name='breast_cancer_coimbra',
                 model_type='deep PLAN',
-                class_count=2,
                 test_acc=test_acc,
                 weights_type='txt',
                 weights_format='f',
@@ -56,4 +55,4 @@ for i in range(len(x_val)):
     if np.argmax(Predict) == np.argmax(y_val[i]):
         print(Fore.GREEN + 'Predicted Output(index):', np.argmax(Predict), 'Real Output(index):', np.argmax(y_val[i]))
     else:
-        print(Fore.RED + 'Predicted Output(index):', np.argmax(Predict), 'Real Output(index):', np.argmax(y_val[i])
+        print(Fore.RED + 'Predicted Output(index):', np.argmax(Predict), 'Real Output(index):', np.argmax(y_val[i]))
