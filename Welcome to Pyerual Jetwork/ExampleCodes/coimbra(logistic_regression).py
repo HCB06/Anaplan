@@ -1,8 +1,9 @@
 import pandas as pd
-from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report, accuracy_score
 import plan
+import numpy as np
+from matplotlib import pyplot as plt
 
 # Veriyi yükleme
 file_path = 'breast_cancer_coimbra.csv'
@@ -44,3 +45,28 @@ x_val = plan.standard_scaler(x_test=x_val, scaler_params=scaler_params)
 y_val_pred = model.predict(x_val)
 for i in range(len(x_val)):
     print(f"Predicted Output: {y_val_pred[i]}, Real Output: {y_val[i]}")
+
+
+# Karar sınırlarını görselleştirme
+feature_indices = [0, 1]
+
+h = .02  # mesh grid adımı
+x_min, x_max = x_test[:, feature_indices[0]].min() - 1, x_test[:, feature_indices[0]].max() + 1
+y_min, y_max = x_test[:, feature_indices[1]].min() - 1, x_test[:, feature_indices[1]].max() + 1
+xx, yy = np.meshgrid(np.arange(x_min, x_max, h),
+                     np.arange(y_min, y_max, h))
+
+grid = np.c_[xx.ravel(), yy.ravel()]
+grid_full = np.zeros((grid.shape[0], x_test.shape[1]))
+grid_full[:, feature_indices] = grid
+
+Z = model.predict(grid_full)
+
+Z = Z.reshape(xx.shape)
+
+plt.contourf(xx, yy, Z, alpha=0.8)
+plt.scatter(x_test[:, feature_indices[0]], x_test[:, feature_indices[1]], c=y_test, edgecolors='k', marker='o', s=20, alpha=0.9)
+plt.xlabel(f'Feature {feature_indices[0] + 1}')
+plt.ylabel(f'Feature {feature_indices[1] + 1}')
+plt.title('Decision Boundary')
+plt.show()
