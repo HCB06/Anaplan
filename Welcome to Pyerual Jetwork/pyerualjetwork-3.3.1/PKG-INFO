@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: pyerualjetwork
+Version: 3.3.1
+Summary: fit function changes: LTD parameter included for Deep PLAN and professional visualizing for training. in the fit funciton, show_training=True
+Author: Hasan Can Beydili
+Author-email: tchasancan@gmail.com
+Keywords: model evaluation,classifcation,potentiation learning artficial neural networks
