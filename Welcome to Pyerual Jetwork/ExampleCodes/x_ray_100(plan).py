@@ -52,8 +52,8 @@ y_test = np.array(y_test)
 
 y_train, y_test = pn.encode_one_hot(y_train, y_test)
 
-
 x_train, y_train = pn.auto_balancer(x_train, y_train)
+x_test, y_test = pn.auto_balancer(x_test, y_test)
 
 x_train = pn.normalization(x_train)
 x_test = pn.normalization(x_test)
