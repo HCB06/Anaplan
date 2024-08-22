@@ -17,8 +17,9 @@ scaler_params, x_train, x_test = plan.standard_scaler(x_train, x_test)
 x_train, y_train = plan.auto_balancer(x_train, y_train)
 x_test, y_test = plan.auto_balancer(x_test, y_test)
 
+activation_potentiation = ['sigmoid']
 
-W = plan.fit(x_train, y_train, activation_potentiation=0)
+W = plan.fit(x_train, y_train, activation_potentiation=activation_potentiation)
 
 
-test_model = plan.evaluate(x_test, y_test, show_metrices=True, W=W, activation_potentiation=0)
+test_model = plan.evaluate(x_test, y_test, show_metrices=True, W=W, activation_potentiation=activation_potentiation)
