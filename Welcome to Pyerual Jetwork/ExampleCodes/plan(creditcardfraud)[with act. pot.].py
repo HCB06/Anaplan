@@ -1,7 +1,7 @@
 import pandas as pd
 import plan
 
-data = pd.read_csv('creditcard.csv')
+data = pd.read_csv('creditcard.csv') # dataset link: https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud
 
 x = data.drop('Class', axis=1).values
 y = data['Class'].values
