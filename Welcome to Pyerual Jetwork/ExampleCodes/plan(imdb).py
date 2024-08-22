@@ -2,7 +2,7 @@ import plan
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-data = pd.read_csv('IMDB Dataset.csv')
+data = pd.read_csv('IMDB Dataset.csv') # dataset link: https://www.kaggle.com/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews
 
 X = data['review']
 y = data['sentiment']
@@ -27,14 +27,7 @@ test_model = plan.evaluate(x_test, y_test, show_metrices=True, W=W)
 test_acc = test_model[plan.get_acc()]
 test_preds = test_model[plan.get_preds()]
 
-model_name = 'IMDB'
-model_type = 'PLAN'
-class_count = 2
-weights_type = 'txt'
-weights_format = 'f'
-model_path = ''
-
-plan.save_model(model_name, model_type, class_count, test_acc, weights_type, weights_format, model_path, scaler_params, W)
+plan.save_model(model_name='IMDB', model_type='PLAN', test_acc=test_acc, weights_type='txt', weights_format='f', model_path='', scaler_params=scaler_params, W=W)
 
 precisison, recall, f1 = plan.metrics(y_test, test_preds)
 
