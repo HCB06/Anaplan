@@ -54,6 +54,7 @@ y_train, y_test = pn.encode_one_hot(y_train, y_test)
 
 
 x_train, y_train = pn.auto_balancer(x_train, y_train)
+x_test, y_test = pn.auto_balancer(x_test, y_test)
 
 for i in range(len(x_test)):
     x_test[i] = pn.normalization(x_test[i])
