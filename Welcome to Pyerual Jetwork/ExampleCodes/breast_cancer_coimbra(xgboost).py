@@ -4,10 +4,11 @@ from colorama import Fore
 import plan
 import time
 from sklearn.metrics import classification_report
+from xgboost import XGBClassifier
+from sklearn.metrics import accuracy_score
 
 file_path = 'breast_cancer_coimbra.csv' 
 data = pd.read_csv(file_path)
-
 
 X = data.drop('Classification', axis=1).values
 y = data['Classification'].values
@@ -26,34 +27,25 @@ x_train, y_train = plan.auto_balancer(x_train, y_train)
 # Verilerin standardize edilmesi
 scaler_params, x_train, x_test = plan.standard_scaler(x_train, x_test)
 
-# Aktivasyon fonksiyonları
-activation_potentiation = [None, 'waveakt']
+# XGBoost modelini oluşturma
+xgb_model = XGBClassifier(use_label_encoder=False, eval_metric='mlogloss')
 
 # Modeli eğitme
-W = plan.fit(x_train, y_train, show_training=True, val=True, val_count=5, interval=100, activation_potentiation=activation_potentiation, LTD=0)
+xgb_model.fit(x_train, np.argmax(y_train, axis=1))
 
-# Modeli test etme
-test_model = plan.evaluate(x_test, y_test, show_metrices=True, bar_status=False, W=W, activation_potentiation=activation_potentiation)
-print(classification_report(plan.decode_one_hot(y_test), test_model[plan.get_preds()]))
-test_acc = test_model[plan.get_acc()]
+# Test seti ile tahmin
+y_pred = xgb_model.predict(x_test)
 
-plan.save_model(model_name='breast_cancer_coimbra',
-                model_type='deep PLAN',
-                class_count=2,
-                test_acc=test_acc,
-                weights_type='txt',
-                weights_format='f',
-                model_path='',
-                scaler_params=scaler_params,
-                activation_potentiation=activation_potentiation,
-                W=W)
+# Test doğruluğunu hesaplama
+test_acc = accuracy_score(np.argmax(y_test, axis=1), y_pred)
+print(f"Test Accuracy: {test_acc}")
 
 # Model tahminlerini değerlendirme
 for i in range(len(x_val)):
-    Predict = plan.predict_model_ssd(model_name='breast_cancer_coimbra', model_path='', Input=x_val[i])
+    Predict = xgb_model.predict(x_val[i].reshape(1, -1))
 
     time.sleep(0.5)
-    if np.argmax(Predict) == np.argmax(y_val[i]):
-        print(Fore.GREEN + 'Predicted Output(index):', np.argmax(Predict), 'Real Output(index):', np.argmax(y_val[i]))
+    if Predict == np.argmax(y_val[i]):
+        print(Fore.GREEN + f'Predicted Output(index): {Predict[0]}, Real Output(index): {np.argmax(y_val[i])}')
     else:
-        print(Fore.RED + 'Predicted Output(index):', np.argmax(Predict), 'Real Output(index):', np.argmax(y_val[i])
+        print(Fore.RED + f'Predicted Output(index): {Predict[0]}, Real Output(index): {np.argmax(y_val[i])}')
