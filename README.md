@@ -36,9 +36,6 @@ The PLAN algorithm will not be explained in this document. This document focuses
 
 The functions of the Pyerual Jetwork modules, uses snake_case written style.
 
-The PLAN module consists of 30 functions. Of these, 24 are main functions (which the user will interact with frequently), and the remaining 6 are auxiliary functions.
-
-
 
 HOW DO I IMPORT IT TO MY PROJECT?
 Anaconda users can access the 'Anaconda Prompt' terminal from the Start menu and add the necessary library modules to the Python module search queue by typing "pip install pyerualjetwork" and pressing enter. If you are not using Anaconda, you can simply open the 'cmd' Windows command terminal from the Start menu and type "pip install pyerualjetwork". (Visual Studio Code reccomended) After installation, it's important to periodically open the terminal of the environment you are using and stay up to date by using the command "pip install pyerualjetwork --upgrade". As of 06/04/2024, the most current version is "2.0.5". This version is the successor to version "1.0" of the library. Previous versions were for testing purposes. The latest version was “3.3.2” at the time this document was written
