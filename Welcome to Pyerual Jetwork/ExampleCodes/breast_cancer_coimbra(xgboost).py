@@ -40,6 +40,10 @@ y_pred = xgb_model.predict(x_test)
 test_acc = accuracy_score(np.argmax(y_test, axis=1), y_pred)
 print(f"Test Accuracy: {test_acc}")
 
+# Classification report
+print("\nClassification Report:")
+print(classification_report(np.argmax(y_test, axis=1), y_pred))
+
 # Model tahminlerini değerlendirme
 for i in range(len(x_val)):
     Predict = xgb_model.predict(x_val[i].reshape(1, -1))
