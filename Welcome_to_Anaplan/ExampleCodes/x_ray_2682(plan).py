@@ -1,6 +1,6 @@
 import time
 from colorama import Fore, Style
-import plan as pn
+from anaplan import plan as pn
 import numpy as np
 import random
 import matplotlib.pyplot as plt
