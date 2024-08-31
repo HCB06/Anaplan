@@ -85,4 +85,4 @@ The functions of the Anaplan modules, uses snake_case written style
 20. manuel_balancer(3Args)
 21. weight_normalization (2Args)
 
-The PLAN algorithm will not be explained in this document. This document focuses on how professionals can integrate and use Anaplan in their systems. However, briefly, the PLAN algorithm can be described as a classification algorithm. PLAN algorithm achieves this task with an incredibly energy-efficient, fast, and hyperparameter-free user-friendly approach. For more detailed information, you can check out ANAPLAN User Manuel file: .
+The PLAN algorithm will not be explained in this document. This document focuses on how professionals can integrate and use Anaplan in their systems. However, briefly, the PLAN algorithm can be described as a classification algorithm. PLAN algorithm achieves this task with an incredibly energy-efficient, fast, and hyperparameter-free user-friendly approach. For more detailed information, you can check out ![ANAPLAN USER MANUEL](https://github.com/HCB06/Anaplan/blob/main/Welcome_to_Anaplan/ANAPLAN_USER_MANUEL_AND_LEGAL_INFORMATION(EN).pdf) file.
