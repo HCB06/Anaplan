@@ -4,6 +4,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from termcolor import colored
 import numpy as np
 import time
+import pickle
 
 # Veri yükleme ve işleme
 data = pd.read_csv('IMDB Dataset.csv') # dataset link: https://www.kaggle.com/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews
@@ -19,6 +20,10 @@ x_test_copy = np.copy(x_test)
 # TF-IDF vektörlemesi
 vectorizer = TfidfVectorizer(max_features=5000)
 X = vectorizer.fit_transform(X)
+
+# Vectorizer'ı kaydetme
+with open('tfidf_vectorizer.pkl', 'wb') as f:
+    pickle.dump(vectorizer, f)
 
 X = X.toarray()
 
