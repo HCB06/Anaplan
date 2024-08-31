@@ -1,6 +1,6 @@
 # Anaplan
 
-https://libraries.io/pypi/pyerualjetwork
+https://libraries.io/pypi/anaplan
 
       pip install anaplan
       
