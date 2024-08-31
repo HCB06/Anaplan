@@ -29,19 +29,23 @@ Anaplan is free to use for commercial business and individual users.
 As of 08/21/2024, the library includes only the PLAN module, but other machine learning modules are expected to be added in the future.
 <br><br>
 
-PLAN VISION:
+Anaplan includes Plan Vision, NLPlan, and at the between of both, Deep Plan:<br>
+
+![ANAPLAN](https://github.com/HCB06/PyerualJetwork/blob/main/Media/anaplan.jpg)<br><br><br>
+
+PLAN VISION:<br>
 
 ![PLAN VISION](https://github.com/HCB06/PyerualJetwork/blob/main/Media/PlanVision.jpg)
 
-You can create artificial intelligence models that perform computer vision tasks using the plan module:
+You can create artificial intelligence models that perform computer vision tasks using the plan module:<br>
 
 ![AUTONOMOUS](https://github.com/HCB06/PyerualJetwork/blob/main/Media/autonomous.gif)<br><br><br>
 ![XRAY](https://github.com/HCB06/PyerualJetwork/blob/main/Media/chest_xray.png)<br><br><br>
 ![GENDER](https://github.com/HCB06/PyerualJetwork/blob/main/Media/gender_classification.png)<br><br><br>
 
-NLPlan:
+NLPlan:<br>
 
-![NLPLAN](https://github.com/HCB06/PyerualJetwork/blob/main/Media/NLPlan.jpg)
+![NLPLAN](https://github.com/HCB06/PyerualJetwork/blob/main/Media/NLPlan.jpg)<br>
 
 You can create artificial intelligence models that perform natural language processing tasks using the plan module:
 
