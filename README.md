@@ -32,7 +32,6 @@ The functions of the Anaplan modules, uses snake_case written style.
 
 PLAN VISION:
 
-![](https://github.com/HCB06/PyerualJetwork/blob/main/Welcome to Pyerual Jetwork/Vision.gif)
 
 HOW DO I IMPORT IT TO MY PROJECT?
 
