@@ -7,7 +7,7 @@ Created on Tue Jun 18 23:32:16 2024
 
 import time
 from colorama import Fore
-import plan
+from anaplan import plan
 from sklearn.datasets import load_wine
 import numpy as np
 
