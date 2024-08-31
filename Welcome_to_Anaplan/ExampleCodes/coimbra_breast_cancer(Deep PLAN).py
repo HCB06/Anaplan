@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 from colorama import Fore
-import plan
+from anaplan import plan
 import time
 from sklearn.metrics import classification_report
 
