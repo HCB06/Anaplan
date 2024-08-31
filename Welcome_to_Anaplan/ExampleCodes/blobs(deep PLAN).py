@@ -6,7 +6,7 @@ Created on Thu Jun 20 02:36:20 2024
 """
 from colorama import Fore
 from sklearn.datasets import make_blobs
-import plan
+from anaplan import plan
 import numpy as np
 import time
 
