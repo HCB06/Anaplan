@@ -27,11 +27,25 @@ Anaplan is a machine learning library written in Python for professionals, incor
 Both the PLAN algorithm and the Anaplan library were created by Author, and all rights are reserved by Author.
 Anaplan is free to use for commercial business and individual users.
 As of 08/21/2024, the library includes only the PLAN module, but other machine learning modules are expected to be added in the future.
-The PLAN algorithm will not be explained in this document. This document focuses on how professionals can integrate and use Pyerual Jetwork in their systems. However, briefly, the PLAN algorithm can be described as a classification algorithm. PLAN algorithm achieves this task with an incredibly energy-efficient, fast, and hyperparameter-free user-friendly approach. For more detailed information, you can check out ‘PLAN.pdf’ file.
-The functions of the Anaplan modules, uses snake_case written style.
+<br><br>
 
 PLAN VISION:
 
+![PLAN VISION](https://github.com/HCB06/PyerualJetwork/blob/main/Media/PlanVision.jpg)
+
+You can create artificial intelligence models that perform computer vision tasks using the plan module:
+
+![AUTONOMOUS](https://github.com/HCB06/PyerualJetwork/blob/main/Media/autonomous.gif)<br><br><br>
+![XRAY](https://github.com/HCB06/PyerualJetwork/blob/main/Media/chest_xray.png)<br><br><br>
+![GENDER](https://github.com/HCB06/PyerualJetwork/blob/main/Media/gender_classification.png)<br><br><br>
+
+NLPlan:
+
+![NLPLAN](https://github.com/HCB06/PyerualJetwork/blob/main/Media/NLPlan.jpg)
+
+You can create artificial intelligence models that perform natural language processing tasks using the plan module:
+
+![PLAN VISION](https://github.com/HCB06/PyerualJetwork/blob/main/Media/NLP.gif)
 
 HOW DO I IMPORT IT TO MY PROJECT?
 
@@ -40,6 +54,8 @@ Anaconda users can access the 'Anaconda Prompt' terminal from the Start menu and
 After installing the module using "pip" you can now call the library module in your project environment. Use: “from anaplan import plan”. Now, you can call the necessary functions from the plan module.
 
 MAIN FUNCTIONS:
+
+The functions of the Anaplan modules, uses snake_case written style
 
 1. fit (2Args - 8Args)
 2. evaluate (5Args -6Args)
@@ -65,4 +81,4 @@ MAIN FUNCTIONS:
 20. manuel_balancer(3Args)
 21. weight_normalization (2Args)
 
-The PLAN algorithm will not be explained in this document. This document focuses on how professionals can integrate and use Anaplan in their systems. However, briefly, the PLAN algorithm can be described as a classification algorithm. PLAN algorithm achieves this task with an incredibly energy-efficient, fast, and hyperparameter-free user-friendly approach. For more detailed information, you can check out ‘PLAN.pdf’ file.
+The PLAN algorithm will not be explained in this document. This document focuses on how professionals can integrate and use Anaplan in their systems. However, briefly, the PLAN algorithm can be described as a classification algorithm. PLAN algorithm achieves this task with an incredibly energy-efficient, fast, and hyperparameter-free user-friendly approach. For more detailed information, you can check out ANAPLAN User Manuel file: .
