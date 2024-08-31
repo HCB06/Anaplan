@@ -1,5 +1,5 @@
 import pandas as pd
-import plan
+from anaplan import plan
 
 data = pd.read_csv('creditcard.csv') # dataset link: https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud
 
