@@ -66,7 +66,7 @@ for i in range(len(x_test)):
 
     time.sleep(1)
 
-    # Tahminin doğru olup olmadığını kontrol et
+    # Tahminin doğru olup olmadığını kontrol etme
     if y_test[i] == test_preds[i]:
         output = colored(f"Review: {x_test_copy[i]}\nPrediction: {pred_text}\nTrue Label: {true_label_text}\n", 'green')
     else:
