@@ -12,7 +12,7 @@ X = data['review']
 y = data['sentiment']
 
 # Cümlelerin orijinal hallerini kopyalamak için ön ayırma işlemi
-x_train, x_test, y_train, y_test = plan.split(X, y, 0.4, 42)
+x_train, x_test, y_train, y_test = plan.split(X, y, test_size=0.75, random_state=42)
 
 x_test_copy = np.copy(x_test)
 
@@ -22,17 +22,21 @@ X = vectorizer.fit_transform(X)
 
 X = X.toarray()
 
+for i in range(len(X)):
+    X[i] = plan.normalization(X[i])
+
 # Veriyi eğitim ve test olarak ayırma
-x_train, x_test, y_train, y_test = plan.split(X, y, 0.4, 42)
+x_train, x_test, y_train, y_test = plan.split(X, y, test_size=0.75, random_state=42)
 
 # One-hot encoding işlemi
 y_train, y_test = plan.encode_one_hot(y_train, y_test)
 
-# Veriyi standartlaştırma
-scaler_params, x_train, x_test = plan.standard_scaler(x_train, x_test)
-
 # Veri dengeleme işlemi
 x_train, y_train = plan.auto_balancer(x_train, y_train)
+x_test, y_test = plan.auto_balancer(x_test, y_test)
+
+# Veriyi standartlaştırma
+scaler_params, x_train, x_test = plan.standard_scaler(x_train, x_test)
 
 # Model eğitimi
 W = plan.fit(x_train, y_train)
