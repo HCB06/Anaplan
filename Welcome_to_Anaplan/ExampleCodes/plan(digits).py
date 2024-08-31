@@ -1,4 +1,4 @@
-import plan
+from anaplan import plan
 import time
 from colorama import Fore
 import numpy as np
