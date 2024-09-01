@@ -1,5 +1,5 @@
 import numpy as np
-import plan
+from anaplan import plan
 import pickle
 
 review = ["very bad, too bad discusting!, like a shit, it is poor casting and poor film with a really bad and worst scenario"]
