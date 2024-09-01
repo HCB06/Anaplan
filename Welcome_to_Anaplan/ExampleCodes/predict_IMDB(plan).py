@@ -12,10 +12,6 @@ inp_vectorized = vectorizer.transform(inp)
 
 inp = inp_vectorized.toarray()
 
-inp = plan.normalization(inp[0])
-
-np.set_printoptions(threshold=np.Infinity)
-
 # Model ile tahmin yapma
 predict = plan.predict_model_ssd(Input=inp, model_name='IMDB', model_path='')
 
