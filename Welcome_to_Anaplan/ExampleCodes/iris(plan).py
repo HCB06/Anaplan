@@ -17,22 +17,19 @@ scaler_params, x_train, x_test = plan.standard_scaler(x_train, x_test)
 
 y_train, y_test = plan.encode_one_hot(y_train, y_test)
 
-show_metrics = True
-show_training = True # other values: 'final' or None(any)
-
 x_train, y_train = plan.auto_balancer(x_train, y_train)
 x_test, y_test = plan.auto_balancer(x_test, y_test)
 
-W = plan.fit(x_train, y_train, show_training)
+W = plan.fit(x_train, y_train)
 
-test_model = plan.evaluate(x_test, y_test, show_metrics, W)
+test_model = plan.evaluate(x_test, y_test, show_metrics=True, W=W)
 test_preds = test_model[plan.get_preds()]
 test_acc = test_model[plan.get_acc()]
 
 model_name = 'iris'
 model_type = 'PLAN'
 weights_type = 'txt'
-weights_format = 'd'
+weights_format = 'raw'
 model_path = 'PlanModels/'
 class_count = 3
 
