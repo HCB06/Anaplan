@@ -16,7 +16,8 @@ https://libraries.io/pypi/anaplan
 	      'matplotlib',
           'seaborn',
 	      'tqdm',
-          'networkx'
+          'networkx',
+	      'opencv-python'
             ]
           
 ##############################
@@ -70,7 +71,7 @@ The functions of the Anaplan modules, uses snake_case written style
 7. auto_balancer (2Args)
 8. synthetic_augmentation (2Args)
 9. get_weights ()
-10. get_df ()
+10. get_scaler ()
 11. get_preds ()
 12. get_acc ()
 13. get_pot ()
