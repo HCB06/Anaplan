@@ -32,9 +32,8 @@ test_acc = test_model[plan.get_acc()]
 model_name = 'wine'
 model_type = 'PLAN'
 weights_type = 'txt'
-weights_format = 'd'
+weights_format = 'raw'
 model_path = ''
-class_count = 3
 
 plan.save_model(model_name, model_type, class_count, test_acc, weights_type, weights_format, model_path, scaler_params, W)
 
