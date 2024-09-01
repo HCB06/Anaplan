@@ -2,7 +2,7 @@ import numpy as np
 import plan
 import pickle
 
-inp = ["very bad, too bad discusting!, like a shit, it is poor casting and poor film with a really bad and worst scenario"]
+review = ["very bad, too bad discusting!, like a shit, it is poor casting and poor film with a really bad and worst scenario"]
 
 """
 exmpl negative review: I had high hopes for this film, but unfortunately, it was a huge letdown. The plot was all over the place, lacking any real direction or depth.
@@ -27,7 +27,7 @@ Definitely a must-watch!
 with open('tfidf_vectorizer.pkl', 'rb') as f:
     vectorizer = pickle.load(f)
 
-inp_vectorized = vectorizer.transform(inp)
+inp_vectorized = vectorizer.transform(review)
 
 inp = inp_vectorized.toarray()
 
