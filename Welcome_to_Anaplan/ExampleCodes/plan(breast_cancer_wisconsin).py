@@ -41,7 +41,6 @@ test_model = plan.evaluate(x_test, y_test, show_metrices=True, W=W, activation_p
 # Modeli kaydetme
 plan.save_model(model_name='breast_cancer',
                 model_type='deep PLAN',
-                class_count=2,
                 test_acc=test_model[plan.get_acc()],
                 weights_type='txt',
                 weights_format='f',
