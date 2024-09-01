@@ -1,7 +1,0 @@
-setup.py
-anaplan/__init__.py
-anaplan/plan.py
-anaplan.egg-info/PKG-INFO
-anaplan.egg-info/SOURCES.txt
-anaplan.egg-info/dependency_links.txt
-anaplan.egg-info/top_level.txt
