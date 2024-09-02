@@ -17,7 +17,10 @@ https://libraries.io/pypi/anaplan
           'seaborn',
 	      'tqdm',
           'networkx',
-	      'opencv-python'
+	      'opencv-python',
+          'moviepy',
+	      'sounddevice',
+   	      'soundfile'
             ]
           
 ##############################
