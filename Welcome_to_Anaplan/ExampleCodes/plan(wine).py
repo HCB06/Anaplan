@@ -35,7 +35,7 @@ weights_type = 'txt'
 weights_format = 'raw'
 model_path = ''
 
-plan.save_model(model_name, model_type, class_count, test_acc, weights_type, weights_format, model_path, scaler_params, W)
+plan.save_model(model_name, model_type, test_acc, weights_type, weights_format, model_path, scaler_params, W)
 
 precisison, recall, f1 = plan.metrics(y_test, test_preds)
 print('Precision: ', precisison, '\n', 'Recall: ', recall, '\n', 'F1: ', f1)
