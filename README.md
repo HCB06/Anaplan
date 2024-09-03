@@ -20,7 +20,8 @@ https://libraries.io/pypi/anaplan
 	      'opencv-python',
           'moviepy',
 	      'sounddevice',
-   	      'soundfile'
+   	      'soundfile',
+	      'setuptools'
             ]
           
 ##############################
