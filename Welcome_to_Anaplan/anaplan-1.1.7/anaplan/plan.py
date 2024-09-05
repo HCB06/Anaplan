@@ -1081,7 +1081,6 @@ def fex(
 
     Input = Output
 
-
     if is_training == True:
         
         for i in range(LTD):        
@@ -1560,7 +1559,9 @@ def predict_model_ram(Input, W, scaler_params=None, activation_potentiation=['li
     Wc = [0] * len(W)
     for i, w in enumerate(W):
         Wc[i] = np.copy(w)
+    
     try:
+        
         neural_layer = Input
         neural_layer = np.array(neural_layer)
         neural_layer = neural_layer.ravel()
@@ -1574,10 +1575,11 @@ def predict_model_ram(Input, W, scaler_params=None, activation_potentiation=['li
         for i, w in enumerate(Wc):
             W[i] = np.copy(w)
         return neural_layer
-
+    
     except:
         print(Fore.RED + "ERROR: Unexpected input or wrong model parameters from: predict_model_ram." + Style.RESET_ALL)
         sys.exit()
+
 
 def auto_balancer(x_train, y_train):
 
@@ -1739,7 +1741,7 @@ def standard_scaler(x_train=None, x_test=None, scaler_params=None, scaler_voice=
         return scaler_params, train_data_scaled, test_data_scaled
     
     try:
-        if scaler_params == None and x_test == None:
+        if scaler_params == None and x_train == None and x_test != None:
             
             mean = np.mean(x_train, axis=0)
             std = np.std(x_train, axis=0)
