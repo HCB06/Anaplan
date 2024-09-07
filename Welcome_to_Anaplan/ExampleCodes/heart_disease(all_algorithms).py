@@ -35,7 +35,7 @@ X = data.drop('target', axis=1).values
 y = data['target'].values
 
 # Eğitim, test ve doğrulama verilerini ayırma
-x_train, x_test, y_train, y_test = plan.split(X, y, 0.2, 42)
+x_train, x_test, y_train, y_test = plan.split(X, y, 0.2, 42) # For less data use this: (X, y, 0.9, 42)
 
 # One-hot encoding işlemi
 y_train, y_test = plan.encode_one_hot(y_train, y_test)
