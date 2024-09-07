@@ -84,11 +84,11 @@ input_dim = x_train.shape[1]  # Giriş boyutu
 model = Sequential()
 model.add(Dense(64, input_dim=input_dim, activation='sigmoid'))  # Giriş katmanı ve ilk gizli katman
 model.add(Dropout(0.5))  # Overfitting'i önlemek için Dropout katmanı
-model.add(Dense(128, activation='sigmoid'))  # Üçüncü gizli katman
+model.add(Dense(128, activation='sigmoid'))  # İkinci gizli katman
 model.add(Dropout(0.5))  # Overfitting'i önlemek için Dropout katmanı
 model.add(Dense(64, activation='sigmoid'))  # Üçüncü gizli katman
 model.add(Dropout(0.5))  # Overfitting'i önlemek için Dropout katmanı
-model.add(Dense(128, activation='sigmoid'))  # Üçüncü gizli katman
+model.add(Dense(128, activation='sigmoid'))  # Dördüncü gizli katman
 model.add(Dropout(0.5))  # Overfitting'i önlemek için Dropout katmanı
 model.add(Dense(y_train.shape[1], activation='softmax'))  # Çıkış katmanı (softmax)
 
