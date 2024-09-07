@@ -59,7 +59,7 @@ print(classification_report(y_test_decoded, y_pred_lr))
 
 # Random Forest Modeli
 print(Fore.CYAN + "------Random Forest Sonuçları------" + Fore.RESET)
-rf_model = RandomForestClassifier(n_estimators=100, random_state=42)
+rf_model = RandomForestClassifier(n_estimators=1000, random_state=42)
 rf_model.fit(x_train, y_train_decoded)
 
 y_pred_rf = rf_model.predict(x_test)
