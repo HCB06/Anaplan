@@ -20,15 +20,6 @@ from sklearn.metrics import classification_report, accuracy_score
 from sklearn.datasets import make_circles
 from matplotlib import pyplot as plt
 
-# Spiral datasetini oluşturma
-def generate_spiral_data(points, noise=0.8):
-    n = np.sqrt(np.random.rand(points,1)) * 780 * (2*np.pi)/360
-    d1x = -np.cos(n)*n + np.random.rand(points,1) * noise
-    d1y = np.sin(n)*n + np.random.rand(points,1) * noise
-    return (np.vstack((np.hstack((d1x,d1y)),np.hstack((-d1x,-d1y)))),
-            np.hstack((np.zeros(points),np.ones(points))))
-
-
 fig, ax = plt.subplots(2, 3)  # Create a new figure and axe
 
 # Karar sınırı çizimi
