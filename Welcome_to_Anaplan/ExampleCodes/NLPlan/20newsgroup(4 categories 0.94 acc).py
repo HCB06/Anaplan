@@ -18,7 +18,7 @@ newsgroup = fetch_20newsgroups(subset='all', categories=categories)
 X = newsgroup.data
 y = newsgroup.target
 
-vectorizer = TfidfVectorizer(stop_words='english', max_features=5000) #18500
+vectorizer = TfidfVectorizer(stop_words='english', max_features=5000)
 
 X = vectorizer.fit_transform(X)
 X = X.toarray()
