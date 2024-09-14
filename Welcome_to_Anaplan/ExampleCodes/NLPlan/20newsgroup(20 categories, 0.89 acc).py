@@ -24,7 +24,7 @@ X = vectorizer.fit_transform(X)
 X = X.toarray()
 
 # Eğitim ve test verilerine ayırma
-x_train, x_test, y_train, y_test = plan.split(X, y, test_size=0.2, random_state=42) # For less train data use this: (X, y, test_size=0.9, random_state=42)
+x_train, x_test, y_train, y_test = plan.split(X, y, test_size=0.2, random_state=42)
 
 # One-hot encoding işlemi
 y_train, y_test = plan.encode_one_hot(y_train, y_test)
