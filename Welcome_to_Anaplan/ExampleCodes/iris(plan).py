@@ -23,17 +23,19 @@ activation_potentiation = plan.activation_optimizer(x_train, y_train, x_test, y_
 
 W = plan.fit(x_train, y_train, activation_potentiation=activation_potentiation)
 
-test_model = plan.evaluate(x_test, y_test, show_metrics=True, W=W, activation_potentiation=activation_potentiation)
+test_model = plan.evaluate(x_test, y_test, W=W, activation_potentiation=activation_potentiation)
+
 test_preds = test_model[plan.get_preds()]
 test_acc = test_model[plan.get_acc()]
 
-model_name = 'iris'
-model_type = 'PLAN'
-weights_type = 'txt'
-weights_format = 'raw'
-model_path = ''
-
-plan.save_model(model_name, model_type, test_acc, weights_type, weights_format, model_path, scaler_params, W)
+plan.save_model(model_name='iris',
+                 model_type='PLAN',
+                 test_acc=test_acc,
+                 weights_type='txt',
+                 weights_format='raw',
+                 model_path='',
+                 scaler_params=scaler_params,
+                 W=W)
 
 precisison, recall, f1 = plan.metrics(y_test, test_preds)
 print('Precision: ', precisison, '\n', 'Recall: ', recall, '\n', 'F1: ', f1)
