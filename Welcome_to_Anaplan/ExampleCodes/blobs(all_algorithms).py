@@ -153,13 +153,7 @@ print(classification_report(y_test_decoded_dl, y_pred_dl_classes))
 plot_decision_boundary(x_test, y_test, model=model, feature_indices=[0, 1], model_name='Deep Learning', ax=ax, which_ax1=1, which_ax2=0)
 
 # PLAN Modeli
-activation_potentiation = ['circular',
-                            'tanh',
-                            'tanh_circular',
-                            'tanh',
-                            'tanh_circular',
-                            'tanh_circular',
-                            'tanh']
+activation_potentiation = plan.activation_optimizer(x_train, y_train, x_test, y_test, target_acc=0.98)
 
 W = plan.fit(x_train, y_train, activation_potentiation=activation_potentiation)
 
