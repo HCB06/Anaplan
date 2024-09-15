@@ -109,8 +109,8 @@ print(f"Derin Öğrenme Test Accuracy: {test_acc_dl:.4f}")
 print(classification_report(y_test_decoded_dl, y_pred_dl_classes))
 
 # PLAN Modeli
-print(Fore.GREEN + "------PLAN Modeli Sonuçları------" + Fore.RESET)
-activation_potentiation = ['sine', 'waveakt']
+print(Fore.GREEN + "\n------PLAN Modeli Sonuçları------" + Fore.RESET)
+activation_potentiation = plan.activation_optimizer(x_train, y_train, x_test, y_test, depth=2)
 W = plan.fit(x_train, y_train, activation_potentiation=activation_potentiation)
 
 # Modeli test etme
