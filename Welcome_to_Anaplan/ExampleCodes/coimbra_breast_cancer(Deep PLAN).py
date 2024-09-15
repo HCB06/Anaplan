@@ -27,13 +27,13 @@ x_train, y_train = plan.auto_balancer(x_train, y_train)
 scaler_params, x_train, x_test = plan.standard_scaler(x_train, x_test)
 
 # Aktivasyon fonksiyonları
-activation_potentiation = ['linear', 'waveakt']
+activation_potentiation = plan.activation_optimizer(x_train, y_train, x_test, y_test, target_acc=0.82)
 
 # Modeli eğitme
 W = plan.fit(x_train, y_train, activation_potentiation=activation_potentiation, LTD=0) # val=True, show_training=True, val_count=(int), interval=(int), x_val=(default: x_train), y_val=(default: y_train)
 
 # Modeli test etme
-test_model = plan.evaluate(x_test, y_test, show_metrices=True,  W=W, activation_potentiation=activation_potentiation)
+test_model = plan.evaluate(x_test, y_test, show_metrics=True,  W=W, activation_potentiation=activation_potentiation)
 print(classification_report(plan.decode_one_hot(y_test), test_model[plan.get_preds()]))
 test_acc = test_model[plan.get_acc()]
 
