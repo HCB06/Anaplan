@@ -15,6 +15,7 @@ data = load_breast_cancer()
 X = data.data
 y = data.target
 
+
 # Eğitim, test ve doğrulama verilerini ayırma
 x_train, x_test, y_train, y_test = plan.split(X, y, 0.4, 42)
 
@@ -29,6 +30,7 @@ x_test, y_test = plan.auto_balancer(x_test, y_test)
 
 scaler_params, x_train, x_test = plan.standard_scaler(x_train, x_test)
 
+#activation_potentiation = plan.activation_optimizer(x_train, y_train, x_test, y_test, early_stop=True)
 activation_potentiation = ['tanh']
 
 # Modeli eğitme
@@ -36,7 +38,7 @@ W = plan.fit(x_train, y_train, activation_potentiation=activation_potentiation, 
 
 
 # Modeli test etme
-test_model = plan.evaluate(x_test, y_test, show_metrices=True, W=W, activation_potentiation=activation_potentiation)
+test_model = plan.evaluate(x_test, y_test, show_metrics=True, W=W, activation_potentiation=activation_potentiation)
 
 # Modeli kaydetme
 plan.save_model(model_name='breast_cancer',
