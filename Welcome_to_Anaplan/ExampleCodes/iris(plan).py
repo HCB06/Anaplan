@@ -8,21 +8,22 @@ data = load_iris()
 X = data.data
 y = data.target
 
-x_train, x_test, y_train, y_test = plan.split(X, y, 0.1, 42)
+x_train, x_test, y_train, y_test = plan.split(X, y, 0.3, 42)
 
 x_train = x_train.tolist()
 x_test = x_test.tolist()
 
-scaler_params, x_train, x_test = plan.standard_scaler(x_train, x_test)
-
 y_train, y_test = plan.encode_one_hot(y_train, y_test)
 
-x_train, y_train = plan.auto_balancer(x_train, y_train)
-x_test, y_test = plan.auto_balancer(x_test, y_test)
+x_train, y_train = plan.synthetic_augmentation(x_train, y_train)
 
-W = plan.fit(x_train, y_train)
+scaler_params, x_train, x_test = plan.standard_scaler(x_train, x_test)
 
-test_model = plan.evaluate(x_test, y_test, show_metrics=True, W=W)
+activation_potentiation = plan.activation_optimizer(x_train, y_train, x_test, y_test, target_acc=1)
+
+W = plan.fit(x_train, y_train, activation_potentiation=activation_potentiation)
+
+test_model = plan.evaluate(x_test, y_test, show_metrics=True, W=W, activation_potentiation=activation_potentiation)
 test_preds = test_model[plan.get_preds()]
 test_acc = test_model[plan.get_acc()]
 
@@ -30,10 +31,9 @@ model_name = 'iris'
 model_type = 'PLAN'
 weights_type = 'txt'
 weights_format = 'raw'
-model_path = 'PlanModels/'
-class_count = 3
+model_path = ''
 
-plan.save_model(model_name, model_type, class_count, test_acc, weights_type, weights_format, model_path, scaler_params, W)
+plan.save_model(model_name, model_type, test_acc, weights_type, weights_format, model_path, scaler_params, W)
 
 precisison, recall, f1 = plan.metrics(y_test, test_preds)
 print('Precision: ', precisison, '\n', 'Recall: ', recall, '\n', 'F1: ', f1)
