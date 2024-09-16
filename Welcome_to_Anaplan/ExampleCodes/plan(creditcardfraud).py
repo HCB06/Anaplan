@@ -14,12 +14,11 @@ y_train, y_test = plan.encode_one_hot(y_train, y_test)
 
 scaler_params, x_train, x_test = plan.standard_scaler(x_train, x_test)
 
-x_train, y_train = plan.auto_balancer(x_train, y_train)
-x_test, y_test = plan.auto_balancer(x_test, y_test)
+x_train, y_train = plan.synthetic_augmentation(x_train, y_train)
 
-activation_potentiation = ['sigmoid']
+activation_potentiation = plan.activation_optimizer(x_train, y_train, x_test, y_test, target_acc=0.99)
 
 W = plan.fit(x_train, y_train, activation_potentiation=activation_potentiation)
 
 
-test_model = plan.evaluate(x_test, y_test, show_metrices=True, W=W, activation_potentiation=activation_potentiation)
+test_model = plan.evaluate(x_test, y_test, show_metrics=True, W=W, activation_potentiation=activation_potentiation)
