@@ -153,11 +153,11 @@ print(classification_report(y_test_decoded_dl, y_pred_dl_classes))
 plot_decision_boundary(x_test, y_test, model=model, feature_indices=[0, 1], model_name='Deep Learning', ax=ax, which_ax1=1, which_ax2=0)
 
 # PLAN Modeli
-activation_potentiation = plan.activation_optimizer(x_train, y_train, x_test, y_test, target_acc=0.98)
+model = plan.learner(x_train, y_train, depth=10)
 
-W = plan.fit(x_train, y_train, activation_potentiation=activation_potentiation)
+W = model[plan.get_weights()]
+activation_potentiation = model[plan.get_act_pot()]
 
-# Modeli test etme
 test_model = plan.evaluate(x_test, y_test, W=W, activation_potentiation=activation_potentiation)
 test_acc_plan = test_model[plan.get_acc()]
 print(Fore.GREEN + "------PLAN Modeli Sonuçları------" + Fore.RESET)
