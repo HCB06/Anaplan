@@ -23,11 +23,13 @@ x_test, y_test = plan.auto_balancer(x_test, y_test)
 
 scaler_params, x_train, x_test = plan.standard_scaler(x_train, x_test)
 
-act_pot = plan.activation_optimizer(x_train, y_train, x_test, y_test, early_stop=True)
+model = plan.learner(x_train, y_train, depth=1)
 
-W = plan.fit(x_train, y_train, activation_potentiation=act_pot)
+W = model[plan.get_weights()]
+activation_potentiation = model[plan.get_act_pot()]
 
-test_model = plan.evaluate(x_test, y_test, show_metrics=True, W=W, activation_potentiation=act_pot)
+test_model = plan.evaluate(x_test, y_test, show_metrics=True, W=W, activation_potentiation=activation_potentiation)
+
 test_preds = test_model[plan.get_preds()]
 test_acc = test_model[plan.get_acc()]
 
@@ -37,7 +39,7 @@ weights_type = 'txt'
 weights_format = 'raw'
 model_path = ''
 
-plan.save_model(model_name=model_name, model_type=model_type, test_acc=test_acc, weights_type=weights_type, weights_format=weights_format, model_path=model_path, scaler_params=scaler_params, W=W)
+plan.save_model(model_name=model_name, activation_potentiation=model[plan.get_act_pot()], model_type=model_type, test_acc=test_acc, weights_type=weights_type, weights_format=weights_format, model_path=model_path, scaler_params=scaler_params, W=model[plan.get_weights()])
 
 precisison, recall, f1 = plan.metrics(y_test, test_preds)
 print('Precision: ', precisison, '\n', 'Recall: ', recall, '\n', 'F1: ', f1)
