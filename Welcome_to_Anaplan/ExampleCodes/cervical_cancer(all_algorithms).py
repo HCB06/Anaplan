@@ -44,7 +44,7 @@ scaler_params, x_train, x_test = plan.standard_scaler(x_train, x_test)
 
 
 # Lojistik Regresyon Modeli
-print(Fore.GREEN + "------Lojistik Regresyon Sonuçları------" + Fore.RESET)
+print(Fore.YELLOW + "------Lojistik Regresyon Sonuçları------" + Fore.RESET)
 lr_model = LogisticRegression(max_iter=1000, random_state=42)
 y_train_decoded = plan.decode_one_hot(y_train)  # One-hot encoded y_train verilerini geri dönüştürme
 lr_model.fit(x_train, y_train_decoded)  # Modeli eğitme
