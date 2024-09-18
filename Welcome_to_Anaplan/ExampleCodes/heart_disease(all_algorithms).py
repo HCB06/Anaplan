@@ -112,7 +112,7 @@ print(classification_report(y_test_decoded_dl, y_pred_dl_classes))
 # PLAN Modeli
 print(Fore.GREEN + "\n------PLAN Modeli Sonuçları------" + Fore.RESET)
 
-model = plan.learner(x_train, y_train, depth=1)
+model = plan.learner(x_train, y_train, x_test, y_test, depth=2)
 
 W = model[plan.get_weights()]
 activation_potentiation = model[plan.get_act_pot()]
