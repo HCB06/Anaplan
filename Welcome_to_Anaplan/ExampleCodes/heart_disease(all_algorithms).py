@@ -43,6 +43,7 @@ y_train, y_test = plan.encode_one_hot(y_train, y_test)
 # Veri dengesizliğini düzeltme ve veriyi standardize etme
 x_train, y_train = plan.auto_balancer(x_train, y_train)
 
+
 scaler_params, x_train, x_test = plan.standard_scaler(x_train, x_test)
 
 # Lojistik Regresyon Modeli
@@ -111,7 +112,7 @@ print(classification_report(y_test_decoded_dl, y_pred_dl_classes))
 # PLAN Modeli
 print(Fore.GREEN + "\n------PLAN Modeli Sonuçları------" + Fore.RESET)
 
-model = plan.learner(x_train, y_train, depth=2)
+model = plan.learner(x_train, y_train, depth=1)
 
 W = model[plan.get_weights()]
 activation_potentiation = model[plan.get_act_pot()]
