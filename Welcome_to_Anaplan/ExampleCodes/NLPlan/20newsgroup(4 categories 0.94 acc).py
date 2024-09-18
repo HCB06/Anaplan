@@ -42,25 +42,14 @@ print('classes: %s' % (newsgroup.target_names))
 
 
 # PLAN Modeli
-activation_potentiation = ['bent_identity',
-                           'waveakt', 
-                           'selu', 
-                           'gelu', 
-                           'srelu',
-                           'dlrelu',
-                           'dlrelu',
-                           'dlrelu',
-                           'dlrelu',
-                           'dlrelu',
-                           'dlrelu',
-                           'linear',
-                           'linear',
-                           'tanh']
+model = plan.learner(x_train, y_train, x_test, y_test, depth=4, except_this=['circular'])
 
-W = plan.fit(x_train, y_train, activation_potentiation=activation_potentiation)
+W = model[plan.get_weights()]
+activation_potentiation = model[plan.get_act_pot()]
+
+test_model = plan.evaluate(x_test, y_test, W=W, activation_potentiation=activation_potentiation)
 
 # Modeli test etme
-test_model = plan.evaluate(x_test, y_test, W=W, activation_potentiation=activation_potentiation)
 test_acc_plan = test_model[plan.get_acc()]
 print(Fore.GREEN + "\n------PLAN Modeli Sonuçları------" + Fore.RESET)
 print(f"PLAN Test Accuracy: {test_acc_plan:.4f}")
