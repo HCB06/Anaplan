@@ -27,7 +27,7 @@ x_train, y_train = plan.auto_balancer(x_train, y_train)
 scaler_params, x_train, x_test = plan.standard_scaler(x_train, x_test)
 
 # Aktivasyon fonksiyonları
-activation_potentiation = plan.activation_optimizer(x_train, y_train, x_test, y_test, target_acc=0.82)
+activation_potentiation = plan.learner(x_train, y_train, x_test, y_test, target_acc=0.82)[plan.get_act_pot()]
 
 # Modeli eğitme
 W = plan.fit(x_train, y_train, activation_potentiation=activation_potentiation, LTD=0) # val=True, show_training=True, val_count=(int), interval=(int), x_val=(default: x_train), y_val=(default: y_train)
