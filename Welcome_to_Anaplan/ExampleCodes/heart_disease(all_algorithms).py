@@ -110,11 +110,14 @@ print(classification_report(y_test_decoded_dl, y_pred_dl_classes))
 
 # PLAN Modeli
 print(Fore.GREEN + "\n------PLAN Modeli Sonuçları------" + Fore.RESET)
-activation_potentiation = plan.activation_optimizer(x_train, y_train, x_test, y_test, depth=2)
-W = plan.fit(x_train, y_train, activation_potentiation=activation_potentiation)
 
-# Modeli test etme
-test_model = plan.evaluate(x_test, y_test, W=W, activation_potentiation=activation_potentiation)
+model = plan.learner(x_train, y_train, depth=2)
+
+W = model[plan.get_weights()]
+activation_potentiation = model[plan.get_act_pot()]
+
+test_model = plan.evaluate(x_test, y_test, show_metrics=True, W=W, activation_potentiation=activation_potentiation)
+
 test_acc_plan = test_model[plan.get_acc()]
 print(f"PLAN Test Accuracy: {test_acc_plan:.4f}")
 print(classification_report(plan.decode_one_hot(y_test), test_model[plan.get_preds()]))
