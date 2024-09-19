@@ -30,4 +30,4 @@ scaler_params, x_train, x_test = plan.standard_scaler(x_train, x_test)
 model = plan.learner(x_train, y_train, x_test, y_test, target_acc=1, except_this=['circular'])
 
 # Modeli test etme
-test_model = plan.evaluate(x_train, y_train, W=model[plan.get_weights()], show_metrics=True, activation_potentiation=model[plan.get_act_pot()])
+test_model = plan.evaluate(x_test, y_test, W=model[plan.get_weights()], show_metrics=True, activation_potentiation=model[plan.get_act_pot()])
