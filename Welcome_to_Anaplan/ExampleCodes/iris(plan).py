@@ -19,11 +19,11 @@ x_train, y_train = plan.synthetic_augmentation(x_train, y_train)
 
 scaler_params, x_train, x_test = plan.standard_scaler(x_train, x_test)
 
-activation_potentiation = plan.activation_optimizer(x_train, y_train, x_test, y_test, target_acc=1)
+model = plan.learner(x_train, y_train, x_test, y_test, target_acc=1)
 
-W = plan.fit(x_train, y_train, activation_potentiation=activation_potentiation)
+W = plan.fit(x_train, y_train, activation_potentiation=model[plan.get_act_pot()])
 
-test_model = plan.evaluate(x_test, y_test, W=W, activation_potentiation=activation_potentiation)
+test_model = plan.evaluate(x_test, y_test, W=W, activation_potentiation=model[plan.get_act_pot()])
 
 test_preds = test_model[plan.get_preds()]
 test_acc = test_model[plan.get_acc()]
@@ -34,6 +34,7 @@ plan.save_model(model_name='iris',
                  weights_type='txt',
                  weights_format='raw',
                  model_path='',
+                 activation_potentiation=model[plan.get_act_pot()],
                  scaler_params=scaler_params,
                  W=W)
 
@@ -42,13 +43,12 @@ print('Precision: ', precisison, '\n', 'Recall: ', recall, '\n', 'F1: ', f1)
 
 y_test = plan.decode_one_hot(y_test)
 
-"""
+
 for i in range(len(x_test)):
-    Predict = plan.predict_model_ram(x_test[i], scaler, W)
+    Predict = plan.predict_model_ram(x_test[i], W=W, activation_potentiation=model[plan.get_act_pot()])
     time.sleep(0.6)
     if np.argmax(Predict) == y_test[i]:
         print(Fore.GREEN + 'Predicted Output(index):', np.argmax(Predict), 'Real Output(index):', y_test[i])
     else:
         print(Fore.RED + 'Predicted Output(index):', np.argmax(Predict), 'Real Output(index):', y_test[i])
         
-        """
