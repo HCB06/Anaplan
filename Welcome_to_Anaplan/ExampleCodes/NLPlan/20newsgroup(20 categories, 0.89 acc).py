@@ -7,16 +7,10 @@ Created on Thu Jun 20 03:55:15 2024
 
 from colorama import Fore
 from anaplan import plan
-from sklearn.metrics import classification_report, accuracy_score
+from sklearn.metrics import classification_report
 from sklearn.datasets import fetch_20newsgroups
 from sklearn.feature_extraction.text import TfidfVectorizer
 import pickle
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense, Dropout
-from tensorflow.keras.utils import to_categorical
-from tensorflow.keras.optimizers import Adam
-from matplotlib import pyplot as plt
-import numpy as np
 
 newsgroups = fetch_20newsgroups(subset='all')
 
@@ -28,6 +22,10 @@ vectorizer = TfidfVectorizer(stop_words='english', max_features=18500)
 
 X = vectorizer.fit_transform(X)
 X = X.toarray()
+
+# Vectorizer'ı kaydetme
+with open('tfidf_20news.pkl', 'wb') as f:
+    pickle.dump(vectorizer, f)
 
 # Eğitim ve test verilerine ayırma
 x_train, x_test, y_train, y_test = plan.split(X, y, test_size=0.2, random_state=42)
@@ -48,14 +46,15 @@ print('classes: %s' % (newsgroups.target_names))
 # PLAN Modeli
 model = plan.learner(x_train, y_train, x_test, y_test, depth=10, target_acc=0.89, big_data_mode=True, strategy='accuracy', except_this=['circular'])
 
-activation_potentiation = model[plan.get_act_pot()]
+test_acc = model[plan.get_acc()]
+test_preds = model[plan.get_preds()]
 W = model[plan.get_weights()]
+activation_potentiation = model[plan.get_act_pot()]
 
-W = plan.fit(x_train, y_train, activation_potentiation=activation_potentiation)
+# Modeli kaydetme
+plan.save_model(model_name='20newsgroup', model_type='PLAN', test_acc=test_acc, weights_type='txt', weights_format='raw', model_path='', scaler_params=scaler_params, W=W, activation_potentiation=activation_potentiation)
 
-# Modeli test etme
-test_model = plan.evaluate(x_test, y_test, show_metrics=True, W=W, activation_potentiation=activation_potentiation)
-test_acc_plan = test_model[plan.get_acc()]
+
 print(Fore.GREEN + "\n------PLAN Modeli Sonuçları------" + Fore.RESET)
-print(f"PLAN Test Accuracy: {test_acc_plan:.4f}")
-print(classification_report(plan.decode_one_hot(y_test), test_model[plan.get_preds()], target_names=newsgroups.target_names))
+print(f"PLAN Test Accuracy: {test_acc:.4f}")
+print(classification_report(plan.decode_one_hot(y_test), model[plan.get_preds()], target_names=newsgroups.target_names))
