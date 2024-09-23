@@ -17,20 +17,20 @@ from tensorflow.keras.layers import Dense, Dropout
 from tensorflow.keras.optimizers import Adam
 from sklearn.metrics import classification_report, accuracy_score
 
-# Heart Disease veri setini yükle
+# Heart Disease veri setini yükleme
 url = "https://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/processed.cleveland.data"
 columns = ['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg', 'thalach', 'exang', 'oldpeak', 
            'slope', 'ca', 'thal', 'target']
 
 data = pd.read_csv(url, header=None, names=columns, na_values="?")
 
-# Eksik verileri doldur (bu örnekte ortalama ile)
+# Eksik verileri doldurma (bu örnekte ortalama ile)
 data.fillna(data.mean(), inplace=True)
 
 # Hedef değişkeni 1 ve 0 olarak ayarla (1: kalp hastalığı var, 0: yok)
 data['target'] = data['target'].apply(lambda x: 1 if x > 0 else 0)
 
-# Özellikleri ve hedef değişkeni ayır
+# Özellikleri ve hedef değişkeni ayırma
 X = data.drop('target', axis=1).values
 y = data['target'].values
 
