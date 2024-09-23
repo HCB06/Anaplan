@@ -11,6 +11,12 @@ from sklearn.metrics import classification_report, accuracy_score
 from sklearn.datasets import fetch_20newsgroups
 from sklearn.feature_extraction.text import TfidfVectorizer
 import pickle
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Dropout
+from tensorflow.keras.utils import to_categorical
+from tensorflow.keras.optimizers import Adam
+from matplotlib import pyplot as plt
+import numpy as np
 
 newsgroups = fetch_20newsgroups(subset='all')
 
@@ -40,16 +46,10 @@ print('classes: %s' % (newsgroups.target_names))
 
 
 # PLAN Modeli
-activation_potentiation = ['bent_identity',
-                           'waveakt', 
-                           'selu', 
-                           'gelu', 
-                           'srelu',
-                           'linear',
-                           'tanh',
-                           'selu',
-                           'gelu',
-                           'srelu']
+model = plan.learner(x_train, y_train, x_test, y_test, depth=10, target_acc=0.89, big_data_mode=True, strategy='accuracy', except_this=['circular'])
+
+activation_potentiation = model[plan.get_act_pot()]
+W = model[plan.get_weights()]
 
 W = plan.fit(x_train, y_train, activation_potentiation=activation_potentiation)
 
