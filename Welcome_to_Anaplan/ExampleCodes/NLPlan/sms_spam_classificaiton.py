@@ -27,7 +27,7 @@ x_train, y_train = plan.synthetic_augmentation(x_train, y_train)
 scaler_params, x_train, x_test = plan.standard_scaler(x_train, x_test)
 
 # PLAN Modeli
-model = plan.learner(x_train, y_train, x_test, y_test, target_acc=1, except_this=['circular'])
+model = plan.learner(x_train, y_train, x_test, y_test, target_acc=1, except_this=['circular']) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/Anaplan/blob/main/Welcome_to_PLAN/PLAN.pdf
 
 # Modeli test etme
 test_model = plan.evaluate(x_test, y_test, W=model[plan.get_weights()], show_metrics=True, activation_potentiation=model[plan.get_act_pot()])
