@@ -103,7 +103,7 @@ print(f"Derin Öğrenme Test Accuracy: {test_acc_dl:.4f}")
 print(classification_report(y_test_decoded_dl, y_pred_dl_classes))
 
 # PLAN Modeli
-model = plan.learner(x_train, y_train, depth=10, show_history=True)
+model = plan.learner(x_train, y_train, depth=10, show_history=True) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/Anaplan/blob/main/Welcome_to_PLAN/PLAN.pdf
 
 # Modeli test etme
 test_model = plan.evaluate(x_test, y_test, W=model[plan.get_weights()], activation_potentiation=model[plan.get_act_pot()])
