@@ -153,7 +153,7 @@ print(classification_report(y_test_decoded_dl, y_pred_dl_classes))
 plot_decision_boundary(x_test, y_test, model=model, feature_indices=[0, 1], model_name='Deep Learning', ax=ax, which_ax1=1, which_ax2=0)
 
 # PLAN Modeli
-model = plan.learner(x_train, y_train, x_test, y_test, depth=15)
+model = plan.learner(x_train, y_train, x_test, y_test, depth=15) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/Anaplan/blob/main/Welcome_to_PLAN/PLAN.pdf
 
 W = model[plan.get_weights()]
 activation_potentiation = model[plan.get_act_pot()]
