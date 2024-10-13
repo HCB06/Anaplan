@@ -1,6 +1,6 @@
 import time
 from colorama import Fore
-from anaplan import plan
+import plan
 from sklearn.datasets import load_iris
 import numpy as np
 
@@ -19,7 +19,7 @@ x_train, y_train = plan.synthetic_augmentation(x_train, y_train)
 
 scaler_params, x_train, x_test = plan.standard_scaler(x_train, x_test)
 
-model = plan.learner(x_train, y_train, x_test, y_test, target_acc=1) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/Anaplan/blob/main/Welcome_to_PLAN/PLAN.pdf
+model = plan.learner(x_train, y_train, x_test, y_test, neurons_history=True, target_acc=1, interval=16.67) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/Anaplan/blob/main/Welcome_to_PLAN/PLAN.pdf
 
 W = model[plan.get_weights()]
 
@@ -51,4 +51,3 @@ for i in range(len(x_test)):
         print(Fore.GREEN + 'Predicted Output(index):', np.argmax(Predict), 'Real Output(index):', y_test[i])
     else:
         print(Fore.RED + 'Predicted Output(index):', np.argmax(Predict), 'Real Output(index):', y_test[i])
-        
