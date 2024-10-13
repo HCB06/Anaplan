@@ -32,7 +32,7 @@ x_test, y_test = plan.auto_balancer(x_test, y_test)
 
 scaler_params, x_train, x_test= plan.standard_scaler(x_train, x_test)
 
-model = plan.learner(x_train, y_train, x_test, y_test, target_acc=1, big_data_mode=True, except_this=['circular'])
+model = plan.learner(x_train, y_train, x_test, y_test, target_acc=1, big_data_mode=True, except_this=['circular']) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/Anaplan/blob/main/Welcome_to_PLAN/PLAN.pdf
 
 test_model = plan.evaluate(x_test, y_test, W=model[plan.get_weights()], activation_potentiation=model[plan.get_act_pot()])
 test_preds = test_model[plan.get_preds()]
