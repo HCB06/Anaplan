@@ -16,9 +16,9 @@ scaler_params, x_train, x_test = plan.standard_scaler(x_train, x_test)
 
 x_train, y_train = plan.synthetic_augmentation(x_train, y_train)
 
-activation_potentiation = plan.activation_optimizer(x_train, y_train, x_test, y_test, target_acc=0.99)
+model = plan.learner(x_train, y_train, x_test, y_test, target_acc=0.99) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/Anaplan/blob/main/Welcome_to_PLAN/PLAN.pdf
 
-W = plan.fit(x_train, y_train, activation_potentiation=activation_potentiation)
-
+activation_potentiation = model[plan.get_act_pot()])
+W = model[plan.get_weights()]
 
 test_model = plan.evaluate(x_test, y_test, show_metrics=True, W=W, activation_potentiation=activation_potentiation)
