@@ -42,7 +42,7 @@ print('classes: %s' % (newsgroup.target_names))
 
 
 # PLAN Modeli
-model = plan.learner(x_train, y_train, x_test, y_test, depth=2, big_data_mode=True, except_this=['circular'])
+model = plan.learner(x_train, y_train, x_test, y_test, depth=2, big_data_mode=True, except_this=['circular']) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/Anaplan/blob/main/Welcome_to_PLAN/PLAN.pdf
 
 W = model[plan.get_weights()]
 activation_potentiation = model[plan.get_act_pot()]
