@@ -3,7 +3,6 @@ import time
 from colorama import Fore
 import numpy as np
 from sklearn.datasets import load_digits
-from matplotlib import pyplot as plt
 
 # TRAIN
 
