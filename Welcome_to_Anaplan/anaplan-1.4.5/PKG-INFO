@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: anaplan
+Version: 1.4.5
+Summary: learner and fit function have new parameter: 'neurons_history'. It shows neurons history. fit function and learner function's issues solved. : https://github.com/HCB06/Anaplan/blob/main/Welcome_to_Anaplan/ANAPLAN_USER_MANUEL_AND_LEGAL_INFORMATION(EN).pdf.
+Author: Hasan Can Beydili
+Author-email: tchasancan@gmail.com
+Keywords: model evaluation,classifcation,potentiation learning artficial neural networks
