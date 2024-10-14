@@ -112,7 +112,7 @@ print(classification_report(y_test_decoded_dl, y_pred_dl_classes))
 # PLAN Modeli
 print(Fore.GREEN + "\n------PLAN Modeli Sonuçları------" + Fore.RESET)
 
-model = plan.learner(x_train, y_train, x_test, y_test, show_history=True, depth=2) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/Anaplan/blob/main/Welcome_to_PLAN/PLAN.pdf
+model = plan.learner(x_train, y_train, x_test, y_test, depth=2) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/Anaplan/blob/main/Welcome_to_PLAN/PLAN.pdf
 
 W = model[plan.get_weights()]
 activation_potentiation = model[plan.get_act_pot()]
