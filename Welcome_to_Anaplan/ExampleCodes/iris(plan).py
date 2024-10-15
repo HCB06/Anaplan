@@ -1,6 +1,6 @@
 import time
 from colorama import Fore
-import plan
+from anaplan import plan
 from sklearn.datasets import load_iris
 import numpy as np
 
