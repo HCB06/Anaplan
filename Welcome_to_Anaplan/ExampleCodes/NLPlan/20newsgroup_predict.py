@@ -5,7 +5,7 @@ import pickle
 with open('tfidf_20news.pkl', 'rb') as f:
     vectorizer = pickle.load(f)
 
-model = plan.load_model(model_name='20newsgroup')
+model = plan.load_model(model_name='20newsgroup', model_path='')
 
 
 while True:
