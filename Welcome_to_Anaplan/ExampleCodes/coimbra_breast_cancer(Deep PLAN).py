@@ -38,11 +38,6 @@ print(classification_report(plan.decode_one_hot(y_test), test_model[plan.get_pre
 test_acc = test_model[plan.get_acc()]
 
 plan.save_model(model_name='breast_cancer_coimbra',
-                model_type='deep PLAN',
-                test_acc=test_acc,
-                weights_type='txt',
-                weights_format='raw',
-                model_path='',
                 scaler_params=scaler_params,
                 activation_potentiation=activation_potentiation,
                 W=W)
