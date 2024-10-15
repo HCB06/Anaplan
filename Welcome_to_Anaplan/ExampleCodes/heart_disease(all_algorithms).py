@@ -126,11 +126,6 @@ print(classification_report(plan.decode_one_hot(y_test), test_model[plan.get_pre
 """
 # MODEL KAYDETME
 plan.save_model(model_name='heart_disease_model',
-                model_type='deep PLAN',
-                test_acc=test_acc_plan,
-                weights_type='txt',
-                weights_format='raw',
-                model_path='',
                 scaler_params=scaler_params,
                 activation_potentiation=activation_potentiation,
                 W=W)
