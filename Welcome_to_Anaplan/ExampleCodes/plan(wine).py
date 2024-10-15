@@ -34,12 +34,9 @@ test_preds = test_model[plan.get_preds()]
 test_acc = test_model[plan.get_acc()]
 
 model_name = 'wine'
-model_type = 'PLAN'
-weights_type = 'txt'
-weights_format = 'raw'
 model_path = ''
 
-plan.save_model(model_name=model_name, activation_potentiation=model[plan.get_act_pot()], model_type=model_type, test_acc=test_acc, weights_type=weights_type, weights_format=weights_format, model_path=model_path, scaler_params=scaler_params, W=model[plan.get_weights()])
+plan.save_model(model_name=model_name, activation_potentiation=model[plan.get_act_pot()], model_path=model_path, scaler_params=scaler_params, W=model[plan.get_weights()])
 
 precisison, recall, f1 = plan.metrics(y_test, test_preds)
 print('Precision: ', precisison, '\n', 'Recall: ', recall, '\n', 'F1: ', f1)
