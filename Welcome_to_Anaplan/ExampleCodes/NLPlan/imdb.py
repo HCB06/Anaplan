@@ -53,7 +53,7 @@ test_acc = test_model[plan.get_acc()]
 test_preds = test_model[plan.get_preds()]
 
 # Modeli kaydetme
-plan.save_model(model_name='IMDB', model_type='PLAN', test_acc=test_acc, weights_type='txt', weights_format='raw', model_path='', scaler_params=scaler_params, W=W, activation_potentiation=activation_potentiation)
+plan.save_model(model_name='IMDB', scaler_params=scaler_params, W=W, activation_potentiation=activation_potentiation)
 
 # Performans metrikleri
 precision, recall, f1 = plan.metrics(y_test, test_preds)
