@@ -22,7 +22,7 @@ vectorizer = TfidfVectorizer(max_features=6000)
 X = vectorizer.fit_transform(X)
 
 # Vectorizer'ı kaydetme
-with open('tfidf_vectorizer.pkl', 'wb') as f:
+with open('tfidf_imdb.pkl', 'wb') as f:
     pickle.dump(vectorizer, f)
 
 X = X.toarray()
