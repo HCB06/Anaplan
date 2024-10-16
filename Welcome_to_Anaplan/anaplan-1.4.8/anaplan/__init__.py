@@ -2,7 +2,7 @@
 
 # Bu dosya, plan modülünün ana giriş noktasıdır.
 
-__version__ = "1.4.7" 
+__version__ = "1.4.8" 
 
 def print_version():
     print(f"Anaplan Version {__version__}" + '\n')
