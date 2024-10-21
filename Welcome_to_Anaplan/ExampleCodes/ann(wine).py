@@ -19,7 +19,7 @@ one_hot_encoder = OneHotEncoder(sparse=False)
 y = one_hot_encoder.fit_transform(y.reshape(-1, 1))
 
 # Eğitim ve test setlerini oluşturma
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4, random_state=17903)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4, random_state=42)
 
 # Verileri ölçeklendirme
 scaler = StandardScaler()
