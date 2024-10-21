@@ -20,20 +20,20 @@ y_train, y_test = plan.encode_one_hot(y_train, y_test)
 
 x_test, y_test = plan.auto_balancer(x_test, y_test)
 
-activation_porentiation=['bent_identity']
+activation_potentiation=['bent_identity']
 
-W = plan.fit(x_train, y_train, activation_potentiation=activation_porentiation, neurons_history=True, interval=16.67)
+W = plan.fit(x_train, y_train, activation_potentiation=activation_potentiation, neurons_history=True, interval=16.67)
 
 # TEST
 
-test_model = plan.evaluate(x_test, y_test, show_metrices=True, W=W, activation_potentiation=activation_porentiation)
+test_model = plan.evaluate(x_test, y_test, show_metrices=True, W=W, activation_potentiation=activation_potentiation)
 test_preds = test_model[plan.get_preds()]
 test_acc = test_model[plan.get_acc()]
 
 # PREDICT
 
 for i in range(len(x_test)):
-    Predict = plan.predict_model_ram(x_test[i], W)
+    Predict = plan.predict_model_ram(x_test[i], W=W, activation_potentiation=activation_potentiation)
 
     time.sleep(0.5)
     if np.argmax(Predict) == np.argmax(y_test[i]):
