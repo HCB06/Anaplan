@@ -36,7 +36,7 @@ model = Sequential([
 model.compile(optimizer=Adam(), loss='categorical_crossentropy', metrics=['accuracy'])
 
 # Modeli eğitme
-history = model.fit(X_train, y_train, epochs=0, validation_split=0.2, verbose=1)
+history = model.fit(X_train, y_train, epochs=50, validation_split=0.2, verbose=1)
 
 # Test verisi üzerinde modelin performansını değerlendirme
 test_loss, test_acc = model.evaluate(X_test, y_test, verbose=1)
