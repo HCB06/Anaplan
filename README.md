@@ -23,6 +23,8 @@ https://libraries.io/pypi/anaplan
             ]
 
      moviepy, sounddevice, soundfile, matplotlib, seaborn (optional).
+     Anaplan checks and install all dependicies (with optional ones) for every runing.
+     If your verison is higher or lower, Anaplan automatic deletes other versions and installs this versions.
           
 ##############################
 
