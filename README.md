@@ -64,34 +64,4 @@ Anaconda users can access the 'Anaconda Prompt' terminal from the Start menu and
 •
 After installing the module using "pip" you can now call the library module in your project environment. Use: “from anaplan import plan”. Now, you can call the necessary functions from the plan module.
 
-MAIN FUNCTIONS:
-
-The functions of the Anaplan modules, uses snake_case written style
-
-1. fit (2Args - 8Args)
-2. evaluate (5Args -6Args)
-3. save_model (8Args - 9Args)
-4. load_model (2Args)
-5. predict_model_ssd (3Args)
-6. predict_model_ram (3Args - 4Args)
-7. auto_balancer (2Args)
-8. synthetic_augmentation (2Args)
-9. get_weights ()
-10. get_scaler ()
-11. get_preds ()
-12. get_acc ()
-13. get_pot ()
-14. metrics (3Args)
-15. decode_one_hot (1Args)
-16. roc_curve (2Args)
-17. confusion_matrix (3Args)
-18. plot_decision_space (2Args)
-19. standard_scaler(1Args - 3Args)
-20. manuel_balancer(3Args)
-21. weight_normalization (2Args)
-22. manuel_balancer(3Args)
-23. weight_normalization (2Args)
-24. activation_optimizer (2Args - 12Args)
-25. activations_list ()
-
 The PLAN algorithm will not be explained in this document. This document focuses on how professionals can integrate and use Anaplan in their systems. However, briefly, the PLAN algorithm can be described as a classification algorithm. PLAN algorithm achieves this task with an incredibly energy-efficient, fast, and hyperparameter-free user-friendly approach. For more detailed information, you can check out ![ANAPLAN USER MANUEL](https://github.com/HCB06/Anaplan/blob/main/Welcome_to_Anaplan/ANAPLAN_USER_MANUEL_AND_LEGAL_INFORMATION(EN).pdf) file.
