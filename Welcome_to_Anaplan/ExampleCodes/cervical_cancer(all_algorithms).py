@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 from colorama import Fore
-from anaplan import plan
+import plan
 from sklearn.metrics import classification_report, accuracy_score
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
@@ -90,7 +90,7 @@ model.add(Dense(y_train.shape[1], activation='softmax'))  # Çıkış katmanı (
 model.compile(optimizer='rmsprop', loss='categorical_crossentropy', metrics=['accuracy'])
 
 # Modeli eğitme
-history = model.fit(x_train, y_train, epochs=100, batch_size=32, validation_data=(x_test, y_test), verbose=2)
+history = model.fit(x_train, y_train, epochs=6, batch_size=32, validation_data=(x_test, y_test), verbose=2)
 
 # Test verileri üzerinde modelin performansını değerlendirme
 y_pred_dl = model.predict(x_test)
@@ -103,7 +103,7 @@ print(f"Derin Öğrenme Test Accuracy: {test_acc_dl:.4f}")
 print(classification_report(y_test_decoded_dl, y_pred_dl_classes))
 
 # PLAN Modeli
-model = plan.learner(x_train, y_train, depth=10, neurons_history=True, interval=16.67) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/Anaplan/blob/main/Welcome_to_PLAN/PLAN.pdf
+model = plan.learner(x_train, y_train, early_shifting=10, batch_size=0.08, depth=5) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/Anaplan/blob/main/Welcome_to_PLAN/PLAN.pdf
 
 # Modeli test etme
 test_model = plan.evaluate(x_test, y_test, W=model[plan.get_weights()], activation_potentiation=model[plan.get_act_pot()])
