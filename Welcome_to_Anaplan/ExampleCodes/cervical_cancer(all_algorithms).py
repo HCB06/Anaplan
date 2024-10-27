@@ -90,7 +90,7 @@ model.add(Dense(y_train.shape[1], activation='softmax'))  # Çıkış katmanı (
 model.compile(optimizer='rmsprop', loss='categorical_crossentropy', metrics=['accuracy'])
 
 # Modeli eğitme
-history = model.fit(x_train, y_train, epochs=6, batch_size=32, validation_data=(x_test, y_test), verbose=2)
+history = model.fit(x_train, y_train, epochs=10, batch_size=32, validation_data=(x_test, y_test), verbose=2)
 
 # Test verileri üzerinde modelin performansını değerlendirme
 y_pred_dl = model.predict(x_test)
