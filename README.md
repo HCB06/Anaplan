@@ -21,6 +21,8 @@ https://libraries.io/pypi/anaplan
 	    'matplotlib==3.9.0',
 	    'colorama==0.4.6'
             ]
+
+     moviepy, sounddevice, soundfile, matplotlib, seaborn (optional).
           
 ##############################
 
