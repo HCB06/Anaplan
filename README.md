@@ -22,7 +22,7 @@ https://libraries.io/pypi/anaplan
 	    'colorama==0.4.6'
             ]
 
-     moviepy, sounddevice, soundfile, matplotlib, seaborn (optional).
+     moviepy, sounddevice, soundfile, matplotlib, seaborn, networkx (optional).
      Anaplan checks and install all dependicies (with optional ones) for every runing.
      If your version is higher or lower, Anaplan automaticly delete other versions and installs this versions.
           
