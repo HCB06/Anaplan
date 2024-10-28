@@ -6,7 +6,7 @@ https://libraries.io/pypi/anaplan
       
       from anaplan import plan
 
-      Optimized for Visual Studio Code
+      Optimized for Visual Studio Code(Note: Improves for other ides in 1.5.7 update.)
       
       requires=[
  	    'scipy==1.13.1',
