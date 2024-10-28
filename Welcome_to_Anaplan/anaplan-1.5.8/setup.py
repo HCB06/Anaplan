@@ -14,7 +14,7 @@ setup(
         'anaplan': ['*.mp4']
       },
       include_package_data=True,
-      keywords = ["model evaluation", "classifcation", 'potentiation learning artficial neural networks'],
+      keywords = ["model evaluation", "classifcation", 'potentiation learning artificial neural networks'],
 
       
       )
