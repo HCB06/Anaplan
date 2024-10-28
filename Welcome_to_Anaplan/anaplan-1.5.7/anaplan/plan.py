@@ -41,10 +41,7 @@ WHITE = "\033[97m"
 RESET = "\033[0m"
 
 bar_format = f"{GREEN}{{bar}}{GREEN} {RESET} {{l_bar}} {{remaining}} {{postfix}}"
-bar_for_acc = f"{GREEN}{{bar}}{GREEN} {RESET} {{postfix}}"
 bar_format_learner = f"{GREEN}{{bar}}{GREEN} {RESET} {{remaining}} {{postfix}}"
-bar_format_learner_with_loss = f"{GREEN}{{bar}}{GREEN} {RESET} {{postfix}}"
-bar_format_learner_with_activations = f"{{postfix}}"
 
 
 def speak(message):
