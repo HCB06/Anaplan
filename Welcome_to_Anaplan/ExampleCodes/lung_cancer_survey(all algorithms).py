@@ -110,9 +110,6 @@ input_dim = x_train.shape[1]  # Giriş boyutu
 
 model = Sequential()
 model.add(Dense(32, activation='relu', input_dim=input_dim))
-model.add(Dense(64, activation='tanh'))
-model.add(Dense(32, activation='relu'))
-model.add(Dense(64, activation='tanh'))
 model.add(Dense(y_train.shape[1], activation='softmax'))
 
 # Model derlemesi
@@ -120,7 +117,7 @@ model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy']
 
 # Model eğitimi (early stopping ile)
 early_stop = tf.keras.callbacks.EarlyStopping(monitor='loss', patience=10, restore_best_weights=True)
-model.fit(x_train, y_train, epochs=10, batch_size=32, callbacks=[early_stop], verbose=1)
+model.fit(x_train, y_train, epochs=60, batch_size=32, callbacks=[early_stop], verbose=1)
 
 # Test verileri üzerinde modelin performansını değerlendirme
 print(Fore.BLUE + "------Derin Öğrenme (ANN) Sonuçları------" + Fore.RESET)
@@ -140,7 +137,7 @@ print(classification_report(y_test_decoded_dl, y_pred_dl_classes))
 
 # PLAN Modeli
 model = plan.learner(x_train, y_train, auto_normalization=False,
-                     depth=1)  # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/Anaplan/blob/main/Welcome_to_PLAN/PLAN.pdf
+                     depth=2)  # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/Anaplan/blob/main/Welcome_to_PLAN/PLAN.pdf
 
 W = model[plan.get_weights()]
 activation_potentiation = model[plan.get_act_pot()]
