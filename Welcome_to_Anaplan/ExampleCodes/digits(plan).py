@@ -22,7 +22,7 @@ x_test, y_test = plan.auto_balancer(x_test, y_test)
 
 activation_potentiation=['bent_identity']
 
-W = plan.fit(x_train, y_train, activation_potentiation=activation_potentiation, neurons_history=True, interval=16.67)
+W = plan.fit(x_train, y_train, activation_potentiation=activation_potentiation)
 
 # TEST
 
