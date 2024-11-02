@@ -26,7 +26,7 @@ W = plan.fit(x_train, y_train, activation_potentiation=activation_potentiation, 
 
 # TEST
 
-test_model = plan.evaluate(x_test, y_test, show_metrices=True, W=W, activation_potentiation=activation_potentiation)
+test_model = plan.evaluate(x_test, y_test, show_metrics=True, W=W, activation_potentiation=activation_potentiation)
 test_preds = test_model[plan.get_preds()]
 test_acc = test_model[plan.get_acc()]
 
