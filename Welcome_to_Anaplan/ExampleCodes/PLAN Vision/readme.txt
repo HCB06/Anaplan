@@ -6,6 +6,14 @@ An AI-powered smart locking system utilizes image classification technology for 
 More information (For Tank) 👉 https://www.youtube.com/watch?v=fA1pq-vTOEQ&t=2s&ab_channel=HasanCanBeydili
 More information (For Missile) 👉 Coming Soon
 
+Advantages:
+1- Fully Stealth Locking
+2- Low Cost
+
+Disadvantages:
+1- Close Range
+2- Wiev Must Be Clean
+
 APPLICATION LINK 👉 https://www.mediafire.com/file/0c50p7ept8t9az0/ULU_Smart_Air_Defense_System.zip/file
 
 This simulation uses Unity.
