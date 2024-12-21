@@ -1,4 +1,4 @@
-from anaplan import plan
+from anaplan import plan, data_manipulations, metrics
 import numpy as np
 import pandas as pd
 
@@ -24,13 +24,13 @@ X.dropna(inplace=True)
 
 X = np.array(X)
 
-x_train, x_test, y_train, y_test = plan.split(X, y, 0.4, 42)
-y_train, y_test = plan.encode_one_hot(y_train, y_test)
+x_train, x_test, y_train, y_test = data_manipulations.split(X, y, 0.4, 42)
+y_train, y_test = data_manipulations.encode_one_hot(y_train, y_test)
 
-x_train, y_train = plan.synthetic_augmentation(x_train, y_train)
-x_test, y_test = plan.auto_balancer(x_test, y_test)
+x_train, y_train = data_manipulations.synthetic_augmentation(x_train, y_train)
+x_test, y_test = data_manipulations.auto_balancer(x_test, y_test)
 
-scaler_params, x_train, x_test= plan.standard_scaler(x_train, x_test)
+scaler_params, x_train, x_test= data_manipulations.standard_scaler(x_train, x_test)
 
 model = plan.learner(x_train, y_train, x_test, y_test, target_acc=1, neurons_history=True, auto_normalization=False, except_this=['circular']) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/Anaplan/blob/main/Welcome_to_PLAN/PLAN.pdf
 
@@ -39,5 +39,5 @@ test_preds = test_model[plan.get_preds()]
 test_acc = test_model[plan.get_acc()]
 
 
-precisison, recall, f1 = plan.metrics(y_test, test_preds)
+precisison, recall, f1 = metrics(y_test, test_preds)
 print('Precision: ', precisison, '\n', 'Recall: ', recall, '\n', 'F1: ', f1)
