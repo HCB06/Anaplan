@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 from colorama import Fore
-from anaplan import plan
+from anaplan import plan, data_manipulations
 from sklearn.metrics import classification_report, accuracy_score
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
@@ -30,25 +30,25 @@ X = np.array(X)
 y = np.array(y)
 
 # Veriyi eğitim ve test setlerine ayırma
-x_train, x_test, y_train, y_test = plan.split(X, y, 0.4, 42)
+x_train, x_test, y_train, y_test = data_manipulations.split(X, y, 0.4, 42)
 
 # One-hot encoding
-y_train, y_test = plan.encode_one_hot(y_train, y_test)
+y_train, y_test = data_manipulations.encode_one_hot(y_train, y_test)
 
 # Veri dengeleme
-x_train, y_train = plan.synthetic_augmentation(x_train, y_train)
-x_test, y_test = plan.auto_balancer(x_test, y_test)
+x_train, y_train = data_manipulations.synthetic_augmentation(x_train, y_train)
+x_test, y_test = data_manipulations.auto_balancer(x_test, y_test)
 
 # Ölçekleme
-scaler_params, x_train, x_test = plan.standard_scaler(x_train, x_test)
+scaler_params, x_train, x_test = data_manipulations.standard_scaler(x_train, x_test)
 
 
 # Lojistik Regresyon Modeli
 print(Fore.YELLOW + "------Lojistik Regresyon Sonuçları------" + Fore.RESET)
 lr_model = LogisticRegression(max_iter=1000, random_state=42)
-y_train_decoded = plan.decode_one_hot(y_train)  # One-hot encoded y_train verilerini geri dönüştürme
+y_train_decoded = data_manipulations.decode_one_hot(y_train)  # One-hot encoded y_train verilerini geri dönüştürme
 lr_model.fit(x_train, y_train_decoded)  # Modeli eğitme
-y_test_decoded = plan.decode_one_hot(y_test)
+y_test_decoded = data_manipulations.decode_one_hot(y_test)
 y_pred_lr = lr_model.predict(x_test)
 test_acc_lr = accuracy_score(y_test_decoded, y_pred_lr)
 print(f"Lojistik Regresyon Test Accuracy: {test_acc_lr:.4f}")
@@ -95,7 +95,7 @@ history = model.fit(x_train, y_train, epochs=10, batch_size=32, validation_data=
 # Test verileri üzerinde modelin performansını değerlendirme
 y_pred_dl = model.predict(x_test)
 y_pred_dl_classes = np.argmax(y_pred_dl, axis=1)  # Tahmin edilen sınıflar
-y_test_decoded_dl = plan.decode_one_hot(y_test)
+y_test_decoded_dl = data_manipulations.decode_one_hot(y_test)
 
 print(Fore.BLUE + "------Derin Öğrenme (ANN) Sonuçları------" + Fore.RESET)
 test_acc_dl = accuracy_score(y_test_decoded_dl, y_pred_dl_classes)
@@ -111,4 +111,4 @@ test_model = plan.evaluate(x_test, y_test, W=model[plan.get_weights()], activati
 print(Fore.GREEN + "\n------PLAN Modeli Sonuçları------" + Fore.RESET)
 test_acc_plan = test_model[plan.get_acc()]
 print(f"PLAN Test Accuracy: {test_acc_plan:.4f}")
-print(classification_report(plan.decode_one_hot(y_test), test_model[plan.get_preds()]))
+print(classification_report(data_manipulations.decode_one_hot(y_test), test_model[plan.get_preds()]))
