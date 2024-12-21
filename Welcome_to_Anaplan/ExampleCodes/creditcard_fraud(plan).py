@@ -1,5 +1,5 @@
 import pandas as pd
-from anaplan import plan
+from anaplan import plan, data_manipulations
 
 data = pd.read_csv('creditcard.csv') # dataset link: https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud
 
@@ -7,14 +7,14 @@ x = data.drop('Class', axis=1).values
 y = data['Class'].values
 
 x = plan.normalization(x)
-x_train, x_test, y_train, y_test = plan.split(x, y, 0.4, 42)
+x_train, x_test, y_train, y_test = data_manipulations.split(x, y, 0.4, 42)
 
-y_train, y_test = plan.encode_one_hot(y_train, y_test)
+y_train, y_test = data_manipulations.encode_one_hot(y_train, y_test)
 
 
-scaler_params, x_train, x_test = plan.standard_scaler(x_train, x_test)
+scaler_params, x_train, x_test = data_manipulations.standard_scaler(x_train, x_test)
 
-x_train, y_train = plan.synthetic_augmentation(x_train, y_train)
+x_train, y_train = data_manipulations.synthetic_augmentation(x_train, y_train)
 
 model = plan.learner(x_train, y_train, x_test, y_test, batch_size=0.1, auto_normalization=False, target_acc=0.99) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/Anaplan/blob/main/Welcome_to_PLAN/PLAN.pdf
 
