@@ -5,6 +5,9 @@ https://libraries.io/pypi/anaplan
       pip install anaplan
       
       from anaplan import plan
+      from anaplan import planeat
+      from anaplan import data_operations
+      from anaplan import model_operations
 
       Optimized for Visual Studio Code(Note: Improved for other ides in 1.5.8>.)
       
