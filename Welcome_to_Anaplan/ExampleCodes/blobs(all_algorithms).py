@@ -8,7 +8,7 @@ Created on Thu Jun 20 03:55:15 2024
 import pandas as pd
 import numpy as np
 from colorama import Fore
-from anaplan import plan, data_manipulations, model_operations
+from anaplan import plan, data_operations, model_operations
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 import xgboost as xgb
@@ -76,20 +76,20 @@ def plot_decision_boundary(x, y, model, feature_indices=[0, 1], h=0.02, model_na
 X, y = make_blobs(n_samples=1000, centers=5, random_state=42)
 
 # Eğitim, test ve doğrulama verilerini ayırma
-x_train, x_test, y_train, y_test = data_manipulations.split(X, y, test_size=0.4, random_state=42) # For less train data use this: (X, y, test_size=0.9, random_state=42)
+x_train, x_test, y_train, y_test = data_operations.split(X, y, test_size=0.4, random_state=42) # For less train data use this: (X, y, test_size=0.9, random_state=42)
 
 # One-hot encoding işlemi
-y_train, y_test = data_manipulations.encode_one_hot(y_train, y_test)
+y_train, y_test = data_operations.encode_one_hot(y_train, y_test)
 
 
 # Veri dengesizliği durumunu otomatik dengeleme
-x_train, y_train = data_manipulations.auto_balancer(x_train, y_train)
-scaler_params, x_train, x_test = data_manipulations.standard_scaler(x_train, x_test)
+x_train, y_train = data_operations.auto_balancer(x_train, y_train)
+scaler_params, x_train, x_test = data_operations.standard_scaler(x_train, x_test)
 
 # Lojistik Regresyon Modeli
 print(Fore.YELLOW + "------Lojistik Regresyon Sonuçları------" + Fore.RESET)
 lr_model = LogisticRegression(max_iter=1000, random_state=42)
-y_train_decoded = data_manipulations.decode_one_hot(y_train)
+y_train_decoded = data_operations.decode_one_hot(y_train)
 lr_model.fit(x_train, y_train_decoded)
 
 y_test_decoded = plan.decode_one_hot(y_test)
