@@ -8,7 +8,7 @@ Created on Thu Jun 20 03:55:15 2024
 import pandas as pd
 import numpy as np
 from colorama import Fore
-from anaplan import plan
+from anaplan import plan, data_manipulations, model_operations
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 import xgboost as xgb
@@ -50,7 +50,7 @@ def plot_decision_boundary(x, y, model, feature_indices=[0, 1], h=0.02, model_na
         Z = [None] * len(grid_full)
 
         for i in range(len(grid_full)):
-            Z[i] = np.argmax(plan.predict_model_ram(grid_full[i], W=W, activation_potentiation=activation_potentiation))
+            Z[i] = np.argmax(model_operations.predict_model_ram(grid_full[i], W=W, activation_potentiation=activation_potentiation))
 
         Z = np.array(Z)
         Z = Z.reshape(xx.shape)
@@ -76,22 +76,22 @@ def plot_decision_boundary(x, y, model, feature_indices=[0, 1], h=0.02, model_na
 X, y = make_circles(n_samples=500, random_state=42)
 
 # Eğitim, test ve doğrulama verilerini ayırma
-x_train, x_test, y_train, y_test = plan.split(X, y, test_size=0.4, random_state=42) # For less train data use this: (X, y, test_size=0.9, random_state=42)
+x_train, x_test, y_train, y_test = data_manipulations.split(X, y, test_size=0.4, random_state=42) # For less train data use this: (X, y, test_size=0.9, random_state=42)
 
 # One-hot encoding işlemi
-y_train, y_test = plan.encode_one_hot(y_train, y_test)
+y_train, y_test = data_manipulations.encode_one_hot(y_train, y_test)
 
 
 # Veri dengesizliği durumunu otomatik dengeleme
-x_train, y_train = plan.auto_balancer(x_train, y_train)
+x_train, y_train = data_manipulations.auto_balancer(x_train, y_train)
 
 # Lojistik Regresyon Modeli
 print(Fore.YELLOW + "------Lojistik Regresyon Sonuçları------" + Fore.RESET)
 lr_model = LogisticRegression(max_iter=1000, random_state=42)
-y_train_decoded = plan.decode_one_hot(y_train)
+y_train_decoded = data_manipulations.decode_one_hot(y_train)
 lr_model.fit(x_train, y_train_decoded)
 
-y_test_decoded = plan.decode_one_hot(y_test)
+y_test_decoded = data_manipulations.decode_one_hot(y_test)
 y_pred_lr = lr_model.predict(x_test)
 test_acc_lr = accuracy_score(y_test_decoded, y_pred_lr)
 print(f"Lojistik Regresyon Test Accuracy: {test_acc_lr:.4f}")
@@ -143,7 +143,7 @@ model.fit(x_train, y_train, epochs=30, batch_size=32, callbacks=[early_stop], ve
 # Test verileri üzerinde modelin performansını değerlendirme
 y_pred_dl = model.predict(x_test)
 y_pred_dl_classes = np.argmax(y_pred_dl, axis=1)  # Tahmin edilen sınıflar
-y_test_decoded_dl = plan.decode_one_hot(y_test)
+y_test_decoded_dl = data_manipulations.decode_one_hot(y_test)
 print(Fore.BLUE + "------Derin Öğrenme (ANN) Sonuçları------" + Fore.RESET)
 test_acc_dl = accuracy_score(y_test_decoded_dl, y_pred_dl_classes)
 print(f"Derin Öğrenme Test Accuracy: {test_acc_dl:.4f}")
@@ -165,6 +165,7 @@ activation_potentiation = [
     'waveakt'
 ]
 
+### IMPORTANT NOTE! CIRCULAR ACTIVATION DEACTIVATED IN VERSION 2.01. ITS GIVING LOW PERFORMANCE IN THIS VERSION.
 W = plan.fit(x_train, y_train, activation_potentiation=activation_potentiation)
 
 # Modeli test etme
@@ -172,7 +173,7 @@ test_model = plan.evaluate(x_test, y_test, W=W, activation_potentiation=activati
 test_acc_plan = test_model[plan.get_acc()]
 print(Fore.GREEN + "------PLAN Modeli Sonuçları------" + Fore.RESET)
 print(f"PLAN Test Accuracy: {test_acc_plan:.4f}")
-print(classification_report(plan.decode_one_hot(y_test), test_model[plan.get_preds()]))
+print(classification_report(data_manipulations.decode_one_hot(y_test), test_model[plan.get_preds()]))
 # Karar sınırını görselleştir
 plot_decision_boundary(x_test, y_test, model='PLAN', feature_indices=[0, 1], model_name='PLAN', ax=ax, which_ax1=1, which_ax2=1, W=W, activation_potentiation=activation_potentiation)
 plt.show()
