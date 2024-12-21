@@ -1,4 +1,4 @@
-from anaplan import plan, data_manipulations, metrics
+from anaplan import plan, data_operations, metrics
 import numpy as np
 import pandas as pd
 
@@ -24,13 +24,13 @@ X.dropna(inplace=True)
 
 X = np.array(X)
 
-x_train, x_test, y_train, y_test = data_manipulations.split(X, y, 0.4, 42)
-y_train, y_test = data_manipulations.encode_one_hot(y_train, y_test)
+x_train, x_test, y_train, y_test = data_operations.split(X, y, 0.4, 42)
+y_train, y_test = data_operations.encode_one_hot(y_train, y_test)
 
-x_train, y_train = data_manipulations.synthetic_augmentation(x_train, y_train)
-x_test, y_test = data_manipulations.auto_balancer(x_test, y_test)
+x_train, y_train = data_operations.synthetic_augmentation(x_train, y_train)
+x_test, y_test = data_operations.auto_balancer(x_test, y_test)
 
-scaler_params, x_train, x_test= data_manipulations.standard_scaler(x_train, x_test)
+scaler_params, x_train, x_test= data_operations.standard_scaler(x_train, x_test)
 
 model = plan.learner(x_train, y_train, x_test, y_test, target_acc=1, neurons_history=True, auto_normalization=False, except_this=['circular']) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/Anaplan/blob/main/Welcome_to_PLAN/PLAN.pdf
 
