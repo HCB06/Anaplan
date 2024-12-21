@@ -1,4 +1,4 @@
-from anaplan import plan, data_manipulations, model_operations
+from anaplan import plan, data_operations, model_operations
 import time
 from colorama import Fore
 import numpy as np
@@ -13,12 +13,12 @@ y = data.target
 
 X = plan.normalization(X)
 
-x_train, x_test, y_train, y_test = data_manipulations.split(X, y, 0.4, 42)
+x_train, x_test, y_train, y_test = data_operations.split(X, y, 0.4, 42)
 
-y_train, y_test = data_manipulations.encode_one_hot(y_train, y_test)
+y_train, y_test = data_operations.encode_one_hot(y_train, y_test)
 
 
-x_test, y_test = data_manipulations.auto_balancer(x_test, y_test)
+x_test, y_test = data_operations.auto_balancer(x_test, y_test)
 
 activation_potentiation=['bent_identity']
 
