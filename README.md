@@ -66,7 +66,8 @@ PLANEAT:<br>
 You can create artificial intelligence models that perform reinforcement learning tasks using the planeat module:
 
 ![PLANEAT](https://github.com/HCB06/Anaplan/blob/main/Media/PLANEAT_1.gif)<br>
-![PLANEAT]([https://github.com/HCB06/Anaplan/blob/main/Media/PLANEAT_2.gif)<br>
+
+![PLANEAT](https://github.com/HCB06/Anaplan/blob/main/Media/PLANEAT_2.gif)<br>
 
 
 HOW DO I IMPORT IT TO MY PROJECT?
