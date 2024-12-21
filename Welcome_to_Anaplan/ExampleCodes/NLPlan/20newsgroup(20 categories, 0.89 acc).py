@@ -6,7 +6,7 @@ Created on Thu Jun 20 03:55:15 2024
 """
 
 from colorama import Fore
-from anaplan import plan
+from anaplan import plan, data_manipulations, model_operations
 from sklearn.metrics import classification_report
 from sklearn.datasets import fetch_20newsgroups
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -28,15 +28,15 @@ with open('tfidf_20news.pkl', 'wb') as f:
     pickle.dump(vectorizer, f)
 
 # Eğitim ve test verilerine ayırma
-x_train, x_test, y_train, y_test = plan.split(X, y, test_size=0.2, random_state=42)
+x_train, x_test, y_train, y_test = data_manipulations.split(X, y, test_size=0.2, random_state=42)
 
 # One-hot encoding işlemi
-y_train, y_test = plan.encode_one_hot(y_train, y_test)
+y_train, y_test = data_manipulations.encode_one_hot(y_train, y_test)
 
 # Veri dengesizliği durumunu otomatik dengeleme
-x_train, y_train = plan.synthetic_augmentation(x_train, y_train)
+x_train, y_train = data_manipulations.synthetic_augmentation(x_train, y_train)
 
-scaler_params, x_train, x_test = plan.standard_scaler(x_train, x_test)
+scaler_params, x_train, x_test = data_manipulations.standard_scaler(x_train, x_test)
 
 print('size of training set: %s' % (len(x_train)))
 print('size of validation set: %s' % (len(x_test)))
@@ -52,7 +52,7 @@ W = model[plan.get_weights()]
 activation_potentiation = model[plan.get_act_pot()]
 
 # Modeli kaydetme
-plan.save_model(model_name='20newsgroup', test_acc=test_acc, scaler_params=scaler_params, W=W, activation_potentiation=activation_potentiation)
+model_operations.save_model(model_name='20newsgroup', test_acc=test_acc, scaler_params=scaler_params, W=W, activation_potentiation=activation_potentiation)
 
 print(Fore.GREEN + "\n------PLAN Modeli Sonuçları------" + Fore.RESET)
 print(f"PLAN Test Accuracy: {test_acc:.4f}")
