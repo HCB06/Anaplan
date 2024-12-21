@@ -6,7 +6,7 @@ Created on Thu Jun 20 03:55:15 2024
 """
 
 from colorama import Fore
-from anaplan import plan, data_manipulations, model_operations
+from anaplan import plan, data_operations, model_operations
 from sklearn.metrics import classification_report
 from sklearn.datasets import fetch_20newsgroups
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -28,15 +28,15 @@ with open('tfidf_20news.pkl', 'wb') as f:
     pickle.dump(vectorizer, f)
 
 # Eğitim ve test verilerine ayırma
-x_train, x_test, y_train, y_test = data_manipulations.split(X, y, test_size=0.2, random_state=42)
+x_train, x_test, y_train, y_test = data_operations.split(X, y, test_size=0.2, random_state=42)
 
 # One-hot encoding işlemi
-y_train, y_test = data_manipulations.encode_one_hot(y_train, y_test)
+y_train, y_test = data_operations.encode_one_hot(y_train, y_test)
 
 # Veri dengesizliği durumunu otomatik dengeleme
-x_train, y_train = data_manipulations.synthetic_augmentation(x_train, y_train)
+x_train, y_train = data_operations.synthetic_augmentation(x_train, y_train)
 
-scaler_params, x_train, x_test = data_manipulations.standard_scaler(x_train, x_test)
+scaler_params, x_train, x_test = data_operations.standard_scaler(x_train, x_test)
 
 print('size of training set: %s' % (len(x_train)))
 print('size of validation set: %s' % (len(x_test)))
