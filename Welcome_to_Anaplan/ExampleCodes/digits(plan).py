@@ -1,4 +1,4 @@
-from anaplan import plan
+from anaplan import plan, data_manipulations, model_operations
 import time
 from colorama import Fore
 import numpy as np
@@ -13,12 +13,12 @@ y = data.target
 
 X = plan.normalization(X)
 
-x_train, x_test, y_train, y_test = plan.split(X, y, 0.4, 42)
+x_train, x_test, y_train, y_test = data_manipulations.split(X, y, 0.4, 42)
 
-y_train, y_test = plan.encode_one_hot(y_train, y_test)
+y_train, y_test = data_manipulations.encode_one_hot(y_train, y_test)
 
 
-x_test, y_test = plan.auto_balancer(x_test, y_test)
+x_test, y_test = data_manipulations.auto_balancer(x_test, y_test)
 
 activation_potentiation=['bent_identity']
 
@@ -33,7 +33,7 @@ test_acc = test_model[plan.get_acc()]
 # PREDICT
 
 for i in range(len(x_test)):
-    Predict = plan.predict_model_ram(x_test[i], W=W, activation_potentiation=activation_potentiation)
+    Predict = model_operations.predict_model_ram(x_test[i], W=W, activation_potentiation=activation_potentiation)
 
     time.sleep(0.5)
     if np.argmax(Predict) == np.argmax(y_test[i]):
