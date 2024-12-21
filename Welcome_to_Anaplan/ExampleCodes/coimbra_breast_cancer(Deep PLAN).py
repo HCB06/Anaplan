@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 from colorama import Fore
-from anaplan import plan, data_manipulations, model_operations
+from anaplan import plan, data_operations, model_operations
 import time
 from sklearn.metrics import classification_report
 
@@ -13,18 +13,18 @@ X = data.drop('Classification', axis=1).values
 y = data['Classification'].values
 
 # Eğitim, test ve doğrulama verilerini ayırma
-x_train, x_test, y_train, y_test = data_manipulations.split(X, y, 0.4, 42)
-x_train, x_val, y_train, y_val = data_manipulations.split(x_train, y_train, 0.2, 42)
+x_train, x_test, y_train, y_test = data_operations.split(X, y, 0.4, 42)
+x_train, x_val, y_train, y_val = data_operations.split(x_train, y_train, 0.2, 42)
 
 # One-hot encoding işlemi
-y_train, y_test = data_manipulations.encode_one_hot(y_train, y_test)
-y_val = data_manipulations.encode_one_hot(y_val, y)[0]
+y_train, y_test = data_operations.encode_one_hot(y_train, y_test)
+y_val = data_operations.encode_one_hot(y_val, y)[0]
 
 # Veri dengesizliği durumunda otomatik dengeleme
-x_train, y_train = data_manipulations.auto_balancer(x_train, y_train)
+x_train, y_train = data_operations.auto_balancer(x_train, y_train)
 
 # Verilerin standardize edilmesi
-scaler_params, x_train, x_test = data_manipulations.standard_scaler(x_train, x_test)
+scaler_params, x_train, x_test = data_operations.standard_scaler(x_train, x_test)
 
 # Aktivasyon fonksiyonları
 activation_potentiation = plan.learner(x_train, y_train, x_test, y_test, target_acc=0.82)[plan.get_act_pot()]
