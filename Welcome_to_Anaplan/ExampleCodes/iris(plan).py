@@ -1,6 +1,6 @@
 import time
 from colorama import Fore
-from anaplan import plan, data_manipulations, model_operations, metrics
+from anaplan import plan, data_operations, model_operations, metrics
 from sklearn.datasets import load_iris
 import numpy as np
 
@@ -8,16 +8,16 @@ data = load_iris()
 X = data.data
 y = data.target
 
-x_train, x_test, y_train, y_test = data_manipulations.split(X, y, 0.3, 42)
+x_train, x_test, y_train, y_test = data_operations.split(X, y, 0.3, 42)
 
 x_train = x_train.tolist()
 x_test = x_test.tolist()
 
-y_train, y_test = data_manipulations.encode_one_hot(y_train, y_test)
+y_train, y_test = data_operations.encode_one_hot(y_train, y_test)
 
-x_train, y_train = data_manipulations.synthetic_augmentation(x_train, y_train)
+x_train, y_train = data_operations.synthetic_augmentation(x_train, y_train)
 
-scaler_params, x_train, x_test = data_manipulations.standard_scaler(x_train, x_test)
+scaler_params, x_train, x_test = data_operations.standard_scaler(x_train, x_test)
 
 model = plan.learner(x_train, y_train, x_test, y_test, strategy='accuracy', neurons_history=True, target_acc=1, interval=16.67) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/Anaplan/blob/main/Welcome_to_PLAN/PLAN.pdf
 
@@ -41,7 +41,7 @@ model_operations.save_model(model_name='iris',
 precisison, recall, f1 = metrics(y_test, test_preds)
 print('Precision: ', precisison, '\n', 'Recall: ', recall, '\n', 'F1: ', f1)
 
-y_test = data_manipulations.decode_one_hot(y_test)
+y_test = data_operations.decode_one_hot(y_test)
 
 
 for i in range(len(x_test)):
