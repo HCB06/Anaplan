@@ -1,6 +1,7 @@
 import time
 from colorama import Fore, Style
 from anaplan import plan as pn
+from anaplan import data_operations
 import numpy as np
 import random
 import matplotlib.pyplot as plt
@@ -50,13 +51,13 @@ y_test = y_test_0 + y_test_1
 y_train = np.array(y_train)
 y_test = np.array(y_test)
 
-y_train, y_test = pn.encode_one_hot(y_train, y_test)
+y_train, y_test = data_operations.encode_one_hot(y_train, y_test)
 
-x_train, y_train = pn.auto_balancer(x_train, y_train)
-x_test, y_test = pn.auto_balancer(x_test, y_test)
+x_train, y_train = data_operations.auto_balancer(x_train, y_train)
+x_test, y_test = data_operations.auto_balancer(x_test, y_test)
 
-x_train = pn.normalization(x_train)
-x_test = pn.normalization(x_test)
+x_train = data_operations.normalization(x_train)
+x_test = data_operations.normalization(x_test)
 
 activation_potentiation = ['bent_identity']
 
