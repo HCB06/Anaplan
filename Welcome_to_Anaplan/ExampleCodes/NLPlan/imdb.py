@@ -1,4 +1,4 @@
-from anaplan import plan
+from anaplan import plan, data_operations, model_operations
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from termcolor import colored
@@ -13,7 +13,7 @@ X = data['review']
 y = data['sentiment']
 
 # Cümlelerin orijinal hallerini kopyalamak için ön ayırma işlemi
-x_train, x_test, y_train, y_test = plan.split(X, y, test_size=0.4, random_state=42)
+x_train, x_test, y_train, y_test = data_operations.split(X, y, test_size=0.4, random_state=42)
 
 x_test_copy = np.copy(x_test)
 
@@ -29,17 +29,17 @@ X = X.toarray()
 
 
 # Veriyi eğitim ve test olarak ayırma
-x_train, x_test, y_train, y_test = plan.split(X, y, test_size=0.4, random_state=42)
+x_train, x_test, y_train, y_test = data_operations.split(X, y, test_size=0.4, random_state=42)
 
 # One-hot encoding işlemi
-y_train, y_test = plan.encode_one_hot(y_train, y_test)
+y_train, y_test = data_operations.encode_one_hot(y_train, y_test)
 
 # Veri dengeleme işlemi
-x_train, y_train = plan.synthetic_augmentation(x_train, y_train)
-x_test, y_test = plan.auto_balancer(x_test, y_test)
+x_train, y_train = data_operations.synthetic_augmentation(x_train, y_train)
+x_test, y_test = data_operations.auto_balancer(x_test, y_test)
 
 # Veriyi standartlaştırma
-scaler_params, x_train, x_test = plan.standard_scaler(x_train, x_test)
+scaler_params, x_train, x_test = data_operations.standard_scaler(x_train, x_test)
 
 model = plan.learner(x_train, y_train, x_test, y_test, target_acc=0.85, auto_normalization=False, except_this=['circular']) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/Anaplan/blob/main/Welcome_to_PLAN/PLAN.pdf
 
@@ -53,14 +53,14 @@ test_acc = test_model[plan.get_acc()]
 test_preds = test_model[plan.get_preds()]
 
 # Modeli kaydetme
-plan.save_model(model_name='IMDB', scaler_params=scaler_params, W=W, activation_potentiation=activation_potentiation)
+model_operations.save_model(model_name='IMDB', scaler_params=scaler_params, W=W, activation_potentiation=activation_potentiation)
 
 # Performans metrikleri
-precision, recall, f1 = plan.metrics(y_test, test_preds)
+precision, recall, f1 = metrics(y_test, test_preds)
 
 print('Precision: ', precision, '\n', 'Recall: ', recall, '\n', 'F1: ', f1)
 
-y_test = plan.decode_one_hot(y_test)
+y_test = data_operations.decode_one_hot(y_test)
 
 # Test verisi üzerinde tahminleri yazdırma
 for i in range(len(x_test)):
