@@ -1,7 +1,7 @@
 import numpy as np
 import tensorflow as tf
 import pandas as pd
-import plan
+from anaplan import data_operations
 from sklearn.metrics import accuracy_score, classification_report
 import matplotlib.pyplot as plt
 
@@ -15,19 +15,19 @@ X = data.drop('Classification', axis=1).values  # 'Class' sütunu etiket olarak 
 y = data['Classification'].values
 
 # Eğitim ve test verilerini ayırma
-x_train, x_test, y_train, y_test = plan.split(X, y, 0.4, 42)
-x_train, x_val, y_train, y_val = plan.split(x_train, y_train, 0.2, 42)
+x_train, x_test, y_train, y_test = data_operations.split(X, y, 0.4, 42)
+x_train, x_val, y_train, y_val = data_operations.split(x_train, y_train, 0.2, 42)
 
 
 # One-hot encoding işlemi
-y_val = plan.encode_one_hot(y_val, y_test)[0]
-y_train, y_test = plan.encode_one_hot(y_train, y_test)
+y_val = data_operations.encode_one_hot(y_val, y_test)[0]
+y_train, y_test = data_operations.encode_one_hot(y_train, y_test)
 
 # Veri dengesizliği durumunda otomatik dengeleme
-x_train, y_train = plan.auto_balancer(x_train, y_train)
+x_train, y_train = data_operations.auto_balancer(x_train, y_train)
 
 # Verilerin standardize edilmesi
-scaler_params, x_train, x_test = plan.standard_scaler(x_train, x_test)
+scaler_params, x_train, x_test = data_operations.standard_scaler(x_train, x_test)
 
 # Erken durdurma callback'i
 early_stopping = tf.keras.callbacks.EarlyStopping(
