@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 from colorama import Fore
-import plan
+from anaplan import plan, data_operations
 import time
 from sklearn.metrics import classification_report
 from xgboost import XGBClassifier
@@ -14,18 +14,18 @@ X = data.drop('Classification', axis=1).values
 y = data['Classification'].values
 
 # Eğitim, test ve doğrulama verilerini ayırma
-x_train, x_test, y_train, y_test = plan.split(X, y, 0.4, 42)
-x_train, x_val, y_train, y_val = plan.split(x_train, y_train, 0.2, 42)
+x_train, x_test, y_train, y_test = data_operations.split(X, y, 0.4, 42)
+x_train, x_val, y_train, y_val = data_operations.split(x_train, y_train, 0.2, 42)
 
 # One-hot encoding işlemi
-y_train, y_test = plan.encode_one_hot(y_train, y_test)
-y_val = plan.encode_one_hot(y_val, y)[0]
+y_train, y_test = data_operations.encode_one_hot(y_train, y_test)
+y_val = data_operations.encode_one_hot(y_val, y)[0]
 
 # Veri dengesizliği durumunda otomatik dengeleme
-x_train, y_train = plan.auto_balancer(x_train, y_train)
+x_train, y_train = data_operations.auto_balancer(x_train, y_train)
 
 # Verilerin standardize edilmesi
-scaler_params, x_train, x_test = plan.standard_scaler(x_train, x_test)
+scaler_params, x_train, x_test = data_operations.standard_scaler(x_train, x_test)
 
 # XGBoost modelini oluşturma
 xgb_model = XGBClassifier(use_label_encoder=False, eval_metric='mlogloss')
