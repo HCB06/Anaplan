@@ -64,7 +64,7 @@ You can create artificial intelligence models that perform natural language proc
 
 PLANEAT:<br>
 
-You can create artificial intelligence models that perform reinforcement learning tasks using the planeat module:
+You can create artificial intelligence models that perform reinforcement learning tasks and genetic optimization tasks using the planeat module:
 
 ![PLANEAT](https://github.com/HCB06/Anaplan/blob/main/Media/PLANEAT_1.gif)<br>
 
