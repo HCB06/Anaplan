@@ -7,7 +7,7 @@ Created on Thu Jun 20 03:55:15 2024
 
 import pandas as pd
 import numpy as np
-from anaplan import plan
+from anaplan import plan, data_operations
 from colorama import Fore
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
@@ -31,22 +31,22 @@ for col in categorical_columns:
     X[col] = label_encoder.fit_transform(X[col])
 
 X = np.array(X)
-x_train, x_test, y_train, y_test = plan.split(X, y, test_size=0.4, random_state=42)
+x_train, x_test, y_train, y_test = data_operations.split(X, y, test_size=0.4, random_state=42)
 
-y_train, y_test = plan.encode_one_hot(y_train, y_test)
+y_train, y_test = data_operations.encode_one_hot(y_train, y_test)
 
-x_train, y_train = plan.auto_balancer(x_train, y_train)
-x_test, y_test = plan.auto_balancer(x_test, y_test)
+x_train, y_train = data_operations.auto_balancer(x_train, y_train)
+x_test, y_test = data_operations.auto_balancer(x_test, y_test)
 
-scaler_params, x_train, x_test = plan.standard_scaler(x_train, x_test)
+scaler_params, x_train, x_test = data_operations.standard_scaler(x_train, x_test)
 
 # Lojistik Regresyon Modeli
 print(Fore.YELLOW + "------Lojistik Regresyon Sonuçları------" + Fore.RESET)
 lr_model = LogisticRegression(max_iter=1000, random_state=42)
-y_train_decoded = plan.decode_one_hot(y_train)
+y_train_decoded = data_operations.decode_one_hot(y_train)
 lr_model.fit(x_train, y_train_decoded)
 
-y_test_decoded = plan.decode_one_hot(y_test)
+y_test_decoded = data_operations.decode_one_hot(y_test)
 y_pred_lr = lr_model.predict(x_train)
 train_acc_lr = accuracy_score(y_train_decoded, y_pred_lr)
 #print(f"Lojistik Regresyon Train Accuracy: {train_acc_lr:.4f}")
@@ -123,13 +123,13 @@ model.fit(x_train, y_train, epochs=60, batch_size=32, callbacks=[early_stop], ve
 print(Fore.BLUE + "------Derin Öğrenme (ANN) Sonuçları------" + Fore.RESET)
 y_pred_dl = model.predict(x_train, verbose=0)
 y_pred_dl_classes = np.argmax(y_pred_dl, axis=1)  # Tahmin edilen sınıflar
-y_train_decoded_dl = plan.decode_one_hot(y_train)
+y_train_decoded_dl = data_operations.decode_one_hot(y_train)
 train_acc_dl = accuracy_score(y_train_decoded_dl, y_pred_dl_classes)
 #print(f"Derin Öğrenme Train Accuracy: {train_acc_dl:.4f}")
 
 y_pred_dl = model.predict(x_test, verbose=0)
 y_pred_dl_classes = np.argmax(y_pred_dl, axis=1)  # Tahmin edilen sınıflar
-y_test_decoded_dl = plan.decode_one_hot(y_test)
+y_test_decoded_dl = data_operations.decode_one_hot(y_test)
 test_acc_dl = accuracy_score(y_test_decoded_dl, y_pred_dl_classes)
 print(f"Derin Öğrenme Test Accuracy: {test_acc_dl:.4f}")
 print(classification_report(y_test_decoded_dl, y_pred_dl_classes))
