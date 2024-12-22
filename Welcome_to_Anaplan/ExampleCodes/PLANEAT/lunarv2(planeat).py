@@ -2,6 +2,11 @@ import gym
 from anaplan import planeat
 import numpy as np
 
+"""
+pip install gym
+pip install box2d-py
+"""
+
 # Ortam oluşturma
 env = gym.make('LunarLander-v2')
 state = env.reset(seed=0)
