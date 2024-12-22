@@ -12,6 +12,7 @@ https://libraries.io/pypi/anaplan
       Optimized for Visual Studio Code(Note: Improved for other ides in 1.5.8>.)
       
       requires=[
+        'setuptools==75.6.0'
  	    'scipy==1.13.1',
 	    'tqdm==4.66.4',
 	    'sounddevice==0.5.0',
