@@ -37,7 +37,7 @@ ABOUT ANAPLAN:
 Anaplan is a machine learning library written in Python for professionals, incorporating advanced, unique, new, and modern techniques. Its most important component is the PLAN (Potentiation Learning Artificial Neural Network).
 Both the PLAN algorithm and the Anaplan library were created by Author, and all rights are reserved by Author.
 Anaplan is free to use for commercial business and individual users.
-As of 08/21/2024, the library includes PLAN and PLANEAT module, but other machine learning modules are expected to be added in the future.
+As of 12/21/2024, the library includes PLAN and PLANEAT module, but other machine learning modules are expected to be added in the future.
 <br><br>
 
 Anaplan includes Plan Vision, NLPlan, and at the between of both, Deep Plan:<br>
