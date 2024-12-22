@@ -6,7 +6,7 @@ Created on Thu Jun 20 03:55:15 2024
 """
 
 from colorama import Fore
-import plan
+from anaplan import plan, data_operations
 from sklearn.metrics import classification_report, accuracy_score
 from sklearn.datasets import fetch_20newsgroups
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -24,17 +24,17 @@ X = vectorizer.fit_transform(X)
 X = X.toarray()
 
 # Eğitim ve test verilerine ayrıma
-x_train, x_test, y_train, y_test = plan.split(X, y, test_size=0.4, random_state=42)
+x_train, x_test, y_train, y_test = data_operations.split(X, y, test_size=0.4, random_state=42)
 
 
 # One-hot encoding işlemi
-y_train, y_test = plan.encode_one_hot(y_train, y_test)
+y_train, y_test = data_operations.encode_one_hot(y_train, y_test)
 
 
 # Veri dengesizliği durumunu otomatik dengeleme
-x_train, y_train = plan.synthetic_augmentation(x_train, y_train)
+x_train, y_train = data_operations.synthetic_augmentation(x_train, y_train)
 
-scaler_params, x_train, x_test = plan.standard_scaler(x_train, x_test)
+scaler_params, x_train, x_test = data_operations.standard_scaler(x_train, x_test)
 
 print('size of training set: %s' % (len(x_train)))
 print('size of validation set: %s' % (len(x_test)))
@@ -53,4 +53,4 @@ test_model = plan.evaluate(x_test, y_test, W=W, show_metrics=True, activation_po
 test_acc_plan = test_model[plan.get_acc()]
 print(Fore.GREEN + "\n------PLAN Modeli Sonuçları------" + Fore.RESET)
 print(f"PLAN Test Accuracy: {test_acc_plan:.4f}")
-print(classification_report(plan.decode_one_hot(y_test), test_model[plan.get_preds()], target_names=newsgroup.target_names))
+print(classification_report(data_operations.decode_one_hot(y_test), test_model[plan.get_preds()], target_names=newsgroup.target_names))
