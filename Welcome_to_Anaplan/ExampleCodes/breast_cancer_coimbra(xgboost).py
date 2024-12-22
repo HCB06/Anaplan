@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 from colorama import Fore
-from anaplan import plan, data_operations
+from anaplan import data_operations
 import time
 from sklearn.metrics import classification_report
 from xgboost import XGBClassifier
