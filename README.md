@@ -40,7 +40,7 @@ Anaplan is free to use for commercial business and individual users.
 As of 12/21/2024, the library includes PLAN and PLANEAT module, but other machine learning modules are expected to be added in the future.
 <br><br>
 
-Anaplan includes Plan Vision, NLPlan, and at the between of both, Deep Plan:<br>
+Anaplan includes Plan Vision, NLPlan, PLANEAT and at the between of both, Deep Plan:<br>
 
 ![ANAPLAN](https://github.com/HCB06/PyerualJetwork/blob/main/Media/anaplan.jpg)<br><br><br>
 
