@@ -56,4 +56,4 @@ model_operations.save_model(model_name='20newsgroup', test_acc=test_acc, scaler_
 
 print(Fore.GREEN + "\n------PLAN Modeli Sonuçları------" + Fore.RESET)
 print(f"PLAN Test Accuracy: {test_acc:.4f}")
-print(classification_report(plan.decode_one_hot(y_test), model[plan.get_preds()], target_names=newsgroups.target_names))
+print(classification_report(data_operations.decode_one_hot(y_test), model[plan.get_preds()], target_names=newsgroups.target_names))
