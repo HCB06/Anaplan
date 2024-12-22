@@ -1,5 +1,5 @@
 import numpy as np
-from anaplan import plan
+from anaplan import model_operations, activation_functions
 import pickle
 
 review = ["very bad, too bad discusting!, like a shit, it is poor casting and poor film with a really bad and worst scenario"]
@@ -32,7 +32,7 @@ inp_vectorized = vectorizer.transform(review)
 inp = inp_vectorized.toarray()
 
 # Model ile tahmin yapma
-predict = plan.predict_model_ssd(Input=inp, model_name='IMDB', model_path='')
+predict = model_operations.predict_model_ssd(Input=inp, model_name='IMDB', model_path='')
 
 # Tahmini yorumlama
 if np.argmax(predict) == 1:
@@ -40,4 +40,4 @@ if np.argmax(predict) == 1:
 elif np.argmax(predict) == 0:
     predict_label = 'negatif'
 
-print('%' + str(int(max(plan.Softmax(predict) * 100))) + ' ' + predict_label)
+print('%' + str(int(max(activation_functions.Softmax(predict) * 100))) + ' ' + predict_label)
