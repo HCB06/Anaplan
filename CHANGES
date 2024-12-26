@@ -1,3 +1,7 @@
+--- UPDATE 2.4.3 ---
+* Bug fix in planeat module for 'cross_over_mode' hyperparameter.
+
+
 --- UPDATE 2.4.2 ---
 
 * A new parameter called 'cross_over_mode' has been added to the learner function in the planeat module.
