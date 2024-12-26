@@ -5,7 +5,7 @@
 
 --- UPDATE 2.4.2 ---
 
-* A new parameter called 'cross_over_mode' has been added to the learner function in the planeat module.
+* A new hyperparameter called 'cross_over_mode' has been added to the learner function in the planeat module.
 * More PLAN-like features have been added in planeat module. These are some of the weight features used for non-linearity of the PLAN algorithm to create more powerful models.
 
 
