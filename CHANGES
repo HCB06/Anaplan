@@ -11,7 +11,7 @@
 
 --- UPDATE 2.4.1 ---
 
-* A new parameter called 'show_info' has been added to the save_model function in the model_operations module and it no longer returns anything.
+* A new hyperparameter called 'show_info' has been added to the save_model function in the model_operations module and it no longer returns anything.
 * Bug fixes in planeat module.
 
 
