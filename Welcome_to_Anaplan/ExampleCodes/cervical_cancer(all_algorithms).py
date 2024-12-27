@@ -9,7 +9,7 @@ import xgboost as xgb
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout
 
-df = pd.read_csv('risk_factors_cervical_cancer.csv') # dataset link: https://www.kaggle.com/datasets/loveall/cervical-cancer-risk-classification
+df = pd.read_csv('kag_risk_factors_cervical_cancer.csv') # dataset link: https://www.kaggle.com/datasets/loveall/cervical-cancer-risk-classification
 
 
 # `?` karakterlerini NaN ile değiştirme
