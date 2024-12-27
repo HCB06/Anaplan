@@ -43,7 +43,7 @@ while True:
                 
                 break
             
-        if i > 294:
+        if i > 298:
             env = gym.make('LunarLander-v2', render_mode='human')
             state = env.reset(seed=0)
             state = np.array(state[0])
