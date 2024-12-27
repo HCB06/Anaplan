@@ -19,7 +19,7 @@ x_train, y_train = data_operations.synthetic_augmentation(x_train, y_train)
 
 scaler_params, x_train, x_test = data_operations.standard_scaler(x_train, x_test)
 
-model = plan.learner(x_train, y_train, x_test, y_test, strategy='accuracy', neurons_history=True, target_acc=1, interval=16.67) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/Anaplan/blob/main/Welcome_to_PLAN/PLAN.pdf
+model = plan.learner(x_train, y_train, strategy='accuracy', neurons_history=True, target_acc=0.94, interval=16.67) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/Anaplan/blob/main/Welcome_to_PLAN/PLAN.pdf
 
 W = model[plan.get_weights()]
 
