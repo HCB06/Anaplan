@@ -9,7 +9,7 @@ pip install box2d-py
 
 # Ortam oluşturma
 env = gym.make('LunarLander-v2')
-state = env.reset(seed=0)
+state = env.reset(seed=75)
 state = np.array(state[0])
 
 # Genomlar ve jenerasyon sayısı
@@ -36,21 +36,21 @@ while True:
             reward_sum += reward
             
             if done or truncated:
-                state = env.reset(seed=0)
+                state = env.reset(seed=75)
                 state = np.array(state[0])
                 rewards[i] = reward_sum
                 reward_sum = 0
                 
                 break
             
-        if i > 298:
+        if i > 295:
             env = gym.make('LunarLander-v2', render_mode='human')
-            state = env.reset(seed=0)
+            state = env.reset(seed=75)
             state = np.array(state[0])
         else:
             env.close()
             env = gym.make('LunarLander-v2')
-            state = env.reset(seed=0)
+            state = env.reset(seed=75)
             state = np.array(state[0])
 
     # Jenerasyon ve genom güncellemesi
@@ -64,7 +64,7 @@ while True:
         policy='normal_selective',
         y_reward=np.array(rewards),
         mutations=True,
-        show_info=True
+        show_info=True,
     )
     
     if generation == 20:
