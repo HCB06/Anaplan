@@ -1,3 +1,9 @@
+--- UPDATE 2.4.5 ---
+
+* Bug fixes in planeat module.
+* planeat modules learner function have new hyperparameters:
+  - activation_add_prob=0.9, activation_delete_prob=0.1, activation_change_prob=0.5, weight_mutate_prob=1, weight_mutate_rate=32
+
 --- UPDATE 2.4.3 ---
 
 * Bug fix in planeat module for 'cross_over_mode' hyperparameter.
