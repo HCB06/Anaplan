@@ -3,6 +3,7 @@
 * Three new hyperparameters were added to the learner function in the planeat module: 'activation_selection_add_prob', 'activation_selection_change_prob', and 'activation_selection_rate'. Details are available in the docstring and the updated documentation.
 * Bug fixes in the planeat module.
 * The cross_over function in the planeat module was optimized.
+* The default values of the 'activation_add_prob' and 'activation_delete_prob' hyperparameters in the learner function of the planeat module have been changed to 0.5.
 
 --- UPDATE 2.4.6 ---
 
