@@ -1,6 +1,6 @@
 # anaplan/__init__.py
 
-# Bu dosya, plan modülünün ana giriş noktasıdır.
+# Bu dosya, anaplan kütüphanesinin ana giriş noktasıdır.
 
 import subprocess
 import pkg_resources
