@@ -15,16 +15,13 @@ https://libraries.io/pypi/anaplan
         'setuptools==75.6.0'
  	    'scipy==1.13.1',
 	    'tqdm==4.66.4',
-	    'sounddevice==0.5.0',
-	    'soundfile==0.12.1',
 	    'seaborn==0.13.2',
 	    'pandas==2.2.2',
-	    'moviepy==1.0.3',
 	    'networkx==3.3',
 	    'numpy==1.26.4',
 	    'matplotlib==3.9.0',
 	    'colorama==0.4.6'
-            ]
+        ]
 
      moviepy, sounddevice, soundfile, matplotlib, seaborn, networkx (optional).
      Anaplan checks and install all dependencies (with optional ones) for every runing.
