@@ -1,3 +1,7 @@
+--- UPDATE 2.4.8 ---
+
+* Code improvements, small changes no big change.
+
 --- UPDATE 2.4.7 ---
 
 * Three new hyperparameters were added to the learner function in the planeat module: 'activation_selection_add_prob', 'activation_selection_change_prob', and 'activation_selection_rate'. Details are available in the docstring and the updated documentation.
