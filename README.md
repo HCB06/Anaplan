@@ -1,4 +1,4 @@
-# Anaplan [![Socket Badge](https://socket.dev/api/badge/pypi/package/anaplan/2.4.9?artifact_id=tar-gz)](https://socket.dev/pypi/package/anaplan/overview/2.4.9/tar-gz) [![PyPI Downloads](https://static.pepy.tech/badge/anaplan)](https://pepy.tech/projects/anaplan)
+# Anaplan [![Socket Badge](https://socket.dev/api/badge/pypi/package/anaplan/2.4.9?artifact_id=tar-gz)](https://socket.dev/pypi/package/anaplan/overview/2.4.9/tar-gz) [![PyPI Downloads](https://static.pepy.tech/badge/anaplan)](https://pepy.tech/projects/anaplan) [![PyPI Downloads](https://static.pepy.tech/badge/anaplan/week)](https://pepy.tech/projects/anaplan) [![PyPI Downloads](https://static.pepy.tech/badge/anaplan/month)](https://pepy.tech/projects/anaplan)
 
 https://libraries.io/pypi/anaplan
 
