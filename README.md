@@ -1,4 +1,4 @@
-# Anaplan [![Socket Badge](https://socket.dev/api/badge/pypi/package/anaplan/2.4.8?artifact_id=py3-none-any-whl)](https://socket.dev/pypi/package/anaplan/overview/2.4.8/py3-none-any-whl)
+# Anaplan [![Socket Badge](https://socket.dev/api/badge/pypi/package/anaplan/2.4.9?artifact_id=tar-gz)](https://socket.dev/pypi/package/anaplan/overview/2.4.9/tar-gz)
 
 https://libraries.io/pypi/anaplan
 
