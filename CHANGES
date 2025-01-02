@@ -1,6 +1,9 @@
+--- UPDATE 2.5.3 ---
+* Bug fix
+
 --- UPDATE 2.5.2 ---
 * Codes optimized.
-* new module: help.py
+* New module: help.py
 * The functions get_scaler, get_preds, get_act_pot, get_weights, and get_acc in the plan module have been moved to the model_operations module.
 
 --- UPDATE 2.5.1 ---
