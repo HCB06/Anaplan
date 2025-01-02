@@ -21,12 +21,12 @@ scaler_params, x_train, x_test = data_operations.standard_scaler(x_train, x_test
 
 model = plan.learner(x_train, y_train, strategy='accuracy', neurons_history=True, target_acc=0.94, interval=16.67) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/Anaplan/blob/main/Welcome_to_PLAN/PLAN.pdf
 
-W = model[plan.get_weights()]
+W = model[model_operations.get_weights()]
 
-test_model = plan.evaluate(x_test, y_test, W=W, activation_potentiation=model[plan.get_act_pot()])
+test_model = plan.evaluate(x_test, y_test, W=W, activation_potentiation=model[model_operations.get_act_pot()])
 
-test_preds = test_model[plan.get_preds()]
-test_acc = test_model[plan.get_acc()]
+test_preds = test_model[model_operations.get_preds()]
+test_acc = test_model[model_operations.get_acc()]
 
 model_operations.save_model(model_name='iris',
                  model_type='PLAN',
@@ -34,7 +34,7 @@ model_operations.save_model(model_name='iris',
                  weights_type='npy',
                  weights_format='raw',
                  model_path='',
-                 activation_potentiation=model[plan.get_act_pot()],
+                 activation_potentiation=model[model_operations.get_act_pot()],
                  scaler_params=scaler_params,
                  W=W)
 
@@ -45,7 +45,7 @@ y_test = data_operations.decode_one_hot(y_test)
 
 
 for i in range(len(x_test)):
-    Predict = model_operations.predict_model_ram(x_test[i], W=W, activation_potentiation=model[plan.get_act_pot()])
+    Predict = model_operations.predict_model_ram(x_test[i], W=W, activation_potentiation=model[model_operations.get_act_pot()])
     time.sleep(0.6)
     if np.argmax(Predict) == y_test[i]:
         print(Fore.GREEN + 'Predicted Output(index):', np.argmax(Predict), 'Real Output(index):', y_test[i])
