@@ -1,3 +1,7 @@
+--- UPDATE 2.5.1 ---
+
+* The bug in the draw_model_architecture functionality of the save_model function in the model_operations module has been fixed.
+
 --- UPDATE 2.5.0 ---
 
 * Description and tutorials update, no big change.
