@@ -1,4 +1,4 @@
-from anaplan import plan, data_operations
+from anaplan import plan, data_operations, model_operations
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 
@@ -30,4 +30,4 @@ scaler_params, x_train, x_test = data_operations.standard_scaler(x_train, x_test
 model = plan.learner(x_train, y_train, x_test, y_test, neurons_history=True, target_acc=1, except_this=['circular']) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/Anaplan/blob/main/Welcome_to_PLAN/PLAN.pdf
 
 # Modeli test etme
-test_model = plan.evaluate(x_test, y_test, W=model[plan.get_weights()], show_metrics=True, activation_potentiation=model[plan.get_act_pot()])
+test_model = plan.evaluate(x_test, y_test, W=model[model_operations.get_weights()], show_metrics=True, activation_potentiation=model[model_operations.get_act_pot()])
