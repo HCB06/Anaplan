@@ -73,8 +73,8 @@ W = pn.fit(x_train, y_train, activation_potentiation=activation_potentiation)
 
 test_model = pn.evaluate(x_test, y_test, show_metrices=True, W=W, activation_potentiation=activation_potentiation)
 
-test_preds = test_model[pn.get_preds()]
-test_acc = test_model[pn.get_acc()]
+test_preds = test_model[model_operations.get_preds()]
+test_acc = test_model[model_operations.get_acc()]
 # Test verisinden rastgele 12 örnek seç
 num_samples = 12
 random_indices = random.sample(range(len(x_test)), num_samples)
