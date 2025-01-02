@@ -25,7 +25,7 @@ while True:
         inp = inp_vectorized.toarray()
 
         # Model ile tahmin yapma
-        predict = model_operations.predict_model_ram(Input=inp, W=model[plan.get_weights()], activation_potentiation=model[plan.get_act_pot()], scaler_params=model[plan.get_scaler()])
+        predict = model_operations.predict_model_ram(Input=inp, W=model[model_operations.get_weights()], activation_potentiation=model[model_operations.get_act_pot()], scaler_params=model[model_operations.get_scaler()])
 
 
         # Tahmini yorumlama
