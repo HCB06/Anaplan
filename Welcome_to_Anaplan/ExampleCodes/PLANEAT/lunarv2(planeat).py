@@ -56,7 +56,7 @@ while True:
     # Jenerasyon ve genom güncellemesi
     generation += 1
     
-    genome_weights, genome_activations = planeat.learner(
+    genome_weights, genome_activations = planeat.evolve(
         genome_weights,
         genome_activations,
         generation,
