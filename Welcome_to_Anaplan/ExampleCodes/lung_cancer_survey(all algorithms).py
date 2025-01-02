@@ -7,7 +7,7 @@ Created on Thu Jun 20 03:55:15 2024
 
 import pandas as pd
 import numpy as np
-from anaplan import plan, data_operations
+from anaplan import plan, data_operations, model_operations
 from colorama import Fore
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
