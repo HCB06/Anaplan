@@ -25,18 +25,18 @@ scaler_params, x_train, x_test = data_operations.standard_scaler(x_train, x_test
 
 model = plan.learner(x_train, y_train, x_test, y_test, show_history=True, depth=2) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/Anaplan/blob/main/Welcome_to_PLAN/PLAN.pdf
 
-W = model[plan.get_weights()]
-activation_potentiation = model[plan.get_act_pot()]
+W = model[model_operations.get_weights()]
+activation_potentiation = model[model_operations.get_act_pot()]
 
 test_model = plan.evaluate(x_test, y_test, show_metrics=True, W=W, activation_potentiation=activation_potentiation)
 
-test_preds = test_model[plan.get_preds()]
-test_acc = test_model[plan.get_acc()]
+test_preds = test_model[model_operations.get_preds()]
+test_acc = test_model[model_operations.get_acc()]
 
 model_name = 'wine'
 model_path = ''
 
-model_operations.save_model(model_name=model_name, activation_potentiation=model[plan.get_act_pot()], model_path=model_path, scaler_params=scaler_params, W=model[plan.get_weights()])
+model_operations.save_model(model_name=model_name, activation_potentiation=model[model_operations.get_act_pot()], model_path=model_path, scaler_params=scaler_params, W=model[model_operations.get_weights()])
 
 precisison, recall, f1 = metrics(y_test, test_preds)
 print('Precision: ', precisison, '\n', 'Recall: ', recall, '\n', 'F1: ', f1)
