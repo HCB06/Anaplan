@@ -85,8 +85,8 @@ env.close()
 
 model = model_operations.load_model(model_name='mario99', model_path='')
 
-genome_weights = model[plan.get_weights()]
-genome_activations = model[plan.get_act_pot()]
+genome_weights = model[model_operations.get_weights()]
+genome_activations = model[model_operations.get_act_pot()]
 
 # Ortam oluşturma
 env = gym_super_mario_bros.make('SuperMarioBros-v0', render_mode='human', apply_api_compatibility=True)
