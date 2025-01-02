@@ -167,9 +167,9 @@ W = plan.fit(x_train, y_train, activation_potentiation=activation_potentiation)
 
 # Modeli test etme
 test_model = plan.evaluate(x_test, y_test, W=W, activation_potentiation=activation_potentiation)
-test_acc_plan = test_model[plan.get_acc()]
+test_acc_plan = test_model[model_operations.get_acc()]
 print(f"PLAN Test Accuracy: {test_acc_plan:.4f}")
-print(classification_report(data_operations.decode_one_hot(y_test), test_model[plan.get_preds()]))
+print(classification_report(data_operations.decode_one_hot(y_test), test_model[model_operations.get_preds()]))
 # Karar sınırını görselleştir
 plot_decision_boundary(x_test, y_test, model='PLAN', feature_indices=[0, 1], model_name='PLAN', ax=ax, which_ax1=1, which_ax2=1, W=W, activation_potentiation=activation_potentiation)
 plt.show()
