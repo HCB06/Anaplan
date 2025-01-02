@@ -1,4 +1,4 @@
-from anaplan import plan, data_operations, metrics
+from anaplan import plan, data_operations, model_operations, metrics
 import numpy as np
 import pandas as pd
 
@@ -34,9 +34,9 @@ scaler_params, x_train, x_test= data_operations.standard_scaler(x_train, x_test)
 
 model = plan.learner(x_train, y_train, x_test, y_test, target_acc=1, neurons_history=True, auto_normalization=False, except_this=['circular']) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/Anaplan/blob/main/Welcome_to_PLAN/PLAN.pdf
 
-test_model = plan.evaluate(x_test, y_test, W=model[plan.get_weights()], show_metrics=True, activation_potentiation=model[plan.get_act_pot()])
-test_preds = test_model[plan.get_preds()]
-test_acc = test_model[plan.get_acc()]
+test_model = plan.evaluate(x_test, y_test, W=model[model_operations.get_weights()], show_metrics=True, activation_potentiation=model[model_operations.get_act_pot()])
+test_preds = test_model[model_operations.get_preds()]
+test_acc = test_model[model_operations.get_acc()]
 
 
 precisison, recall, f1 = metrics(y_test, test_preds)
