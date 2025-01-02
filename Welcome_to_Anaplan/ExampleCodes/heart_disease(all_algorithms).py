@@ -8,7 +8,7 @@ Created on Thu Jun 20 03:55:15 2024
 import pandas as pd
 import numpy as np
 from colorama import Fore
-from anaplan import plan, data_operations
+from anaplan import plan, data_operations, model_operations
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 import xgboost as xgb
@@ -114,14 +114,14 @@ print(Fore.GREEN + "\n------PLAN Modeli Sonuçları------" + Fore.RESET)
 
 model = plan.learner(x_train, y_train, x_test, y_test, depth=2) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/Anaplan/blob/main/Welcome_to_PLAN/PLAN.pdf
 
-W = model[plan.get_weights()]
-activation_potentiation = model[plan.get_act_pot()]
+W = model[model_operations.get_weights()]
+activation_potentiation = model[model_operations.get_act_pot()]
 
 test_model = plan.evaluate(x_test, y_test, show_metrics=True, W=W, activation_potentiation=activation_potentiation)
 
-test_acc_plan = test_model[plan.get_acc()]
+test_acc_plan = test_model[model_operations.get_acc()]
 print(f"PLAN Test Accuracy: {test_acc_plan:.4f}")
-print(classification_report(data_operations.decode_one_hot(y_test), test_model[plan.get_preds()]))
+print(classification_report(data_operations.decode_one_hot(y_test), test_model[model_operations.get_preds()]))
 
 """
 # MODEL KAYDETME
