@@ -143,15 +143,15 @@ print(classification_report(y_test_decoded_dl, y_pred_dl_classes))
 model = plan.learner(x_train, y_train, x_test, y_test, auto_normalization=False,
                      depth=6)  # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/Anaplan/blob/main/Welcome_to_PLAN/PLAN.pdf
 
-W = model[plan.get_weights()]
-activation_potentiation = model[plan.get_act_pot()]
+W = model[model_operations.get_weights()]
+activation_potentiation = model[model_operations.get_act_pot()]
 
 print(Fore.GREEN + "------PLAN Modeli Sonuçları------" + Fore.RESET)
 train_model = plan.evaluate(x_train, y_train, W=W, activation_potentiation=activation_potentiation, loading_bar_status=False)
-train_acc_plan = train_model[plan.get_acc()]
+train_acc_plan = train_model[model_operations.get_acc()]
 #print(f"PLAN Train Accuracy: {train_acc_plan:.4f}")
 
 test_model = plan.evaluate(x_test, y_test, W=W, activation_potentiation=activation_potentiation, loading_bar_status=False)
-test_acc_plan = test_model[plan.get_acc()]
+test_acc_plan = test_model[model_operations.get_acc()]
 print(f"PLAN Test Accuracy: {test_acc_plan:.4f}")
-print(classification_report(plan.decode_one_hot(y_test), test_model[plan.get_preds()]))
+print(classification_report(plan.decode_one_hot(y_test), test_model[model_operations.get_preds()]))
