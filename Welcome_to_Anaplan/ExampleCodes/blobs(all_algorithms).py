@@ -155,14 +155,14 @@ plot_decision_boundary(x_test, y_test, model=model, feature_indices=[0, 1], mode
 # PLAN Modeli
 model = plan.learner(x_train, y_train, x_test, y_test, strategy='all', depth=7) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/Anaplan/blob/main/Welcome_to_PLAN/PLAN.pdf
 
-W = model[plan.get_weights()]
-activation_potentiation = model[plan.get_act_pot()]
+W = model[model_operations.get_weights()]
+activation_potentiation = model[model_operations.get_act_pot()]
 
 test_model = plan.evaluate(x_test, y_test, W=W, activation_potentiation=activation_potentiation)
-test_acc_plan = test_model[plan.get_acc()]
+test_acc_plan = test_model[model_operations.get_acc()]
 print(Fore.GREEN + "------PLAN Modeli Sonuçları------" + Fore.RESET)
 print(f"PLAN Test Accuracy: {test_acc_plan:.4f}")
-print(classification_report(plan.decode_one_hot(y_test), test_model[plan.get_preds()]))
+print(classification_report(plan.decode_one_hot(y_test), test_model[model_operations.get_preds()]))
 # Karar sınırını görselleştir
 plot_decision_boundary(x_test, y_test, model='PLAN', feature_indices=[0, 1], model_name='PLAN', ax=ax, which_ax1=1, which_ax2=1, W=W, activation_potentiation=activation_potentiation)
 plt.show()
