@@ -5,6 +5,7 @@
 * Codes optimized.
 * New module: help.py
 * The functions get_scaler, get_preds, get_act_pot, get_weights, and get_acc in the plan module have been moved to the model_operations module.
+* The name of the 'learner' function in the 'planat' module has been changed to 'evolve'.
 
 --- UPDATE 2.5.1 ---
 * The bug in the draw_model_architecture functionality of the save_model function in the model_operations module has been fixed.
