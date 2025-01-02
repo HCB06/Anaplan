@@ -41,7 +41,7 @@ test_model = plan.evaluate(x_test, y_test, show_metrics=True, W=W, activation_po
 
 # Modeli kaydetme
 model_operations.save_model(model_name='breast_cancer',
-                test_acc=test_model[plan.get_acc()],
+                test_acc=test_model[model_operations.get_acc()],
                 scaler_params=scaler_params,
                 activation_potentiation=activation_potentiation,
                 W=W)
