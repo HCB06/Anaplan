@@ -27,15 +27,15 @@ x_train, y_train = data_operations.auto_balancer(x_train, y_train)
 scaler_params, x_train, x_test = data_operations.standard_scaler(x_train, x_test)
 
 # Aktivasyon fonksiyonları
-activation_potentiation = plan.learner(x_train, y_train, x_test, y_test, target_acc=0.82)[plan.get_act_pot()]
+activation_potentiation = plan.learner(x_train, y_train, x_test, y_test, target_acc=0.82)[model_operations.get_act_pot()]
 
 # Modeli eğitme
 W = plan.fit(x_train, y_train, activation_potentiation=activation_potentiation, LTD=0) # val=True, show_training=True, val_count=(int), interval=(int), x_val=(default: x_train), y_val=(default: y_train)
 
 # Modeli test etme
 test_model = plan.evaluate(x_test, y_test, show_metrics=True,  W=W, activation_potentiation=activation_potentiation)
-print(classification_report(plan.decode_one_hot(y_test), test_model[plan.get_preds()]))
-test_acc = test_model[plan.get_acc()]
+print(classification_report(plan.decode_one_hot(y_test), test_model[model_operations.get_preds()]))
+test_acc = test_model[model_operations.get_acc()]
 
 model_operations.save_model(model_name='breast_cancer_coimbra',
                 scaler_params=scaler_params,
