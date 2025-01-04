@@ -2,8 +2,11 @@
 
 Note: anaplan old name of pyerualjetwork.
 
+
 The first version of PyerualJetwork was released on May 22, 2024. Temporary end of support date Aug 22, 2024. (Jan 4, 2025 > SUPPORT RECONTUNIUNG.)
+
 The first version of Anaplan was released on Aug 30, 2024. End of support date Jan 4, 2025.
+
 
 IMPORTAT CHANGE!
 
