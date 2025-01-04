@@ -1,4 +1,4 @@
-# Anaplan [![Socket Badge](https://socket.dev/api/badge/pypi/package/anaplan/2.5.0?artifact_id=tar-gz)](https://socket.dev/pypi/package/anaplan/overview/2.5.0/tar-gz) [![CodeFactor](https://www.codefactor.io/repository/github/hcb06/anaplan/badge)](https://www.codefactor.io/repository/github/hcb06/anaplan) [![PyPI Downloads](https://static.pepy.tech/badge/anaplan)](https://pepy.tech/projects/anaplan) + [![PyPI Downloads](https://static.pepy.tech/badge/Anaplan)](https://pepy.tech/projects/Anaplan) [![PyPI Downloads](https://static.pepy.tech/badge/anaplan/month)](https://pepy.tech/projects/anaplan) [![PyPI Downloads](https://static.pepy.tech/badge/anaplan/week)](https://pepy.tech/projects/anaplan) [![PyPI version](https://img.shields.io/pypi/v/anaplan.svg)](https://pypi.org/project/anaplan/)
+# Anaplan [![Socket Badge](https://socket.dev/api/badge/pypi/package/anaplan/2.5.0?artifact_id=tar-gz)](https://socket.dev/pypi/package/anaplan/overview/2.5.0/tar-gz) [![CodeFactor](https://www.codefactor.io/repository/github/hcb06/anaplan/badge)](https://www.codefactor.io/repository/github/hcb06/anaplan) [![PyPI Downloads](https://static.pepy.tech/badge/anaplan)](https://pepy.tech/projects/anaplan) + [![PyPI Downloads](https://static.pepy.tech/badge/pyerualjetwork)](https://pepy.tech/projects/pyerualjetwork) [![PyPI Downloads](https://static.pepy.tech/badge/anaplan/month)](https://pepy.tech/projects/anaplan) [![PyPI Downloads](https://static.pepy.tech/badge/anaplan/week)](https://pepy.tech/projects/anaplan) [![PyPI version](https://img.shields.io/pypi/v/anaplan.svg)](https://pypi.org/project/anaplan/)
 
 Note: Anaplan old name of anaplan.
 
@@ -44,7 +44,7 @@ As of 12/21/2024, the library includes PLAN and PLANEAT module, but other machin
 
 Anaplan includes Plan Vision, NLPlan, PLANEAT and at the between of both, Deep Plan:<br>
 
-![Anaplan](https://github.com/HCB06/Anaplan/blob/main/Media/Anaplan.jpg)<br><br><br>
+![Anaplan](https://github.com/HCB06/Anaplan/blob/main/Media/anaplan.jpg)<br><br><br>
 
 PLAN VISION:<br>
 
