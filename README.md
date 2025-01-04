@@ -34,7 +34,7 @@ https://libraries.io/pypi/anaplan
           
 ##############################
 
-ABOUT Anaplan:
+ABOUT ANAPLAN:
 
 Anaplan is a machine learning library written in Python for professionals, incorporating advanced, unique, new, and modern techniques. Its most important component is the PLAN (Potentiation Learning Artificial Neural Network) https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4862342. (THIS ARTICLE IS FIRST VERSION OF PLAN.) MODERN VERSION OF PLAN: https://github.com/HCB06/Anaplan/blob/main/Welcome_to_PLAN/PLAN.pdf
 Both the PLAN algorithm and the Anaplan library were created by Author, and all rights are reserved by Author.
