@@ -8,7 +8,7 @@ The first version of PyerualJetwork was released on May 22, 2024. Temporary end 
 The first version of Anaplan was released on Aug 30, 2024. End of support date Jan 4, 2025.
 
 
-IMPORTAT CHANGE!
+IMPORTANT CHANGE!
 
 I recently updated the name of the library I published as "pyerualjetwork" to "anaplan." However, due to copyright issues and branding concerns, I have decided to revert to the original name, "pyerualjetwork." From now on, you can access the library by installing version pyerualjetwork(3.3.4) using the command pip install pyerualjetwork, replacing the current "anaplan(2.5.3)" modules.
 
