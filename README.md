@@ -9,7 +9,7 @@ IMPORTAT CHANGE!
 
 I recently updated the name of the library I published as "pyerualjetwork" to "anaplan." However, due to copyright issues and branding concerns, I have decided to revert to the original name, "pyerualjetwork." From now on, you can access the library by installing version pyerualjetwork(3.3.4) using the command pip install pyerualjetwork, replacing the current "anaplan(2.5.3)" modules.
 
-https://libraries.io/pypi/pyerualjetwork
+https://libraries.io/pypi/pyerualjetwork (re-continuing support)
 
 https://libraries.io/pypi/anaplan (end of support)
 
