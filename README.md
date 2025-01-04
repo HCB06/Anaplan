@@ -3,7 +3,7 @@
 Note: pyerualjetwork old name of anaplan.
 
 
-The first version of Anaplan was released on May 22, 2024, and its latest version was released on August 22, 2024, and no further versions will be released. Anaplan launched its first version on August 30, 2024, as a continuation of Anaplan. Only the name has been changed.
+The first version of PyerualJetwork was released on May 22, 2024, and its latest version was released on August 22, 2024, and no further versions will be released. Anaplan launched its first version on August 30, 2024, as a continuation of PyerualJetwork. Only the name has been changed.
 
 https://libraries.io/pypi/anaplan
 
