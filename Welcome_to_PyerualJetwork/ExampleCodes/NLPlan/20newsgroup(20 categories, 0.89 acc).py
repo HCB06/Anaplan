@@ -6,7 +6,7 @@ Created on Thu Jun 20 03:55:15 2024
 """
 
 from colorama import Fore
-from anaplan import plan, data_operations, model_operations
+from pyerualjetwork import plan, data_operations, model_operations
 from sklearn.metrics import classification_report
 from sklearn.datasets import fetch_20newsgroups
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -44,7 +44,7 @@ print('classes: %s' % (newsgroups.target_names))
 
 
 # PLAN Modeli
-model = plan.learner(x_train, y_train, x_test, y_test, depth=10, target_acc=0.89, big_data_mode=True) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/Anaplan/blob/main/Welcome_to_PLAN/PLAN.pdf
+model = plan.learner(x_train, y_train, x_test, y_test, depth=10, target_acc=0.89, big_data_mode=True) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/pyerualjetwork/blob/main/Welcome_to_PLAN/PLAN.pdf
 
 test_acc = model[model_operations.get_acc()]
 test_preds = model[model_operations.get_preds()]
