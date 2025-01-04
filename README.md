@@ -75,8 +75,8 @@ You can create artificial intelligence models that perform reinforcement learnin
 
 HOW DO I IMPORT IT TO MY PROJECT?
 
-Anaconda users can access the 'Anaconda Prompt' terminal from the Start menu and add the necessary library modules to the Python module search queue by typing "pip install Anaplan" and pressing enter. If you are not using Anaconda, you can simply open the 'cmd' Windows command terminal from the Start menu and type "pip install Anaplan". (Visual Studio Code reccomended) After installation, it's important to periodically open the terminal of the environment you are using and stay up to date by using the command "pip install Anaplan --upgrade".
+Anaconda users can access the 'Anaconda Prompt' terminal from the Start menu and add the necessary library modules to the Python module search queue by typing "pip install anaplan" and pressing enter. If you are not using Anaconda, you can simply open the 'cmd' Windows command terminal from the Start menu and type "pip install anaplan". (Visual Studio Code reccomended) After installation, it's important to periodically open the terminal of the environment you are using and stay up to date by using the command "pip install anaplan --upgrade".
 •
-After installing the module using "pip" you can now call the library module in your project environment. Use: “from Anaplan import plan”. Now, you can call the necessary functions from the plan module.
+After installing the module using "pip" you can now call the library module in your project environment. Use: “from anaplan import plan”. Now, you can call the necessary functions from the plan module.
 
 The PLAN algorithm will not be explained in this document. This document focuses on how professionals can integrate and use Anaplan in their systems. However, briefly, the PLAN algorithm can be described as a classification algorithm. PLAN algorithm achieves this task with an incredibly energy-efficient, fast, and hyperparameter-free user-friendly approach. For more detailed information, you can check out ![ANAPLAN USER MANUEL](https://github.com/HCB06/Anaplan/blob/main/Welcome_to_Anaplan/ANAPLAN_USER_MANUEL_AND_LEGAL_INFORMATION(EN).pdf) file.
