@@ -1,6 +1,6 @@
 # Anaplan [![Socket Badge](https://socket.dev/api/badge/pypi/package/anaplan/2.5.0?artifact_id=tar-gz)](https://socket.dev/pypi/package/anaplan/overview/2.5.0/tar-gz) [![CodeFactor](https://www.codefactor.io/repository/github/hcb06/anaplan/badge)](https://www.codefactor.io/repository/github/hcb06/anaplan) [![PyPI Downloads](https://static.pepy.tech/badge/anaplan)](https://pepy.tech/projects/anaplan) + [![PyPI Downloads](https://static.pepy.tech/badge/pyerualjetwork)](https://pepy.tech/projects/pyerualjetwork) [![PyPI Downloads](https://static.pepy.tech/badge/anaplan/month)](https://pepy.tech/projects/anaplan) [![PyPI Downloads](https://static.pepy.tech/badge/anaplan/week)](https://pepy.tech/projects/anaplan) [![PyPI version](https://img.shields.io/pypi/v/anaplan.svg)](https://pypi.org/project/anaplan/)
 
-Note: Anaplan old name of anaplan.
+Note: pyerualjetwork old name of anaplan.
 
 
 The first version of Anaplan was released on May 22, 2024, and its latest version was released on August 22, 2024, and no further versions will be released. Anaplan launched its first version on August 30, 2024, as a continuation of Anaplan. Only the name has been changed.
