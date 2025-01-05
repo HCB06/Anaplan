@@ -1,4 +1,4 @@
-from pyerualjetwork import planeat, model_operations
+from anaplan import planeat, model_operations
 import numpy as np
 import cv2
 import gym_super_mario_bros
