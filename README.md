@@ -45,7 +45,7 @@ As of 12/21/2024, the library includes PLAN and PLANEAT module, but other machin
 
 Anaplan includes Plan Vision, NLPlan, PLANEAT and at the between of both, Deep Plan.<br>
 
-![Anaplan](https://github.com/HCB06/Anaplan/blob/main/Media/anaplanet.jpg)<br><br><br>
+![Anaplan](https://github.com/HCB06/Anaplan/blob/main/Media/anaplanet_logo.jpg)<br><br><br>
 
 PLAN VISION:<br>
 
