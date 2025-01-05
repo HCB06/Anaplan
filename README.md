@@ -7,7 +7,6 @@ The first version of PyerualJetwork was released on May 22, 2024, and its latest
 
 https://libraries.io/pypi/anaplan
 
-Sorry ➡️ http://youtube.com/post/UgkxJMnkCQqSCoLgcjy10KWxyypKuMPTeiB3?si=8JaNRChPRgIzf6sg
 
       pip install anaplan
       
