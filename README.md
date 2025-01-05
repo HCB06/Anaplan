@@ -38,12 +38,12 @@ https://libraries.io/pypi/anaplan
 ABOUT ANAPLANET:
 
 Anaplanet is a machine learning library written in Python for professionals, incorporating advanced, unique, new, and modern techniques. Its most important component is the PLAN (Potentiation Learning Artificial Neural Network) https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4862342. (THIS ARTICLE IS FIRST VERSION OF PLAN.) MODERN VERSION OF PLAN: https://github.com/HCB06/Anaplan/blob/main/Welcome_to_PLAN/PLAN.pdf
-Both the PLAN algorithm and the Anaplan library were created by Author, and all rights are reserved by Author.
-Anaplan is free to use for commercial business and individual users. Anaplan is written in fully functional programming with non-oop elements. Anaplan consists of many functions that complement each other, which facilitates the learning process and debugging during use.
+Both the PLAN algorithm and the Anaplanet library were created by Author, and all rights are reserved by Author.
+Anaplanet is free to use for commercial business and individual users. Anaplanet is written in fully functional programming with non-oop elements. Anaplanet consists of many functions that complement each other, which facilitates the learning process and debugging during use.
 As of 12/21/2024, the library includes PLAN and PLANEAT module, but other machine learning modules are expected to be added in the future.
 <br><br>
 
-Anaplan includes Plan Vision, NLPlan, PLANEAT and at the between of both, Deep Plan.<br>
+Anaplanet includes Plan Vision, NLPlan, PLANEAT and at the between of both, Deep Plan.<br>
 
 ![Anaplan](https://github.com/HCB06/Anaplan/blob/main/Media/anaplanet_logo_final.png)<br><br><br>
 
