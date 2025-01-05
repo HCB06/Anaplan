@@ -2,8 +2,14 @@
 
 Note: pyerualjetwork old name of anaplanet.
 
-
 The first version of PyerualJetwork was released on May 22, 2024, and its latest version was released on August 22, 2024, and no further versions will be released. Anaplanet launched its first version on August 30, 2024, as a continuation of PyerualJetwork. Only the name has been changed.
+
+Note: This library is not affiliated with Anaplan Inc. or the Anaplan platform in any way. The name "Anaplan" is solely used to represent the module name of this machine learning library on PyPI. On GitHub and in the documentation, the name is referred to as "Anaplanet". This name similarity is purely coincidental.
+
+The "Plan" part is derived from the abbreviation "PLAN" for the new algorithm I developed. The "Ana" part, inspired by the well-known "Anaconda" platform, refers to the "main home" of the algorithm. Additionally, the word "Anaplan" means "Priority plan" in Turkish, which is relevant due to the developer of this project being of Turkish origin.
+The "Net" part in "Anaplanet" refers to the "network" in "neural network".
+
+This project is entirely independent and open-source. There is no commercial or legal affiliation with any other entities.
 
 https://libraries.io/pypi/anaplan
 
