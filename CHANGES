@@ -1,4 +1,7 @@
 --- UPDATE 2.5.8 ---
+* Name modification.
+
+--- UPDATE 2.5.8 ---
 * The 'activation_selection_add_prob' default value of the 'evolve' function in the 'planeat' module has been changed from 0.5 to 0.7.
 
 --- UPDATE 2.5.7 Yanked ---
