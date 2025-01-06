@@ -1,63 +1,66 @@
---- UPDATE 2.6.1 ---
+--- UPDATE 4.0.0 (PyerualJetwork) ---
+* PyerualJetwork is now supported again
+
+--- UPDATE 2.6.1 (Anaplan) ---
 * 'Anaplan' Name will be changing at January 10, 2025 from 'anaplan' to original name of library: 'pyerualjetwork' because copyright issue. GET READY FOR CHANGE.
 
---- UPDATE 2.5.9 ---
+--- UPDATE 2.5.9 (Anaplan) ---
 * Name modification.
 
---- UPDATE 2.5.8 ---
+--- UPDATE 2.5.8 (Anaplan) ---
 * The 'activation_selection_add_prob' default value of the 'evolve' function in the 'planeat' module has been changed from 0.5 to 0.7.
 
---- UPDATE 2.5.7 Yanked ---
---- UPDATE 2.5.6 Yanked ---
---- UPDATE 2.5.5 Yanked ---
---- UPDATE 2.5.4 Yanked ---
+--- UPDATE 2.5.7 Yanked (Anaplan) ---
+--- UPDATE 2.5.6 Yanked (Anaplan) ---
+--- UPDATE 2.5.5 Yanked (Anaplan) ---
+--- UPDATE 2.5.4 Yanked (Anaplan) ---
 
---- UPDATE 2.5.3 ---
+--- UPDATE 2.5.3 (Anaplan) ---
 * Bug fix
 
---- UPDATE 2.5.2 ---
+--- UPDATE 2.5.2 (Anaplan) ---
 * Codes optimized.
 * New module: help.py
 * The functions get_scaler, get_preds, get_act_pot, get_weights, and get_acc in the plan module have been moved to the model_operations module.
 * The name of the 'learner' function in the 'planeat' module has been changed to 'evolve'.
 
---- UPDATE 2.5.1 ---
+--- UPDATE 2.5.1 (Anaplan) ---
 * The bug in the draw_model_architecture functionality of the save_model function in the model_operations module has been fixed.
 
---- UPDATE 2.5.0 ---
+--- UPDATE 2.5.0 (Anaplan) ---
 * Description and tutorials update, no big change.
 
---- UPDATE 2.4.9 ---
+--- UPDATE 2.4.9 (Anaplan) ---
 * Dependencies update, no big change.
 
---- UPDATE 2.4.8 ---
+--- UPDATE 2.4.8 (Anaplan) ---
 * Code improvements and security update, small changes no big change.
 
---- UPDATE 2.4.7 ---
+--- UPDATE 2.4.7 (Anaplan) ---
 * Three new hyperparameters were added to the learner function in the planeat module: 'activation_selection_add_prob', 'activation_selection_change_prob', and 'activation_selection_rate'. Details are available in the docstring and the updated documentation.
 * Bug fixes in the planeat module.
 * The cross_over function in the planeat module was optimized.
 * The default values of the 'activation_add_prob' and 'activation_delete_prob' hyperparameters in the learner function of the planeat module have been changed to 0.5.
 
---- UPDATE 2.4.6 ---
+--- UPDATE 2.4.6 (Anaplan) ---
 * Doctrings updated.
 * Documentation updated: https://github.com/HCB06/Anaplan/blob/main/Welcome_to_Anaplan/ANAPLAN_USER_MANUEL_AND_LEGAL_INFORMATION(EN).pdf
 
---- UPDATE 2.4.5 ---
+--- UPDATE 2.4.5 (Anaplan) ---
 * Bug fixes in planeat module.
 * planeat modules learner function have new hyperparameters:
   - activation_add_prob=0.9, activation_delete_prob=0.1, activation_change_prob=0.5, weight_mutate_prob=1, weight_mutate_rate=32
 
---- UPDATE 2.4.3 ---
+--- UPDATE 2.4.3 (Anaplan) ---
 * Bug fix in planeat module for 'cross_over_mode' hyperparameter.
 
---- UPDATE 2.4.2 ---
+--- UPDATE 2.4.2 (Anaplan) ---
 * A new hyperparameter called 'cross_over_mode' has been added to the learner function in the planeat module.
 * More PLAN-like features have been added in planeat module. These are some of the weight features used for non-linearity of the PLAN algorithm to create more powerful models.
 
---- UPDATE 2.4.1 ---
+--- UPDATE 2.4.1 (Anaplan) ---
 * A new hyperparameter called 'show_info' has been added to the save_model function in the model_operations module and it no longer returns anything.
 * Bug fixes in planeat module.
 
---- UPDATE 2.4 ---
+--- UPDATE 2.4 (Anaplan) ---
 * ANAPLAN documentation updated. Includes new modules and planeat module.
