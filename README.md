@@ -2,11 +2,11 @@
 
 Note: pyerualjetwork old name of anaplan.
 
-The first version of PyerualJetwork was released on May 22, 2024, and its latest version was released on August 22, 2024, and no further versions will be released. Anaplanet launched its first version on August 30, 2024, as a continuation of PyerualJetwork. Only the name has been changed.
+The first version of PyerualJetwork was released on May 22, 2024, and its latest version was released on August 22, 2024. Anaplanet launched its first version on August 30, 2024, as a continuation of PyerualJetwork. Only the name has been changed. 
+
+IMPORTANT NOTE:  This library will support the name 'anaplan' until January 10, 2025. However, starting from January 10, 2025, it will begin supporting the name 'pyerualjetwork.' Instead of using pip install anaplan, you will need to use 'pip install pyerualjetwork' and then 'from pyerualjetwork import anaplan_module'. The name 'anaplan' will no longer be in use. REASON: https://github.com/HCB06/Anaplan/blob/main/CHANGES
 
 Note: This library is not affiliated with Anaplan Inc. or the Anaplan platform in any way. The name "Anaplan" is solely used to represent the module name of this machine learning library on PyPI.
-
-The "Plan" part is derived from the abbreviation "PLAN" for the new algorithm I developed. The "Ana" part, inspired by the well-known "Anaconda" platform, refers to the "main home" of the algorithm. Additionally, the word "Anaplan" means "Priority plan" in Turkish, which is relevant due to the developer of this project being of Turkish origin.
 
 This project is entirely independent and open-source. There is no commercial or legal affiliation with any other entities.
 
