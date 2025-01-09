@@ -1,7 +1,7 @@
 import time
 from colorama import Fore, Style
 from anaplan import plan as pn
-from anaplan import data_operations
+from anaplan import data_operations, model_operations
 import numpy as np
 import random
 import matplotlib.pyplot as plt
