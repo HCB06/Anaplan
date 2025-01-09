@@ -1,3 +1,11 @@
+--- UPDATE 4.0.2 (PyerualJetwork) ---
+* model_path docstring info added to all 'predict_model_ssd' functions
+
+--- UPDATE 4.0.1 (PyerualJetwork) ---
+* The functions reverse_predict_model_ram and reverse_predict_model_ssd have been added to the model_operations module.
+Detailed video: https://www.youtube.com/watch?v=GFNLeaIy9_0
+Example codes: https://github.com/HCB06/Anaplan/tree/main/Welcome_to_PyerualJetwork/ExampleCodes/REPLAN
+
 --- UPDATE 4.0.0 (PyerualJetwork) ---
 * PyerualJetwork is now supported again
 
