@@ -3,6 +3,9 @@
 Created on Thu Jun 20 03:55:15 2024
 
 @author: hasan can beydili
+
+'pip install cupy-cuda12x' or your cuda version.
+
 """
 
 from colorama import Fore
