@@ -1,3 +1,6 @@
+--- UPDATE 4.0.4 (PyerualJetwork) ---
+* Bug fixes.
+
 --- UPDATE 4.0.3 (PyerualJetwork) ---
 * 4 New modules added. CUDA integration. Example usage: https://github.com/HCB06/PyerualJetwork/blob/main/Welcome_to_PyerualJetwork/ExampleCodes/NLPlan/20newsgroup(20%20categories%2C%20CUDA).py
 
