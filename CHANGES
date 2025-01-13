@@ -1,3 +1,9 @@
+--- UPDATE 4.0.5 (PyerualJetwork) ---
+* Memory consomptution significantly reduced.
+* 'data_opearations', 'data_opearations_cuda', 'model_operations', 'model_operations_cuda', 'plan', 'plan_cuda', 'planeat', 'planeat_cuda' modules way much optimized.
+* 'standard_scaler' function in the 'data_operations and data_operations_cuda' modules is FIXED.
+* learner function, fit, evaluate and some data operation and model operations functions have new parameter: dtype.
+
 --- UPDATE 4.0.4 (PyerualJetwork) ---
 * Bug fixes.
 
