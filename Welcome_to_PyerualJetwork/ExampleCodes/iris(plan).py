@@ -10,9 +10,6 @@ y = data.target
 
 x_train, x_test, y_train, y_test = data_operations.split(X, y, 0.3, 42)
 
-x_train = x_train.tolist()
-x_test = x_test.tolist()
-
 y_train, y_test = data_operations.encode_one_hot(y_train, y_test)
 
 x_train, y_train = data_operations.synthetic_augmentation(x_train, y_train)
@@ -38,7 +35,7 @@ model_operations.save_model(model_name='iris',
                  scaler_params=scaler_params,
                  W=W)
 
-precisison, recall, f1 = metrics(y_test, test_preds)
+precisison, recall, f1 = metrics.metrics(y_test, test_preds)
 print('Precision: ', precisison, '\n', 'Recall: ', recall, '\n', 'F1: ', f1)
 
 y_test = data_operations.decode_one_hot(y_test)
