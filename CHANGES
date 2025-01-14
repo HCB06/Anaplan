@@ -1,3 +1,6 @@
+--- UPDATE 4.1.0 (PyerualJetwork) --- 
+* Extra info added into learner functions.
+
 --- UPDATE 4.0.9 (PyerualJetwork) --- 
 * Fixed issue in synthetic_augmentation function from data_operations_cuda module.
 
