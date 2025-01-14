@@ -1,3 +1,6 @@
+--- UPDATE 4.0.9 (PyerualJetwork) --- 
+* Fixed issue in synthetic_augmentation function from data_operations_cuda module.
+
 --- UPDATE 4.0.8 (PyerualJetwork) --- 
 * Healty version of 4.0.5
 
