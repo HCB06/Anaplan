@@ -16,7 +16,7 @@
 --- UPDATE 4.0.7 (PyerualJetwork) Yanked! --- 
 --- UPDATE 4.0.6 (PyerualJetwork) Yanked! --- 
 
---- UPDATE 4.0.5 (PyerualJetwork) ---
+--- UPDATE 4.0.5 [Memory Fixes] (PyerualJetwork) ---
 * Memory consomptution significantly reduced.
 * 'data_opearations', 'data_opearations_cuda', 'model_operations', 'model_operations_cuda', 'plan', 'plan_cuda', 'planeat', 'planeat_cuda' modules way much optimized.
 * 'standard_scaler' function in the 'data_operations and data_operations_cuda' modules are FIXED.
