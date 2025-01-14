@@ -1,4 +1,10 @@
---- UPDATE 4.1.0 (PyerualJetwork) --- 
+--- UPDATE 4.1.1 [CUDA Fixes] (PyerualJetwork) --- 
+* planeat_cuda module fixed.
+* activations for cuda fixed.
+* split, auto_balancer, manuel_balancer and synthetic_augmentation functions in data_operations_cuda module have new parameter: use_cpu. (For cpu dataset splits. GPU and CPU's random functions not same.)
+* save_model function in model_operations_cuda module fixed.
+
+--- UPDATE 4.1.0 (PyerualJetwork) Yanked! --- 
 * Extra info added into learner functions.
 
 --- UPDATE 4.0.9 (PyerualJetwork) --- 
@@ -7,8 +13,8 @@
 --- UPDATE 4.0.8 (PyerualJetwork) --- 
 * Healty version of 4.0.5
 
---- UPDATE 4.0.7 (PyerualJetwork) Yanked --- 
---- UPDATE 4.0.6 (PyerualJetwork) Yanked --- 
+--- UPDATE 4.0.7 (PyerualJetwork) Yanked! --- 
+--- UPDATE 4.0.6 (PyerualJetwork) Yanked! --- 
 
 --- UPDATE 4.0.5 (PyerualJetwork) ---
 * Memory consomptution significantly reduced.
@@ -42,10 +48,10 @@ Example codes: https://github.com/HCB06/Anaplan/tree/main/Welcome_to_PyerualJetw
 --- UPDATE 2.5.8 (Anaplan) ---
 * The 'activation_selection_add_prob' default value of the 'evolve' function in the 'planeat' module has been changed from 0.5 to 0.7.
 
---- UPDATE 2.5.7 Yanked (Anaplan) ---
---- UPDATE 2.5.6 Yanked (Anaplan) ---
---- UPDATE 2.5.5 Yanked (Anaplan) ---
---- UPDATE 2.5.4 Yanked (Anaplan) ---
+--- UPDATE 2.5.7 Yanked! (Anaplan) ---
+--- UPDATE 2.5.6 Yanked! (Anaplan) ---
+--- UPDATE 2.5.5 Yanked! (Anaplan) ---
+--- UPDATE 2.5.4 Yanked! (Anaplan) ---
 
 --- UPDATE 2.5.3 (Anaplan) ---
 * Bug fix
