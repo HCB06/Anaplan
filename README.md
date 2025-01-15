@@ -2,7 +2,11 @@
 
 Note: anaplan old name of pyerualjetwork
 
-https://libraries.io/pypi/pyerualjetwork
+Libraries.io Page: https://libraries.io/pypi/pyerualjetwork
+
+PyPi Page: https://pypi.org/project/pyerualjetwork/
+
+GitHub Page: https://github.com/HCB06/PyerualJetwork
 
 
       pip install pyerualjetwork
