@@ -52,7 +52,7 @@ As of 12/21/2024, the library includes PLAN and PLANEAT module, but other machin
 PyerualJetwork ready for both eager execution(like PyTorch) and static graph(like Tensorflow) concepts because PyerualJetwork using only functions.
 For example:
 
-fit function only fits given training data(suitable for dynamic graph) but learner function learns and optimize entire architecture(suitable for static graph). Or more deeper eager executions PyerualJetwork have: feed_forward function, list of activation functions, loss functions. You can create your unique model architecture. Move your data to GPU or CPU or manage how much should in GPU ? Its all up to you.
+fit function only fits given training data(suitable for dynamic graph) but learner function learns and optimize entire architecture(suitable for static graph). Or more deeper eager executions PyerualJetwork have: feed_forward function, list of activation functions, loss functions. You can create your unique model architecture. Move your data to GPU or CPU or manage how much should in GPU, Its all up to you.
 <br><br>
 
 PyerualJetworket includes Plan Vision, NLPlan, PLANEAT and at the between of both, Deep Plan.<br>
