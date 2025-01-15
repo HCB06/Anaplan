@@ -27,6 +27,7 @@ X = X.toarray()
 with open('tfidf_20news.pkl', 'wb') as f:
     pickle.dump(vectorizer, f)
 
+# Data prepearing
 x_train, x_test, y_train, y_test = data_operations_cuda.split(X, y, test_size=0.2, random_state=42, use_cpu=True)
 y_train, y_test = data_operations_cuda.encode_one_hot(y_train, y_test)
 x_train, y_train = data_operations.synthetic_augmentation(x_train.get(), y_train.get())
@@ -36,6 +37,7 @@ print('size of training set: %s' % (len(x_train)))
 print('size of validation set: %s' % (len(x_test)))
 print('classes: %s' % (newsgroups.target_names))
 
+# Fitting-evaluating
 W = plan_cuda.fit(x_train, y_train, auto_normalization=False)
 model = plan_cuda.evaluate(x_test, y_test, W=W)
 
