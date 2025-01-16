@@ -1,3 +1,9 @@
+--- UPDATE 4.1.5 (PyerualJetwork) ---
+* Fixed issue in evaluate function from plan_cuda.
+* Fixed issue in manuel_balancer function from data_operations_cuda.
+* Memory optimization in split function from data_operations_cuda.
+* New module: memory_operations.
+
 --- UPDATE 4.1.4 (PyerualJetwork) ---
 * Fixed issue in load_model function from model_operations_cuda.
 
