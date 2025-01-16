@@ -34,6 +34,7 @@ GitHub Page: https://github.com/HCB06/PyerualJetwork
 	    'matplotlib==3.9.0',
 	    'colorama==0.4.6',
         'cupy-cuda12x'
+	    'psutil==6.1.1'
         ]
 
      matplotlib, seaborn, networkx (optional).
