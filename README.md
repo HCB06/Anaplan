@@ -24,7 +24,7 @@ GitHub Page: https://github.com/HCB06/PyerualJetwork
       Optimized for Visual Studio Code
       
       requires=[
-        'setuptools==75.6.0'
+        'setuptools==75.6.0',
  	    'scipy==1.13.1',
 	    'tqdm==4.66.4',
 	    'seaborn==0.13.2',
