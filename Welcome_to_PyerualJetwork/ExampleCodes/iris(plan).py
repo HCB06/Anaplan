@@ -16,7 +16,7 @@ x_train, y_train = data_operations.synthetic_augmentation(x_train, y_train)
 
 scaler_params, x_train, x_test = data_operations.standard_scaler(x_train, x_test)
 
-model = plan.learner(x_train, y_train, strategy='accuracy', neurons_history=True, target_acc=0.94, interval=16.67) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/pyerualjetwork/blob/main/Welcome_to_PLAN/PLAN.pdf
+model = plan.learner(x_train, y_train, strategy='accuracy', neural_web_history=True, target_acc=0.94, interval=16.67) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/pyerualjetwork/blob/main/Welcome_to_plan/plan.pdf
 
 W = model[model_operations.get_weights()]
 
@@ -26,16 +26,17 @@ test_preds = test_model[model_operations.get_preds()]
 test_acc = test_model[model_operations.get_acc()]
 
 model_operations.save_model(model_name='iris',
-                 model_type='PLAN',
+                 model_type='plan',
                  test_acc=test_acc,
                  weights_type='npy',
                  weights_format='raw',
                  model_path='',
                  activation_potentiation=model[model_operations.get_act_pot()],
                  scaler_params=scaler_params,
+                 show_architecture=True,
                  W=W)
 
-precisison, recall, f1 = metrics.metrics(y_test, test_preds)
+precisison, recall, f1 = metrics(y_test, test_preds)
 print('Precision: ', precisison, '\n', 'Recall: ', recall, '\n', 'F1: ', f1)
 
 y_test = data_operations.decode_one_hot(y_test)
