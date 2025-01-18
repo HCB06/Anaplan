@@ -43,7 +43,7 @@ GitHub Page: https://github.com/HCB06/PyerualJetwork
         ]
 
      matplotlib, seaborn, networkx (optional).
-     PyerualJetwork checks and install all dependencies (with optional ones but except cupy) for every runing.
+     PyerualJetwork checks and install all dependencies with optional ones for every runing.
      If your version is higher or lower, PyerualJetwork automaticly delete other versions and installs this versions.
           
 ##############################
