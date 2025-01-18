@@ -86,10 +86,20 @@ PLANEAT:<br>
 You can create artificial intelligence models that perform reinforcement learning tasks and genetic optimization tasks using the planeat module:
 
 ![PLANEAT](https://github.com/HCB06/PyerualJetwork/blob/main/Media/PLANEAT_1.gif)<br>
-
 ![PLANEAT](https://github.com/HCB06/PyerualJetwork/blob/main/Media/PLANEAT_2.gif)<br>
+![PLANEAT](https://github.com/HCB06/PyerualJetwork/blob/main/Media/mario.gif)<br><br>
 
-![PLANEAT](https://github.com/HCB06/PyerualJetwork/blob/main/Media/mario.gif)<br>
+YOU CAN CREATE DYNAMIC ANIMATIONS OF YOUR MODELS
+
+![VISUALIZATIONS](https://github.com/HCB06/PyerualJetwork/blob/main/Media/fit_history.gif)<br>
+![VISUALIZATIONS](https://github.com/HCB06/PyerualJetwork/blob/main/Media/neuron_history.gif)<br>
+![VISUALIZATIONS](https://github.com/HCB06/PyerualJetwork/blob/main/Media/neural_web.gif)<br>
+
+YOU CAN CREATE AND VISUALIZE YOUR MODEL ARCHITECTURE
+
+![VISUALIZATIONS](https://github.com/HCB06/PyerualJetwork/blob/main/Media/model_arc.png)<br>
+![VISUALIZATIONS](https://github.com/HCB06/PyerualJetwork/blob/main/Media/eval_metrics.png)<br>
+
 
 
 HOW DO I IMPORT IT TO MY PROJECT?
