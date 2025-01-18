@@ -1,7 +1,8 @@
 --- UPDATE 4.1.6 (PyerualJetwork) ---
 * Fixed all modules and functions.
-* Improved memory_operations.
+* Improved memory_operations at transfer_to_cpu, transfer_to_gpu functions and more optimization in general memory operations.
 * plan_cuda functions; learner, fit, evaluate have new parameter: 'memory'. (DOUCMENTATION WILL BE UPDATE).
+* draw model architecture function changed.
 
 --- UPDATE 4.1.5 (PyerualJetwork) ---
 * Fixed issue in evaluate function from plan_cuda.
