@@ -50,7 +50,7 @@ GitHub Page: https://github.com/HCB06/PyerualJetwork
 
 ABOUT PYERUALJETWORK:
 
-PyerualJetwork is a machine learning library written in Python for professionals, incorporating advanced, unique, new, and modern techniques. Its most important component is the PLAN (Potentiation Learning Artificial Neural Network) https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4862342. (THIS ARTICLE IS FIRST VERSION OF PLAN.) MODERN VERSION OF PLAN: https://github.com/HCB06/PyerualJetwork/blob/main/Welcome_to_PLAN/PLAN.pdf
+PyerualJetwork is a machine learning library written in Python for professionals, incorporating advanced, unique, new, and modern techniques with optimized GPU acceleration. Its most important component is the PLAN (Potentiation Learning Artificial Neural Network) https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4862342. (THIS ARTICLE IS FIRST VERSION OF PLAN.) MODERN VERSION OF PLAN: https://github.com/HCB06/PyerualJetwork/blob/main/Welcome_to_PLAN/PLAN.pdf
 Both the PLAN algorithm and the PyerualJetwork library were created by Author, and all rights are reserved by Author.
 PyerualJetwork is free to use for commercial business and individual users. PyerualJetwork is written in fully functional programming with non-oop elements. PyerualJetwork consists of many functions that complement each other, which facilitates the learning process and debugging during use.
 As of 12/21/2024, the library includes PLAN and PLANEAT module, but other machine learning modules are expected to be added in the future.
