@@ -1,6 +1,7 @@
 --- UPDATE 4.1.7 (PyerualJetwork) ---
 * In data_operations_cuda module; autor_balancer, synthetic_augmentation, manuel_balancer functions parameter: 'use_cpu' changed to'shuffle_in_cpu'.
 * NEW DOCUMENTATION UPLOADED. Check link: https://github.com/HCB06/PyerualJetwork/blob/main/Welcome_to_PyerualJetwork/PYERUALJETWORK_USER_MANUEL_AND_LEGAL_INFORMATION(EN).pdf 
+* Changed parameter type of save_model functions: 'show_architecture (str)' to (bool)
 
 --- UPDATE 4.1.6 [STABLE VERSION] (PyerualJetwork) ---
 * Fixed all modules and functions.
