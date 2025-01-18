@@ -89,6 +89,8 @@ You can create artificial intelligence models that perform reinforcement learnin
 
 ![PLANEAT](https://github.com/HCB06/PyerualJetwork/blob/main/Media/PLANEAT_2.gif)<br>
 
+![PLANEAT](https://github.com/HCB06/PyerualJetwork/blob/main/Media/mario.gif)<br>
+
 
 HOW DO I IMPORT IT TO MY PROJECT?
 
