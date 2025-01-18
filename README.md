@@ -5,6 +5,8 @@
 
 Note: anaplan old name of pyerualjetwork
 
+![PyerualJetwork](https://github.com/HCB06/PyerualJetwork/blob/main/Media/pyerualjetwork_with_name.png)<br><br><br>
+
 Libraries.io Page: https://libraries.io/pypi/pyerualjetwork
 
 PyPi Page: https://pypi.org/project/pyerualjetwork/
@@ -60,8 +62,6 @@ fit function only fits given training data(suitable for dynamic graph) but learn
 <br><br>
 
 PyerualJetworket includes Plan Vision, NLPlan, PLANEAT and at the between of both, Deep Plan.<br>
-
-![PyerualJetwork](https://github.com/HCB06/PyerualJetwork/blob/main/Media/anaplanet_logo_final.png)<br><br><br>
 
 PLAN VISION:<br>
 
