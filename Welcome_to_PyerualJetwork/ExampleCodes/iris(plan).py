@@ -1,6 +1,6 @@
 import time
 from colorama import Fore
-from pyerualjetwork import plan, data_operations, model_operations, metrics
+from pyerualjetwork import plan, planeat, data_operations, model_operations, metrics
 from sklearn.datasets import load_iris
 import numpy as np
 
@@ -16,7 +16,10 @@ x_train, y_train = data_operations.synthetic_augmentation(x_train, y_train)
 
 scaler_params, x_train, x_test = data_operations.standard_scaler(x_train, x_test)
 
-model = plan.learner(x_train, y_train, strategy='accuracy', neural_web_history=True, target_acc=0.94, interval=16.67) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/pyerualjetwork/blob/main/Welcome_to_plan/plan.pdf
+# Configuring optimizator
+genetic_optimizator = lambda *args, **kwargs: planeat.evolve(*args, activation_change_prob=0.3, activation_add_prob=0.9, policy='more_selective', **kwargs)
+
+model = plan.learner(x_train, y_train, optimizator=genetic_optimizator, strategy='accuracy', neural_web_history=True, target_acc=0.88, interval=16.67) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/pyerualjetwork/blob/main/Welcome_to_plan/plan.pdf
 
 W = model[model_operations.get_weights()]
 
@@ -36,7 +39,7 @@ model_operations.save_model(model_name='iris',
                  show_architecture=True,
                  W=W)
 
-precisison, recall, f1 = metrics(y_test, test_preds)
+precisison, recall, f1 = metrics.metrics(y_test, test_preds)
 print('Precision: ', precisison, '\n', 'Recall: ', recall, '\n', 'F1: ', f1)
 
 y_test = data_operations.decode_one_hot(y_test)
