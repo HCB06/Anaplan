@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 from colorama import Fore
-from pyerualjetwork import plan, data_operations, model_operations
+from pyerualjetwork import plan, planeat, data_operations, model_operations
 import time
 from sklearn.metrics import classification_report
 
@@ -26,11 +26,14 @@ x_train, y_train = data_operations.auto_balancer(x_train, y_train)
 # Verilerin standardize edilmesi
 scaler_params, x_train, x_test = data_operations.standard_scaler(x_train, x_test)
 
-# Aktivasyon fonksiyonları
-activation_potentiation = plan.learner(x_train, y_train, x_test, y_test, target_acc=0.82)[model_operations.get_act_pot()]
+# Configuring optimizator
+genetic_optimizator = lambda *args, **kwargs: planeat.evolve(*args, **kwargs)
 
-# Modeli eğitme
-W = plan.fit(x_train, y_train, activation_potentiation=activation_potentiation, LTD=0) # val=True, show_training=True, val_count=(int), interval=(int), x_val=(default: x_train), y_val=(default: y_train)
+# Training Process
+model = plan.learner(x_train, y_train, genetic_optimizator, x_test, y_test, target_acc=0.82)
+
+activation_potentiation = model[model_operations.get_act_pot()]
+W = model[model_operations.get_weights()]
 
 # Modeli test etme
 test_model = plan.evaluate(x_test, y_test, show_metrics=True,  W=W, activation_potentiation=activation_potentiation)
