@@ -8,7 +8,7 @@ Created on Thu Jun 20 03:55:15 2024
 import pandas as pd
 import numpy as np
 from colorama import Fore
-from pyerualjetwork import plan, data_operations, model_operations
+from pyerualjetwork import plan, planeat, data_operations, model_operations
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 import xgboost as xgb
@@ -153,7 +153,10 @@ print(classification_report(y_test_decoded_dl, y_pred_dl_classes))
 plot_decision_boundary(x_test, y_test, model=model, feature_indices=[0, 1], model_name='Deep Learning', ax=ax, which_ax1=1, which_ax2=0)
 
 # PLAN Modeli
-model = plan.learner(x_train, y_train, x_test, y_test, strategy='all', depth=7) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/pyerualjetwork/blob/main/Welcome_to_PLAN/PLAN.pdf
+# Configuring optimizator
+genetic_optimizer = lambda *args, **kwargs: planeat.evolve(*args, **kwargs)
+
+model = plan.learner(x_train, y_train, genetic_optimizer, x_test, y_test, gen=20) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/pyerualjetwork/blob/main/Welcome_to_PLAN/PLAN.pdf
 
 W = model[model_operations.get_weights()]
 activation_potentiation = model[model_operations.get_act_pot()]
