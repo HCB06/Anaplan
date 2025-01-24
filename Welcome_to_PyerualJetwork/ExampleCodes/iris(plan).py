@@ -16,7 +16,7 @@ x_train, y_train = data_operations.synthetic_augmentation(x_train, y_train)
 
 scaler_params, x_train, x_test = data_operations.standard_scaler(x_train, x_test)
 
-# Configuring optimizator
+# Configuring optimizer
 genetic_optimizer = lambda *args, **kwargs: planeat.evolve(*args, activation_change_prob=0.3, activation_add_prob=0.9, policy='more_selective', **kwargs)
 
 model = plan.learner(x_train, y_train, optimizator=genetic_optimizer, strategy='accuracy', neural_web_history=True, target_acc=0.88, interval=16.67) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/pyerualjetwork/blob/main/Welcome_to_plan/plan.pdf
