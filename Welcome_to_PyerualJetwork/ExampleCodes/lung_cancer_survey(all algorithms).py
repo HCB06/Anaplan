@@ -7,7 +7,7 @@ Created on Thu Jun 20 03:55:15 2024
 
 import pandas as pd
 import numpy as np
-from pyerualjetwork import plan, data_operations, model_operations
+from pyerualjetwork import plan, planeat, data_operations, model_operations
 from colorama import Fore
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
@@ -136,8 +136,10 @@ print(classification_report(y_test_decoded_dl, y_pred_dl_classes))
 
 
 # PLAN Modeli
-model = plan.learner(x_train, y_train, auto_normalization=False,
-                     depth=2)  # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/pyerualjetwork/blob/main/Welcome_to_PLAN/PLAN.pdf
+# Configuring optimizer
+genetic_optimizer = lambda *args, **kwargs: planeat.evolve(*args, **kwargs)
+model = plan.learner(x_train, y_train, genetic_optimizer, auto_normalization=False,
+                     gen=5)  # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/pyerualjetwork/blob/main/Welcome_to_PLAN/PLAN.pdf
 
 W = model[plan.get_weights()]
 activation_potentiation = model[plan.get_act_pot()]
