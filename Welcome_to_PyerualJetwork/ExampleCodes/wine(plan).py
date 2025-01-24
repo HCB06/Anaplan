@@ -7,7 +7,7 @@ Created on Tue Jun 18 23:32:16 2024
 
 import time
 from colorama import Fore
-from pyerualjetwork import plan, data_operations, model_operations, metrics
+from pyerualjetwork import plan, planeat, data_operations, model_operations, metrics
 from sklearn.datasets import load_wine
 import numpy as np
 
@@ -23,7 +23,9 @@ x_test, y_test = data_operations.auto_balancer(x_test, y_test)
 
 scaler_params, x_train, x_test = data_operations.standard_scaler(x_train, x_test)
 
-model = plan.learner(x_train, y_train, x_test, y_test, show_history=True, depth=2) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/pyerualjetwork/blob/main/Welcome_to_PLAN/PLAN.pdf
+# Configuring optimizer
+genetic_optimizer = lambda *args, **kwargs: planeat.evolve(*args, **kwargs)
+model = plan.learner(x_train, y_train, genetic_optimizer, x_test, y_test, show_history=True, depth=2) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/pyerualjetwork/blob/main/Welcome_to_PLAN/PLAN.pdf
 
 W = model[model_operations.get_weights()]
 activation_potentiation = model[model_operations.get_act_pot()]
