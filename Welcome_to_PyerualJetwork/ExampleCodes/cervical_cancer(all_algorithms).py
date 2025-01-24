@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 from colorama import Fore
-from pyerualjetwork import plan, data_operations, model_operations
+from pyerualjetwork import plan, planeat, data_operations, model_operations
 from sklearn.metrics import classification_report, accuracy_score
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
@@ -103,7 +103,10 @@ print(f"Derin Öğrenme Test Accuracy: {test_acc_dl:.4f}")
 print(classification_report(y_test_decoded_dl, y_pred_dl_classes))
 
 # PLAN Modeli
-model = plan.learner(x_train, y_train, early_shifting=10, depth=5) # learner function = TFL(Test or Train Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/pyerualjetwork/blob/main/Welcome_to_PLAN/PLAN.pdf
+# Configuring optimizer
+genetic_optimizer = lambda *args, **kwargs: planeat.evolve(*args, policy='less_selective', **kwargs)
+
+model = plan.learner(x_train, y_train, genetic_optimizer, gen=10) # learner function = TFL(Test or Train Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/pyerualjetwork/blob/main/Welcome_to_PLAN/PLAN.pdf
 
 # Modeli test etme
 test_model = plan.evaluate(x_test, y_test, W=model[model_operations.get_weights()], activation_potentiation=model[model_operations.get_act_pot()])
