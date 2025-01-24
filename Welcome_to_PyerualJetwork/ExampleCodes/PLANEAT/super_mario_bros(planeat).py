@@ -66,7 +66,7 @@ while True:
         generation,
         strategy='cross_over',
         policy='normal_selective',
-        y_reward=np.array(rewards),
+        fitness=np.array(rewards),
         mutations=True,
         show_info=True
     )
