@@ -106,7 +106,7 @@ print(classification_report(y_test_decoded_dl, y_pred_dl_classes))
 # Configuring optimizer
 genetic_optimizer = lambda *args, **kwargs: planeat.evolve(*args, policy='less_selective', **kwargs)
 
-model = plan.learner(x_train, y_train, genetic_optimizer, gen=10) # learner function = TFL(Test or Train Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/pyerualjetwork/blob/main/Welcome_to_PLAN/PLAN.pdf
+model = plan.learner(x_train, y_train, genetic_optimizer, gen=15) # learner function = TFL(Test or Train Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/pyerualjetwork/blob/main/Welcome_to_PLAN/PLAN.pdf
 
 # Modeli test etme
 test_model = plan.evaluate(x_test, y_test, W=model[model_operations.get_weights()], activation_potentiation=model[model_operations.get_act_pot()])
