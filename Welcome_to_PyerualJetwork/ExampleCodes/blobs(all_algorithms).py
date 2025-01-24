@@ -153,7 +153,7 @@ print(classification_report(y_test_decoded_dl, y_pred_dl_classes))
 plot_decision_boundary(x_test, y_test, model=model, feature_indices=[0, 1], model_name='Deep Learning', ax=ax, which_ax1=1, which_ax2=0)
 
 # PLAN Modeli
-# Configuring optimizator
+# Configuring optimizer
 genetic_optimizer = lambda *args, **kwargs: planeat.evolve(*args, **kwargs)
 
 model = plan.learner(x_train, y_train, genetic_optimizer, x_test, y_test, gen=20) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/pyerualjetwork/blob/main/Welcome_to_PLAN/PLAN.pdf
