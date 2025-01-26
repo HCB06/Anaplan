@@ -23,9 +23,6 @@ model = plan.learner(x_train, y_train, x_test=x_test, y_test=y_test, optimizer=g
 
 W = model[model_operations.get_weights()]
 
-print(W)
-input()
-
 test_model = plan.evaluate(x_test, y_test, W=W, activation_potentiation=model[model_operations.get_act_pot()])
 
 test_preds = test_model[model_operations.get_preds()]
