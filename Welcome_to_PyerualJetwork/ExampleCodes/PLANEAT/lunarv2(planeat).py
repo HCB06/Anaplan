@@ -75,7 +75,7 @@ while True:
         genome_activations,
         generation,
         strategy='cross_over',
-        policy='normal_selective',
+        policy='more_selective',
         fitness=np.array(rewards),
         mutations=True,
         show_info=True,
