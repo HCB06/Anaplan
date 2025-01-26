@@ -1,3 +1,6 @@
+--- UPDATE 4.1.9 (PyerualJetwork) ---
+* Fixed loading bar issue of evolve function in planeat module.
+
 --- UPDATE 4.1.8 [BIG CHANGES] (PyerualJetwork) ---
 * learner functions highly upgraded. Some parameters deleted some new parameters added. (Will be explained in documentation soon)
 * learner function have new parameter: 'optimizer'. It just only be (for now) planeat's evolve function. EXAMPLE CODES UPDATED YOU CAN LEARN HOW TO USE: https://github.com/HCB06/PyerualJetwork/tree/main/Welcome_to_PyerualJetwork/ExampleCodes
