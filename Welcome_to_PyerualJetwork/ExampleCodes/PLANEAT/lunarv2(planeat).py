@@ -5,6 +5,20 @@ import numpy as np
 """
 pip install gym
 pip install box2d-py
+pip install pygame
+
+Note: Before install 'box2d-py' you need to install this stuff (for Windows users):
+
+1 - download and unzip this file: https://sourceforge.net/projects/swig/files/swigwin/swigwin-4.3.0/swigwin-4.3.0.zip/download?use_mirror=netix
+1.1 - Add your swig file path to PATH directory of your environment variables.
+
+2 - download and install this: https://visualstudio.microsoft.com/tr/visual-cpp-build-tools/
+2.1 - Select C++ build tools option and make sure this options are selected:
+
+a.) MSVC v14.3x (or above) C++ Compiler
+b.) Windows 10 SDK (or above)
+c.) C++ CMake tools
+
 """
 
 # Ortam oluşturma
