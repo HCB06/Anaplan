@@ -27,7 +27,7 @@ x_train, y_train = data_operations.auto_balancer(x_train, y_train)
 scaler_params, x_train, x_test = data_operations.standard_scaler(x_train, x_test)
 
 # Configuring optimizator
-genetic_optimizer = lambda *args, **kwargs: planeat.evolve(*args, **kwargs)
+genetic_optimizer = lambda *args, **kwargs: planeat.evolver(*args, **kwargs)
 
 # Training Process
 model = plan.learner(x_train, y_train, genetic_optimizer, x_test, y_test, target_acc=0.82)
