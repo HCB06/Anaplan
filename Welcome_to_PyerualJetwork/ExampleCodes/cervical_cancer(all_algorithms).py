@@ -104,7 +104,7 @@ print(classification_report(y_test_decoded_dl, y_pred_dl_classes))
 
 # PLAN Modeli
 # Configuring optimizer
-genetic_optimizer = lambda *args, **kwargs: planeat.evolve(*args, policy='less_selective', **kwargs)
+genetic_optimizer = lambda *args, **kwargs: planeat.evolver(*args, policy='less_selective', **kwargs)
 
 model = plan.learner(x_train, y_train, genetic_optimizer, gen=15) # learner function = TFL(Test or Train Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/pyerualjetwork/blob/main/Welcome_to_PLAN/PLAN.pdf
 
