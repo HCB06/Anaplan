@@ -1,3 +1,8 @@
+--- UPDATE 4.2.0 [BIG CHANGES] (PyerualJetwork) ---
+* 'evolve' function name changed to 'evolver'.
+* PLANEAT algorithm highly improved.
+* evolver function have new parameters and big parameter changes. [DOC. WILL BE COME]
+
 --- UPDATE 4.1.9 (PyerualJetwork) ---
 * Fixed loading bar issue of evolve function in planeat module.
 
