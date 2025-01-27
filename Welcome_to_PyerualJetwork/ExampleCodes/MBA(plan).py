@@ -33,7 +33,7 @@ x_test, y_test = data_operations.auto_balancer(x_test, y_test)
 scaler_params, x_train, x_test= data_operations.standard_scaler(x_train, x_test)
 
 # Configuring optimizer
-genetic_optimizer = lambda *args, **kwargs: planeat.evolve(*args, activation_selection_add_prob=0.85, show_info=True, **kwargs)
+genetic_optimizer = lambda *args, **kwargs: planeat.evolver(*args, activation_selection_add_prob=0.85, show_info=True, **kwargs)
 
 model = plan.learner(x_train, y_train, genetic_optimizer, x_test, y_test, gen=2, neurons_history=True, auto_normalization=False, except_this=['circular', 'spiral']) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/pyerualjetwork/blob/main/Welcome_to_PLAN/PLAN.pdf
 
