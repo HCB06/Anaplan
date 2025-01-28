@@ -274,7 +274,7 @@ def evolver(weights,
    else:
       raise ValueError("genome population size must be even number. for example: not 99, make 100 or 98.")
 
-### FITNESS LIST IS SORTED IN ASCENDING (OR DESCENDING) ORDER, AND THE WEIGHT AND ACTIVATIONS OF EACH GENOME ARE SORTED ACCORDING TO THIS ORDER:
+### FITNESS LIST IS SORTED IN ASCENDING ORDER, AND THE WEIGHT AND ACTIVATIONS OF EACH GENOME ARE SORTED ACCORDING TO THIS ORDER:
 
    if target_fitness == 'max': sort_indices = cp.argsort(fitness)
    elif target_fitness == 'min': sort_indices = cp.argsort(-fitness)
