@@ -15,7 +15,6 @@ import xgboost as xgb
 import tensorflow as tf
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
-from tensorflow.keras.optimizers import RMSprop
 from sklearn.svm import SVC
 from sklearn.metrics import classification_report, accuracy_score
 from sklearn.preprocessing import LabelEncoder
@@ -24,6 +23,10 @@ from sklearn.preprocessing import LabelEncoder
 df = pd.read_csv('survey_lung_cancer.csv') #https://www.kaggle.com/datasets/ajisofyan/survey-lung-cancer
 y = df.iloc[:, -1]
 X = df.drop(columns=df.columns[-1])
+
+
+label_encoder = LabelEncoder()
+y = label_encoder.fit_transform(y)
 
 categorical_columns = X.select_dtypes(include=['object']).columns
 for col in categorical_columns:
@@ -138,18 +141,18 @@ print(classification_report(y_test_decoded_dl, y_pred_dl_classes))
 # PLAN Modeli
 # Configuring optimizer
 genetic_optimizer = lambda *args, **kwargs: planeat.evolver(*args, **kwargs)
-model = plan.learner(x_train, y_train, genetic_optimizer, auto_normalization=False,
-                     gen=5)  # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/pyerualjetwork/blob/main/Welcome_to_PLAN/PLAN.pdf
+model = plan.learner(x_train, y_train, genetic_optimizer, fit_start=True, auto_normalization=False,
+                     gen=5)
 
-W = model[plan.get_weights()]
-activation_potentiation = model[plan.get_act_pot()]
+W = model[model_operations.get_weights()]
+activation_potentiation = model[model_operations.get_act_pot()]
 
 print(Fore.GREEN + "------PLAN Modeli Sonuçları------" + Fore.RESET)
 train_model = plan.evaluate(x_train, y_train, W=W, activation_potentiation=activation_potentiation, loading_bar_status=False)
-train_acc_plan = train_model[plan.get_acc()]
+train_acc_plan = train_model[model_operations.get_acc()]
 #print(f"PLAN Train Accuracy: {train_acc_plan:.4f}")
 
 test_model = plan.evaluate(x_test, y_test, W=W, activation_potentiation=activation_potentiation, loading_bar_status=False)
-test_acc_plan = test_model[plan.get_acc()]
+test_acc_plan = test_model[model_operations.get_acc()]
 print(f"PLAN Test Accuracy: {test_acc_plan:.4f}")
-print(classification_report(plan.decode_one_hot(y_test), test_model[plan.get_preds()]))
+print(classification_report(data_operations.decode_one_hot(y_test), test_model[model_operations.get_preds()]))
