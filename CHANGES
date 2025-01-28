@@ -1,5 +1,6 @@
 --- UPDATE 4.2.2 (PyerualJetwork) ---
 * learener functions have new parameter: 'fit_start'
+* Removed x_test and y_test parameters in learner functions
 
 --- UPDATE 4.2.1 (PyerualJetwork) ---
 * Bug fixes.
