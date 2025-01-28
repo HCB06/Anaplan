@@ -19,7 +19,7 @@ scaler_params, x_train, x_test = data_operations.standard_scaler(x_train, x_test
 # Configuring optimizer
 genetic_optimizer = lambda *args, **kwargs: planeat.evolver(*args, **kwargs)
 
-model = plan.learner(x_train, y_train, optimizer=genetic_optimizer, fit_start=False, gen=40, strategy='accuracy', neural_web_history=True, interval=16.67) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/pyerualjetwork/blob/main/Welcome_to_plan/plan.pdf
+model = plan.learner(x_train, y_train, optimizer=genetic_optimizer, fit_start=True, gen=50, target_acc=0.96, strategy='accuracy', neural_web_history=True, interval=16.67) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/pyerualjetwork/blob/main/Welcome_to_plan/plan.pdf
 
 W = model[model_operations.get_weights()]
 
