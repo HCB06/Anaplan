@@ -138,7 +138,7 @@ test_acc_dl = accuracy_score(y_test_decoded_dl, y_pred_dl_classes)
 print(f"Derin Öğrenme Test Accuracy: {test_acc_dl:.4f}")
 print(classification_report(y_test_decoded_dl, y_pred_dl_classes))
 
-genetic_optimizer = lambda *args, **kwargs: planeat.evolver(*args, policy='aggressive', show_info=True, **kwargs)
+genetic_optimizer = lambda *args, **kwargs: planeat.evolver(*args, strategy='normal_selective', show_info=True, **kwargs)
 # PLAN Modeli
 model = plan.learner(x_train, y_train, genetic_optimizer, fit_start=True, auto_normalization=False, batch_size=0.05,
                      gen=20)  
