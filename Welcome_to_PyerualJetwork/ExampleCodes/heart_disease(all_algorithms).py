@@ -83,13 +83,13 @@ print(classification_report(y_test_decoded, y_pred_xgb))
 input_dim = x_train.shape[1]  # Giriş boyutu
 
 model = Sequential()
-model.add(Dense(64, input_dim=input_dim, activation='sigmoid'))  # Giriş katmanı ve ilk gizli katman
+model.add(Dense(64, input_dim=input_dim, activation='tanh'))  # Giriş katmanı ve ilk gizli katman
 model.add(Dropout(0.5))  # Overfitting'i önlemek için Dropout katmanı
-model.add(Dense(128, activation='sigmoid'))  # İkinci gizli katman
-model.add(Dropout(0.5))  # Overfitting'i önlemek için Dropout katmanı
-model.add(Dense(64, activation='sigmoid'))  # Üçüncü gizli katman
-model.add(Dropout(0.5))  # Overfitting'i önlemek için Dropout katmanı
-model.add(Dense(128, activation='sigmoid'))  # Dördüncü gizli katman
+model.add(Dense(128, activation='tanh'))  # İkinci gizli katman
+
+model.add(Dense(64, activation='tanh'))  # Üçüncü gizli katman
+
+model.add(Dense(128, activation='tanh'))  # Dördüncü gizli katman
 model.add(Dropout(0.5))  # Overfitting'i önlemek için Dropout katmanı
 model.add(Dense(y_train.shape[1], activation='softmax'))  # Çıkış katmanı (softmax)
 
