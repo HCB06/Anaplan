@@ -17,7 +17,7 @@ x_train, y_train = data_operations.synthetic_augmentation(x_train, y_train)
 
 # Configuring optimizer
 genetic_optimizer = lambda *args, **kwargs: planeat.evolver(*args, **kwargs)
-model = plan.learner(x_train, y_train, genetic_optimizer, x_test, y_test, batch_size=0.1, auto_normalization=False, target_acc=0.99) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/pyerualjetwork/blob/main/Welcome_to_PLAN/PLAN.pdf
+model = plan.learner(x_train, y_train, genetic_optimizer, fit_start=True, batch_size=0.1, auto_normalization=False) # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/pyerualjetwork/blob/main/Welcome_to_PLAN/PLAN.pdf
 
 activation_potentiation = model[plan.get_act_pot()]
 W = model[plan.get_weights()]
