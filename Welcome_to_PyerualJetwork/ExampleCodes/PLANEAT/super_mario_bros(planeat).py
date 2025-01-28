@@ -64,8 +64,8 @@ while True:
         genome_weights,
         genome_activations,
         generation,
-        strategy='cross_over',
-        policy='normal_selective',
+        strategy='normal_selective',
+        policy='aggressive',
         fitness=np.array(rewards),
         mutations=True,
         show_info=True
