@@ -15,7 +15,7 @@ X = wine.data
 y = wine.target
 
 # Etiketleri one-hot encoding yapma
-one_hot_encoder = OneHotEncoder(sparse=False)
+one_hot_encoder = OneHotEncoder(sparse_output=False)
 y = one_hot_encoder.fit_transform(y.reshape(-1, 1))
 
 # Eğitim ve test setlerini oluşturma
@@ -28,7 +28,7 @@ X_test = scaler.transform(X_test)
 
 # Model oluşturma
 model = Sequential([
-    Dense(3, activation='relu', input_shape=(X_train.shape[1],)),
+    Dense(32, activation='relu', input_shape=(X_train.shape[1],)),
     Dense(3, activation='softmax')
 ])
 
