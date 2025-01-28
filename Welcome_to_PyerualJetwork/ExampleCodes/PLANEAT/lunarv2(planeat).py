@@ -70,12 +70,12 @@ while True:
     # Jenerasyon ve genom güncellemesi
     generation += 1
     
-    genome_weights, genome_activations = planeat.evolve(
+    genome_weights, genome_activations = planeat.evolver(
         genome_weights,
         genome_activations,
         generation,
-        strategy='cross_over',
-        policy='more_selective',
+        strategy='normal_selective',
+        policy='aggressive',
         fitness=np.array(rewards),
         mutations=True,
         show_info=True,
