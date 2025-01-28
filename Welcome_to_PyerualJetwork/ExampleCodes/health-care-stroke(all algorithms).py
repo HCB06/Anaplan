@@ -140,8 +140,8 @@ print(classification_report(y_test_decoded_dl, y_pred_dl_classes))
 
 genetic_optimizer = lambda *args, **kwargs: planeat.evolver(*args, strategy='normal_selective', show_info=True, **kwargs)
 # PLAN Modeli
-model = plan.learner(x_train, y_train, genetic_optimizer, fit_start=True, auto_normalization=False, batch_size=0.05,
-                     gen=20)  
+model = plan.learner(x_train, y_train, genetic_optimizer, fit_start=True, show_history=True, auto_normalization=False, batch_size=0.05,
+                     gen=20)
 
 W = model[model_operations.get_weights()]
 activation_potentiation = model[model_operations.get_act_pot()]
