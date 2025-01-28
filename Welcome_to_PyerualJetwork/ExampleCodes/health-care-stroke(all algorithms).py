@@ -140,8 +140,8 @@ print(classification_report(y_test_decoded_dl, y_pred_dl_classes))
 
 genetic_optimizer = lambda *args, **kwargs: planeat.evolver(*args, policy='aggressive', show_info=True, **kwargs)
 # PLAN Modeli
-model = plan.learner(x_train, y_train, genetic_optimizer, x_test, y_test, auto_normalization=False,
-                     gen=20)  # learner function = TFL(Test Feedback Learning). If test parameters not given then uses Train Feedback. More information: https://github.com/HCB06/pyerualjetwork/blob/main/Welcome_to_PLAN/PLAN.pdf
+model = plan.learner(x_train, y_train, genetic_optimizer, fit_start=True, auto_normalization=False, batch_size=0.05,
+                     gen=20)  
 
 W = model[model_operations.get_weights()]
 activation_potentiation = model[model_operations.get_act_pot()]
