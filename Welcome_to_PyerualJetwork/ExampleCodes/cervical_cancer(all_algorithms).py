@@ -108,9 +108,6 @@ genetic_optimizer = lambda *args, **kwargs: planeat.evolver(*args, policy='aggre
 
 model = plan.learner(x_train, y_train, genetic_optimizer, fit_start=True, batch_size=0.1, gen=10)
 
-# Modeli test etme
-train_model = plan.evaluate(x_train, y_train, W=model[model_operations.get_weights()], activation_potentiation=model[model_operations.get_act_pot()])
-
 test_model = plan.evaluate(x_test, y_test, W=model[model_operations.get_weights()], activation_potentiation=model[model_operations.get_act_pot()])
 
 print(Fore.GREEN + "\n------PLAN Modeli Sonuçları------" + Fore.RESET)
