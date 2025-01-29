@@ -21,11 +21,6 @@ c.) C++ CMake tools
 
 """
 
-# Ortam oluşturma
-env = gym.make('LunarLander-v2')
-state = env.reset(seed=75)
-state = np.array(state[0])
-
 # Genomlar ve jenerasyon sayısı
 genome_weights, genome_activations = planeat.define_genomes(input_shape=8, output_shape=4, population_size=300)
 generation = 0
@@ -35,6 +30,17 @@ reward_sum = 0
 
 while True:
     for i in range(300):
+
+        if i == 0:
+            env = gym.make('LunarLander-v2', render_mode='human')
+            state = env.reset(seed=75)
+            state = np.array(state[0])
+        else:
+            env.close()
+            env = gym.make('LunarLander-v2')
+            state = env.reset(seed=75)
+            state = np.array(state[0])
+
         while True:
             
             # Aksiyon hesaplama
@@ -56,16 +62,6 @@ while True:
                 reward_sum = 0
                 
                 break
-            
-        if i > 295:
-            env = gym.make('LunarLander-v2', render_mode='human')
-            state = env.reset(seed=75)
-            state = np.array(state[0])
-        else:
-            env.close()
-            env = gym.make('LunarLander-v2')
-            state = env.reset(seed=75)
-            state = np.array(state[0])
 
     # Jenerasyon ve genom güncellemesi
     generation += 1
