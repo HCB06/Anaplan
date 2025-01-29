@@ -21,7 +21,7 @@ c.) C++ CMake tools
 
 """
 
-# Genomlar ve jenerasyon sayısı
+# Genomlar
 genome_weights, genome_activations = planeat.define_genomes(input_shape=8, output_shape=4, population_size=300)
 generation = 0
 rewards = [0] * 300
