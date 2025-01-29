@@ -82,7 +82,7 @@ while True:
 
 env.close()
 
-model = model_operations.load_model(model_name='mario99', model_path='')
+model = model_operations.load_model(model_name='mario0', model_path='')
 
 genome_weights = model[model_operations.get_weights()]
 genome_activations = model[model_operations.get_act_pot()]
