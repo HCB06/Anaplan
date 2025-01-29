@@ -67,7 +67,6 @@ while True:
         strategy='normal_selective',
         policy='aggressive',
         fitness=np.array(rewards),
-        mutations=True,
         show_info=True
     )
     
