@@ -104,7 +104,6 @@ model = plan.learner(x_train, y_train, genetic_optimizer, fit_start=True, gen=10
 test_model = plan.evaluate(x_test, y_test, W=model[model_operations.get_weights()], activation_potentiation=model[model_operations.get_act_pot()])
 train_model = plan.evaluate(x_train, y_train, W=model[model_operations.get_weights()], activation_potentiation=model[model_operations.get_act_pot()])
 
-
 print(Fore.GREEN + "\n------PLAN Modeli Sonuçları------" + Fore.RESET)
 test_acc_plan = test_model[model_operations.get_acc()]
 train_acc_plan = train_model[model_operations.get_acc()]
