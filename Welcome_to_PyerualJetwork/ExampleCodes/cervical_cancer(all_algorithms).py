@@ -76,15 +76,7 @@ print(classification_report(y_test_decoded, y_pred_xgb))
 input_dim = x_train.shape[1]  # Giriş boyutu
 
 model = Sequential()
-model.add(Dense(64, input_dim=input_dim, activation='tanh'))  # Giriş katmanı ve ilk gizli katman
-model.add(Dropout(0.4))  # Overfitting'i önlemek için Dropout katmanı
-model.add(Dense(128, activation='relu'))  # İkinci gizli katman
-model.add(Dropout(0.4))  # Bir başka Dropout katmanı
-model.add(Dense(64, activation='tanh'))  # üçüncü gizli katman
-model.add(Dropout(0.4))  # Bir başka Dropout katmanı
-model.add(Dense(128, activation='relu'))  # dördüncü gizli katman
-model.add(Dropout(0.4))  # Bir başka Dropout katmanı
-model.add(Dense(y_train.shape[1], activation='softmax'))  # Çıkış katmanı (softmax)
+model.add(Dense(y_train.shape[1], input_dim=input_dim, activation='softmax'))  # Doğrudan çıkış katmanı
 
 # Modeli derleme
 model.compile(optimizer='rmsprop', loss='categorical_crossentropy', metrics=['accuracy'])
@@ -106,11 +98,16 @@ print(classification_report(y_test_decoded_dl, y_pred_dl_classes))
 # Configuring optimizer
 genetic_optimizer = lambda *args, **kwargs: planeat.evolver(*args, policy='aggressive', **kwargs)
 
-model = plan.learner(x_train, y_train, genetic_optimizer, fit_start=True, batch_size=0.1, gen=10)
+model = plan.learner(x_train, y_train, genetic_optimizer, fit_start=True, gen=10, batch_size=0.05)
 
 test_model = plan.evaluate(x_test, y_test, W=model[model_operations.get_weights()], activation_potentiation=model[model_operations.get_act_pot()])
+train_model = plan.evaluate(x_train, y_train, W=model[model_operations.get_weights()], activation_potentiation=model[model_operations.get_act_pot()])
+
 
 print(Fore.GREEN + "\n------PLAN Modeli Sonuçları------" + Fore.RESET)
 test_acc_plan = test_model[model_operations.get_acc()]
+train_acc_plan = train_model[model_operations.get_acc()]
+
 print(f"PLAN Test Accuracy: {test_acc_plan:.4f}")
+print(f"PLAN Train Accuracy: {test_acc_plan:.4f}")
 print(classification_report(data_operations.decode_one_hot(y_test), test_model[model_operations.get_preds()]))
