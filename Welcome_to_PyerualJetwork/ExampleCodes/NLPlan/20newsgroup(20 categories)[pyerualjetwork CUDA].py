@@ -28,7 +28,7 @@ with open('tfidf_20news.pkl', 'wb') as f:
     pickle.dump(vectorizer, f)
 
 # Data prepearing
-x_train, x_test, y_train, y_test = data_operations_cuda.split(X, y, test_size=0.2, random_state=42, use_cpu=True)
+x_train, x_test, y_train, y_test = data_operations_cuda.split(X, y, test_size=0.2, random_state=42, shuffle_in_cpu=True)
 y_train, y_test = data_operations_cuda.encode_one_hot(y_train, y_test)
 x_train, y_train = data_operations.synthetic_augmentation(x_train.get(), y_train.get())
 scaler_params, x_train, x_test = data_operations_cuda.standard_scaler(cp.array(x_train), cp.array(x_test))
