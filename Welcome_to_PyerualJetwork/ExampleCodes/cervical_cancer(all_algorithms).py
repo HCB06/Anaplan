@@ -76,7 +76,8 @@ print(classification_report(y_test_decoded, y_pred_xgb))
 input_dim = x_train.shape[1]  # Giriş boyutu
 
 model = Sequential()
-model.add(Dense(y_train.shape[1], input_dim=input_dim, activation='softmax'))  # Doğrudan çıkış katmanı
+model.add(Dense(8, input_dim=input_dim, activation='tanh'))  # Giriş katmanı ve ilk gizli katman
+model.add(Dense(y_train.shape[1], activation='softmax'))  # Çıkış katmanı (softmax)
 
 # Modeli derleme
 model.compile(optimizer='rmsprop', loss='categorical_crossentropy', metrics=['accuracy'])
@@ -109,5 +110,5 @@ test_acc_plan = test_model[model_operations.get_acc()]
 train_acc_plan = train_model[model_operations.get_acc()]
 
 print(f"PLAN Test Accuracy: {test_acc_plan:.4f}")
-print(f"PLAN Train Accuracy: {test_acc_plan:.4f}")
+print(f"PLAN Train Accuracy: {train_acc_plan:.4f}")
 print(classification_report(data_operations.decode_one_hot(y_test), test_model[model_operations.get_preds()]))
