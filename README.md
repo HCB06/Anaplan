@@ -13,19 +13,33 @@ PyPi Page: https://pypi.org/project/pyerualjetwork/
 
 GitHub Page: https://github.com/HCB06/PyerualJetwork
 
-
-      pip install pyerualjetwork==x.x.x (means it is a normal package)
-      pip install pyerualjetwork==x.x.x.x (last x means it is a afterburner package)
+       pip install pyerualjetwork
       
+      'use if your data small, medium or large:'
+
       from pyerualjetwork import plan
       from pyerualjetwork import planeat
       from pyerualjetwork import data_operations
       from pyerualjetwork import model_operations
-
+      
       from pyerualjetwork import plan_cuda
       from pyerualjetwork import planeat_cuda
       from pyerualjetwork import data_operations_cuda
       from pyerualjetwork import model_operations_cuda
+
+      'use if your data huge: _afterburner package (afterburner package comes with powerful paralellism,
+      afterburner with cuda modules offers super-fast training but some memory managemant features and visualization features discarded.
+      Specially designed for LLM training and other massive model training)'
+
+      from pyerualjetwork_afterburner import plan
+      from pyerualjetwork_afterburner import planeat
+      from pyerualjetwork_afterburner import data_operations
+      from pyerualjetwork_afterburner import model_operations
+
+      from pyerualjetwork_afterburner import plan_cuda
+      from pyerualjetwork_afterburner import planeat_cuda
+      from pyerualjetwork_afterburner import data_operations_cuda
+      from pyerualjetwork_afterburner import model_operations_cuda
 
       Optimized for Visual Studio Code
       
