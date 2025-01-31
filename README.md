@@ -27,7 +27,7 @@ GitHub Page: https://github.com/HCB06/PyerualJetwork
 	from pyerualjetwork import data_operations_cuda
 	from pyerualjetwork import model_operations_cuda
 	
-	'use this if your data large or memory management is not a problem :': _afterburner package (afterburner package comes with powerful paralellism,
+	'use this if your data large or memory management is not a problem : _afterburner package (afterburner package comes with powerful paralellism,
 	afterburner with cuda modules offers super-fast training but some memory managemant features and visualization features discarded.
 	Specially designed for LLM training and other massive model training)'
 	
