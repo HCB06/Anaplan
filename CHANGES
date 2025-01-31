@@ -1,3 +1,6 @@
+--- UPDATE 4.2.9 (PyerualJetwork) ---
+* Performance bug fix for fit function
+
 --- UPDATE 4.2.8 (PyerualJetwork) ---
 * default activation_selection_add_prob parameter of evolver function changed from 0.7 to 0.5
 
