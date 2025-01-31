@@ -13,33 +13,33 @@ PyPi Page: https://pypi.org/project/pyerualjetwork/
 
 GitHub Page: https://github.com/HCB06/PyerualJetwork
 
-  pip install pyerualjetwork
-  
-  'use this if your data small or memory management is a problem :'
-
-  from pyerualjetwork import plan
-  from pyerualjetwork import planeat
-  from pyerualjetwork import data_operations
-  from pyerualjetwork import model_operations
-  
-  from pyerualjetwork import plan_cuda
-  from pyerualjetwork import planeat_cuda
-  from pyerualjetwork import data_operations_cuda
-  from pyerualjetwork import model_operations_cuda
-
-  'use this if your data large or memory management is not a problem :': _afterburner package (afterburner package comes with powerful paralellism,
-  afterburner with cuda modules offers super-fast training but some memory managemant features and visualization features discarded.
-  Specially designed for LLM training and other massive model training)'
-
-  from pyerualjetwork_afterburner import plan
-  from pyerualjetwork_afterburner import planeat
-  from pyerualjetwork_afterburner import data_operations
-  from pyerualjetwork_afterburner import model_operations
-
-  from pyerualjetwork_afterburner import plan_cuda
-  from pyerualjetwork_afterburner import planeat_cuda
-  from pyerualjetwork_afterburner import data_operations_cuda
-  from pyerualjetwork_afterburner import model_operations_cuda
+	pip install pyerualjetwork
+ 
+	'use this if your data small or memory management is a problem :'
+	
+	from pyerualjetwork import plan
+	from pyerualjetwork import planeat
+	from pyerualjetwork import data_operations
+	from pyerualjetwork import model_operations
+	
+	from pyerualjetwork import plan_cuda
+	from pyerualjetwork import planeat_cuda
+	from pyerualjetwork import data_operations_cuda
+	from pyerualjetwork import model_operations_cuda
+	
+	'use this if your data large or memory management is not a problem :': _afterburner package (afterburner package comes with powerful paralellism,
+	afterburner with cuda modules offers super-fast training but some memory managemant features and visualization features discarded.
+	Specially designed for LLM training and other massive model training)'
+	
+	from pyerualjetwork_afterburner import plan
+	from pyerualjetwork_afterburner import planeat
+	from pyerualjetwork_afterburner import data_operations
+	from pyerualjetwork_afterburner import model_operations
+	
+	from pyerualjetwork_afterburner import plan_cuda
+	from pyerualjetwork_afterburner import planeat_cuda
+	from pyerualjetwork_afterburner import data_operations_cuda
+	from pyerualjetwork_afterburner import model_operations_cuda
 
       Optimized for Visual Studio Code
       
