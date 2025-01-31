@@ -1,11 +1,8 @@
---- UPDATE 4.3.2.1 (PyerualJetwork Afterburner) ---
-* Renamed
+--- UPDATE 4.3.3 (PyerualJetwork) ---
+* afterburner modules added for huge data training. More info: https://github.com/HCB06/PyerualJetwork/blob/main/README.md
 
 --- UPDATE 4.3.2 (PyerualJetwork) ---
 * no big change
-
---- UPDATE 4.3.0.2 (PyerualJetwork Afterburner) ---
-* Powerful paralellism pacakege code name: afterburner
 
 --- UPDATE 4.3.0 (PyerualJetwork) ---
 * Code improvement, no big change
