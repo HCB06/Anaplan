@@ -14,7 +14,8 @@ PyPi Page: https://pypi.org/project/pyerualjetwork/
 GitHub Page: https://github.com/HCB06/PyerualJetwork
 
 
-      pip install pyerualjetwork
+      pip install pyerualjetwork==x.x.x (means it is a normal package)
+      pip install pyerualjetwork==x.x.x.x (last x means it is a afterburner package)
       
       from pyerualjetwork import plan
       from pyerualjetwork import planeat
