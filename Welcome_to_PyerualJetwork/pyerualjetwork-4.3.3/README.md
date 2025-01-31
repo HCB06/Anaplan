@@ -16,7 +16,7 @@ GitHub Page: https://github.com/HCB06/PyerualJetwork
 
       pip install pyerualjetwork
       
-      'use if your data small:'
+      'use if your data small or memory manegament is a problem:'
 
       from pyerualjetwork import plan
       from pyerualjetwork import planeat
@@ -28,7 +28,8 @@ GitHub Page: https://github.com/HCB06/PyerualJetwork
       from pyerualjetwork import data_operations_cuda
       from pyerualjetwork import model_operations_cuda
 
-      'use if your data large or huge: _afterburner package (afterburner package comes with powerful paralellism, afterburner with cuda modules offers super-fast training but some memory managemant features and visualization features discarded. Specially designed for LLM training and other massive model training)'
+      'use if your data large or huge and memory manegament not a problem: _afterburner package (afterburner package comes with powerful paralellism,
+      afterburner with cuda modules offers super-fast training but some memory managemant features and visualization features discarded. Specially designed for LLM training and other massive model training)'
 
       from pyerualjetwork_afterburner import plan
       from pyerualjetwork_afterburner import planeat
